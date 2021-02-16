@@ -1,39 +1,70 @@
-.App {
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 1.2fr 0.8fr;
+  grid-template-areas:
+    " main main main sidebar"
+    "content1 content1 content1 sidebar "
+    "footer footer footer sidebar";
+  grid-gap: 0.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
   text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  grid-area: nav;
+  border-radius: var(--main-radius);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+main {
+  grid-area: main;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sidebar {
+  grid-area: sidebar;
+  color: var(--gray-50);
+  border-left: 1px dashed var(--blue-200);
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.section1 {
+  grid-area: content1;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
+.footer {
+  grid-area: footer;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+
+a {
+  text-align: center;
+  display: block;
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr  1fr;
+    grid-template-areas:
+      "sidebar"
+      "main"
+      "content1"
+      "footer";
+      max-width: 100%;
   }
 }

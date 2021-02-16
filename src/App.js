@@ -1,59 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React,{ lazy, Suspense } from 'react';
 import HeaderComponent from './components/HeaderComponent'
+import SidebarComponent from './components/sidebarComponent'
+import FooterComponent from './components/FooterComponent'
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
+  const renderLoader = () => <p>Loading ...</p>;
   return (
-    <div className="App">
-    <HeaderComponent />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Router>
+          <HeaderComponent className="header" />
+          <main className="container">
+            <Switch>
+              <Suspense fallback={renderLoader()}>
+                <Route  path="/" exact component={ lazy(()=>import('./pages/HomePage'))} />
+                <Route  path="/redux" component={lazy(()=>import('./pages/ReduxPage'))} />
+              </Suspense>
+            </Switch>
+          </main>
+          <aside className="sidebar">
+            <SidebarComponent />
+          </aside>
+          <section className="section1">
+            section1
+          </section>
+            <FooterComponent className="footer" />
+      </Router>
+    </>
   );
 }
 
