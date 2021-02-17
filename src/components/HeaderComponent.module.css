@@ -21,14 +21,25 @@
     display: flex;
     color: var(--blue-200);
     justify-content: space-between;
-    margin: 0 auto;
+    align-items: center;
   }
 
 .icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 1em;
+  width: 1em;
+  background-color: var(--gray-300);
+  border-radius: 100%;
+  padding: 10px;
+  transition: filter var(--speed) ;
+  cursor: pointer;
 }
+
+.icon:hover {
+  filter: brightness(1.2);
+  }
 
   @media only screen and (max-width: 768px) {
     .header{

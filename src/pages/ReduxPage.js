@@ -6,10 +6,10 @@ import styles from './ReduxPage.module.css'
 export default function ReduxPage() {
     return (
         <div>
-            <header className={styles.appHeader}>
+            <section className={styles.appHeader}>
                 <img src={logo} className={styles.appLogo} alt="logo" />
                 <Counter />
-            </header>
+            </section>
         </div>
     )
 }
