@@ -1,23 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-
 body {
   margin: 0 auto;
+  /* padding: 0; */
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global Vars */
 :root {
   --blue-500:#00629E;
   --blue-200:#01ADFD;
@@ -28,8 +18,28 @@ body {
   --gray-200: #E5E7EB;
   --main-radius: 5px;
   --main-padding: 10px;
+  --main-margin: 1rem;
   --max-width: 70%;
-  font-family: 'Roboto', sans-serif;
-    background: var(--blue-900);
-    color: var(--gray-50);
+
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
+}
+
+.dark {
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+.light {
+  --text-primary: #1f1f1f;
+  --text-secondary: #000000;
+  --bg-primary: #ffffff;
+  --bg-secondary: #e4e4e4;
 }

@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './HeaderComponent.css'
+import styles from './HeaderComponent.module.css'
 
 export default function HeaderComponent() {
     return (
-        <header className="header">
-            <div className="header-content">
-                <div className="title">
-                    <Link to="/">
+        <header className={styles.header}>
+            <div className={styles.headerContent}>
+                <div>
+                    <Link className={styles.routeLink} to="/">
                         React-redux App
                     </Link>
                 </div>
-                <span className="icon">
+                <span className={styles.icon}>
                     <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 512 512"
                         height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg"
