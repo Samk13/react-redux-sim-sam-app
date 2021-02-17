@@ -10,14 +10,12 @@
 
 .list{
     margin:1px 0;
-    padding: calc(var(--main-padding) * 3);
+    padding: calc(var(--main-padding) * 2);
     text-decoration: none;
     list-style: none;
     background-color: var(--blue-500);
-
     border-radius: var(--main-radius);
     width: 100%;
-
 }
 
 .unorderedList {
@@ -32,4 +30,8 @@ padding: 0;
     border-radius: var(--main-radius);
     text-decoration: none;
     font-size: xx-large;
+}
+
+.active {
+    color: green;
 }
