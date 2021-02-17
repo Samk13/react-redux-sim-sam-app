@@ -3,19 +3,18 @@
     grid-area: sidebar;
     width: 100%;
     height: 100%;
-    margin: 0;
     background-color: var(--blue-700);
     border-radius: var(--main-radius);
 }
 
 .list{
     margin:1px 0;
-    padding: calc(var(--main-padding) * 2);
+    padding: calc(var(--main-padding) * 2) 1rem;
     text-decoration: none;
     list-style: none;
     background-color: var(--blue-500);
     border-radius: var(--main-radius);
-    width: 100%;
+    /* width: 100%; */
 }
 
 .unorderedList {
