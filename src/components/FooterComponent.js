@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './FooterComponent.module.css';
+import React from 'react'
+import styles from './FooterComponent.module.css'
 
 export default function FooterComponent() {
   return (
@@ -11,5 +11,5 @@ export default function FooterComponent() {
         tenetur temporibus rerum? Quisquam, quia eum.
       </p>
     </footer>
-  );
+  )
 }

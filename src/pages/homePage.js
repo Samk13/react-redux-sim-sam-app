@@ -1,6 +1,6 @@
 // import { useSelector, useDispatch } from 'react-redux'
-import React, { useState } from 'react';
-import styles from './HomePage.module.css';
+import React, { useState } from 'react'
+import styles from './HomePage.module.css'
 // import {
 //     articleSlice,
 //     newArticle,
@@ -12,12 +12,12 @@ import styles from './HomePage.module.css';
 export default function HomePage() {
   // const dispatch = useDispatch();
   // const articles = useSelector((state) => state.articles)
-  const [author, setAuthor] = useState('');
-  const [data, setData] = useState('');
+  const [author, setAuthor] = useState('')
+  const [data, setData] = useState('')
 
   const handleCreateNewArticle = () => {
-    console.log('handleCreateNewArticle');
-  };
+    console.log('handleCreateNewArticle')
+  }
   // const handleNewInputChange = () => { console.log('handleNewInputChange');}
   // const newArticleInput = () => { console.log('newArticleInput');}
 
@@ -48,5 +48,5 @@ export default function HomePage() {
         <button type="submit">Save</button>
       </form>
     </section>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import React from 'react';
-import logo from '../logo.svg';
-import { Counter } from '../features/counter/Counter';
-import styles from './ReduxPage.module.css';
+import React from 'react'
+import logo from '../logo.svg'
+import { Counter } from '../features/counter/Counter'
+import styles from './ReduxPage.module.css'
 
 export default function ReduxPage() {
   return (
@@ -11,5 +11,5 @@ export default function ReduxPage() {
         <Counter />
       </section>
     </div>
-  );
+  )
 }

@@ -27,11 +27,12 @@ module.exports = {
         endOfLine: 'auto'
       }
     ],
-    'comma-dangle': ['error', 'never']
+    'comma-dangle': ['error', 'never'],
+    semi: ['error', 'never']
   },
   settings: {
     react: {
       version: 'detect'
     }
   }
-};
+}
