@@ -4,8 +4,8 @@ import styles from './FooterComponent.module.css'
 export default function FooterComponent() {
     return (
         <footer className={styles.footer}>
-            Foooterrrrr
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque quod iusto numquam at eius vel quisquam, suscipit in, fugit quo laboriosam quam mollitia corporis, hic delectus sit doloremque. Repellat, quaerat.</p>
+            <h1>Footer</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi laborum ex rem, aspernatur, ipsam sunt incidunt doloremque asperiores quae blanditiis, repellendus minima molestiae ad tenetur temporibus rerum? Quisquam, quia eum.</p>
         </footer>
     )
 }

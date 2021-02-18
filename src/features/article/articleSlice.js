@@ -1,10 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v1 as uuid } from 'uuid';
+
+
+const articleIntialState= [
+    {
+      id: uuid(),
+      body: 'Learn React',
+      author:'Sam',
+    },
+    {
+      id: uuid(),
+      body: 'Learn React',
+      author:'Sam',
+    },
+    {
+      id: uuid(),
+      body: 'Learn React',
+      author:'Sam',
+    },
+
+  ];
 
 export const articleSlice = createSlice({
     name: 'articles',
-    initialState: {
-        articles:[],
-    },
+    initialState: articleIntialState,
     reducers: {
         setArticle: (state, action) => {
             return { ...state, articles:[{...action.payload}]}

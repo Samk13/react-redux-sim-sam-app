@@ -1,3 +1,12 @@
 .footer {
+  height: 100%;
   background-color: var(--blue-200);
+  border-radius: var(--main-radius);
+  background-color: var(--blue-900);
+  color: var(--blue-200);
+  }
+
+  h1, p, footer {
+    margin: 0;
+    padding: 0;
   }

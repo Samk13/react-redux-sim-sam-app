@@ -17,7 +17,7 @@
 
 .main {
   grid-area: main;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 150px);
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
