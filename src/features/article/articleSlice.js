@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { v1 as uuid } from 'uuid';
+import { createSlice } from '@reduxjs/toolkit'
+import { v1 as uuid } from 'uuid'
 
 const articleIntialState = [
   {
@@ -17,14 +17,14 @@ const articleIntialState = [
     body: 'Learn React',
     author: 'Sam'
   }
-];
+]
 
 export const articleSlice = createSlice({
   name: 'articles',
   initialState: articleIntialState,
   reducers: {
     create: (state, payload) => {
-      return state.push(payload);
+      return state.push(payload)
     },
     prepare: ({ body, author }) => ({
       payload: {
@@ -34,20 +34,20 @@ export const articleSlice = createSlice({
       }
     }),
     edit: (state, action) => {
-      const articleEdit = state.find((article) => article.id === action.payload.id);
+      const articleEdit = state.find((article) => article.id === action.payload.id)
       if (articleEdit) {
-        articleEdit.body = action.payload.body;
+        articleEdit.body = action.payload.body
       }
     },
     remove: (state, { payload }) => {
-      const index = state.findIndex((article) => article.id === payload.id);
+      const index = state.findIndex((article) => article.id === payload.id)
       if (index !== -1) {
-        state.splice(index, 1);
+        state.splice(index, 1)
       }
     }
   }
-});
+})
 
-export const { create, edit, remove } = articleSlice.actions;
+export const { create, edit, remove } = articleSlice.actions
 
-export default articleSlice.reducer;
+export default articleSlice.reducer

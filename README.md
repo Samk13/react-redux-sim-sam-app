@@ -1,12 +1,15 @@
 ## Bygg en webbapplikation med denna design i React + redux
+
 [example](https://reactjs.org/community/examples.html)
 På varje sida kan man lägga till, ta bort och redigera en artikel.
 Förutom state-management (redux tex), använd inga third-party-komponenter (tex input-komponenter, layout etc), bygg alla komponenter och logik själv. CSS kan tas från färdiga exempel men komponents-logik från scratch.
 Kan ha avstämning varje eller varannan dag och diskutera progress och utveckling.
 Gör look&feel tema-baserad med vanilla-css variabler.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />

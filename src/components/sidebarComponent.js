@@ -1,6 +1,6 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './sidebarComponent.module.css';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import styles from './sidebarComponent.module.css'
 export default function sidebarComponent() {
   return (
     <aside className={styles.aside}>
@@ -17,5 +17,5 @@ export default function sidebarComponent() {
         </li>
       </ul>
     </aside>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import React, { lazy, Suspense } from 'react';
-import HeaderComponent from './components/HeaderComponent';
-import SidebarComponent from './components/sidebarComponent';
-import FooterComponent from './components/FooterComponent';
-import styles from './App.module.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react'
+import HeaderComponent from './components/HeaderComponent'
+import SidebarComponent from './components/sidebarComponent'
+import FooterComponent from './components/FooterComponent'
+import styles from './App.module.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
-  const renderLoader = () => <p>Loading ...</p>;
+  const renderLoader = () => <p>Loading ...</p>
   return (
     <Router>
       <div className={styles.container}>
@@ -27,7 +27,7 @@ function App() {
         </footer>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
