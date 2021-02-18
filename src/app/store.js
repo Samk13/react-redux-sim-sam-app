@@ -5,9 +5,9 @@ import articleReducer from '../features/article/articleSlice';
 export default configureStore({
   reducer: {
     counter: counterReducer,
-    articles: articleReducer,
+    articles: articleReducer
   },
   middleware: [...getDefaultMiddleware()],
 
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== 'production'
 });

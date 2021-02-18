@@ -5,18 +5,18 @@ const articleIntialState = [
   {
     id: uuid(),
     body: 'Learn React',
-    author: 'Sam',
+    author: 'Sam'
   },
   {
     id: uuid(),
     body: 'Learn React',
-    author: 'Sam',
+    author: 'Sam'
   },
   {
     id: uuid(),
     body: 'Learn React',
-    author: 'Sam',
-  },
+    author: 'Sam'
+  }
 ];
 
 export const articleSlice = createSlice({
@@ -30,8 +30,8 @@ export const articleSlice = createSlice({
       payload: {
         id: uuid(),
         body,
-        author,
-      },
+        author
+      }
     }),
     edit: (state, action) => {
       const articleEdit = state.find((article) => article.id === action.payload.id);
@@ -44,8 +44,8 @@ export const articleSlice = createSlice({
       if (index !== -1) {
         state.splice(index, 1);
       }
-    },
-  },
+    }
+  }
 });
 
 export const { create, edit, remove } = articleSlice.actions;
