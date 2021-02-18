@@ -25,29 +25,31 @@ export const articleSlice = createSlice({
     name: 'articles',
     initialState: articleIntialState,
     reducers: {
-        setArticle: (state, action) => {
-            return { ...state, articles:[{...action.payload}]}
+        create: (state, payload) => {
+            return state.push(payload);
         },
-        newArticle: (state, action) => {
-            return {...state, articles: [action.payload, ...state.articles]}
+        prepare: ({ body, author }) => ({
+          payload: {
+            id: uuid(),
+            body,
+            author
+          },
+        }),
+        edit: (state, action) => {
+          const articleEdit = state.find((article) => article.id === action.payload.id);
+          if (articleEdit) {
+            articleEdit.body = action.payload.body;
+          }
         },
-        editArticle: (state, action)=> {
-            const articles = state.articles.map(article =>{
-                if (article.id === action.payload.id) {
-                    article = action.payload;
-                }
-                return article;
-            })
-            return{ ...state, articles: [...articles]}
-            },
-            deleteArticle: (state, action) => {
-                const articles = state.articles.filter(article =>
-                    article.id !== action.payload.id )
-                return {...state, articles:[...articles]}
-            }
+        remove: (state, { payload }) => {
+          const index = state.findIndex((article) => article.id === payload.id);
+          if (index !== -1) {
+            state.splice(index, 1);
+          }
+        },
      }
 })
 
-export const { setArticle, newArticle, editArticle, deleteArticle } = articleSlice.actions
+export const { create, edit, remove } = articleSlice.actions
 
 export default articleSlice.reducer

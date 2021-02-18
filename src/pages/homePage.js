@@ -1,23 +1,23 @@
-import { useSelector, useDispatch } from 'react-redux'
+// import { useSelector, useDispatch } from 'react-redux'
 import React, { useState } from 'react'
 import styles from './HomePage.module.css'
-import {
-    articleSlice,
-    newArticle,
-    editArticle,
-    deleteArticle,
-    setArticle
-} from '../features/article/articleSlice'
+// import {
+//     articleSlice,
+//     newArticle,
+//     editArticle,
+//     deleteArticle,
+//     setArticle
+// } from '../features/article/articleSlice'
 
 export default function HomePage() {
-    const dispatch = useDispatch();
-    const articles = useSelector((state) => state.articles)
+    // const dispatch = useDispatch();
+    // const articles = useSelector((state) => state.articles)
     const [author, setAuthor] = useState('')
     const [data, setData] = useState('');
 
     const handleCreateNewArticle= ()=> { console.log('handleCreateNewArticle')}
-    const handleNewInputChange = () => { console.log('handleNewInputChange');}
-    const newArticleInput = () => { console.log('newArticleInput');}
+    // const handleNewInputChange = () => { console.log('handleNewInputChange');}
+    // const newArticleInput = () => { console.log('newArticleInput');}
 
     return (
         <section>
