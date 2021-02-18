@@ -1,17 +1,11 @@
-// import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import React, { useState } from 'react'
 import styles from './HomePage.module.css'
-// import {
-//     articleSlice,
-//     newArticle,
-//     editArticle,
-//     deleteArticle,
-//     setArticle
-// } from '../features/article/articleSlice'
+import { create, edit, remove, show } from '../features/article/articleSlice'
 
 export default function HomePage() {
-  // const dispatch = useDispatch();
-  // const articles = useSelector((state) => state.articles)
+  const dispatch = useDispatch()
+  const articles = useSelector(show)
   const [author, setAuthor] = useState('')
   const [data, setData] = useState('')
 
@@ -27,6 +21,19 @@ export default function HomePage() {
         author: {author}
         <br />
         body: {data}
+      </div>
+      <div>
+        <h1>redux</h1>
+        <ul>
+          {articles.map((article, key) => (
+            <li key={key}>
+              <span>{article.id}</span>
+              <span>{article.author}</span>
+              <span>{article.body}</span>
+            </li>
+          ))}
+        </ul>
+        <h1>redux</h1>
       </div>
       <form onSubmit={handleCreateNewArticle}>
         <label htmlFor="author">Author</label>
