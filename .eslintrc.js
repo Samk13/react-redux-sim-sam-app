@@ -4,19 +4,19 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
-    'prettier/react',
+    'prettier/react'
   ],
   env: {
     es6: true,
     node: true,
-    browser: true,
+    browser: true
   },
   parserOptions: {
     ecmaVersion: 8,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   ignorePatterns: ['/node_modules/**', '/build/**'],
   rules: {
@@ -24,19 +24,14 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto',
-      },
+        endOfLine: 'auto'
+      }
     ],
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    ],
+    'comma-dangle': ['error', 'never']
   },
   settings: {
     react: {
-      version: 'detect',
-    },
-  },
+      version: 'detect'
+    }
+  }
 };
