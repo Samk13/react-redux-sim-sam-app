@@ -6,6 +6,15 @@ Förutom state-management (redux tex), använd inga third-party-komponenter (tex
 Kan ha avstämning varje eller varannan dag och diskutera progress och utveckling.
 Gör look&feel tema-baserad med vanilla-css variabler.
 
+
+updates :
+[x] eject react app
+[x] setup eslint
+[x] setup prettier
+[x] setup husky for pre-commits
+[ ] finish redux logic
+[ ] create input components
+
 ## Available Scripts
 
 In the project directory, you can run:
