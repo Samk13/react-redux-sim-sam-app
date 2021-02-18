@@ -4,6 +4,7 @@ import SidebarComponent from './components/sidebarComponent'
 import FooterComponent from './components/FooterComponent'
 import styles from './App.module.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import routes from './router/routes'
 
 function App() {
   const renderLoader = () => <p>Loading ...</p>
@@ -16,8 +17,16 @@ function App() {
         <main className={styles.main}>
           <Switch>
             <Suspense fallback={renderLoader()}>
-              <Route path="/" exact component={lazy(() => import('./pages/HomePage'))} />
-              <Route path="/redux" component={lazy(() => import('./pages/ReduxPage'))} />
+              {routes.map((route, key) => {
+                return (
+                  <Route
+                    key={key}
+                    path={route.path}
+                    exact={route.exact}
+                    component={lazy(() => import(`${route.location}`))}
+                  />
+                )
+              })}
             </Suspense>
           </Switch>
         </main>
