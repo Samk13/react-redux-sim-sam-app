@@ -10,6 +10,18 @@
   text-align: center;
 }
 
+.container_hide_sidebar{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-areas:
+    'navbar navbar navbar navbar'
+    'main main main main'
+    'main main main main'
+    'footer footer footer footer';
+  gap: 0.2rem;
+  text-align: center;
+}
+
 .header {
   grid-area: navbar;
   border-radius: var(--main-radius);

@@ -8,7 +8,7 @@ import { toggleMenu } from '../features/menu/menuSlice'
 export default function HeaderComponent() {
   const dispatch = useDispatch()
   return (
-    <header className={styles.header}>
+    <div className={styles.header}>
       <div className={styles.headerContent}>
         <div>
           <Link className={styles.routeLink} to="/">
@@ -19,6 +19,6 @@ export default function HeaderComponent() {
           <MenuIcon />
         </span>
       </div>
-    </header>
+    </div>
   )
 }
