@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './HeaderComponent.module.css'
 import { ReactComponent as MenuIcon } from '../icons/menu.svg'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../features/menu/menuSlice'
 
 export default function HeaderComponent() {
-  const [open, setOpen] = useState(false)
-
-  const handleClick = () => {
-    setOpen(!open)
-  }
+  const dispatch = useDispatch()
   return (
     <header className={styles.header}>
       <div className={styles.headerContent}>
@@ -17,7 +15,7 @@ export default function HeaderComponent() {
             React-redux App
           </Link>
         </div>
-        <span className={styles.icon} onClick={handleClick}>
+        <span className={styles.icon} onClick={() => dispatch(toggleMenu())}>
           <MenuIcon />
         </span>
       </div>
