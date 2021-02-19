@@ -7,7 +7,7 @@ export default [
   },
   {
     path: '/article',
-    location: './features/article/Article',
+    location: './features/articles/Article',
     exact: false,
     name: 'Article'
   },
