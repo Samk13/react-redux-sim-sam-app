@@ -1,7 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import HeaderComponent from './components/HeaderComponent'
-import SidebarComponent from './components/sidebarComponent'
-import FooterComponent from './components/FooterComponent'
+import { FooterComponent, HeaderComponent, SidebarComponent } from './components'
 import styles from './App.module.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import routes from './router/routes'
