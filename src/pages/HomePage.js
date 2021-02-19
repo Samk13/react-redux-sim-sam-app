@@ -6,9 +6,10 @@ import { useForm } from 'react-hook-form'
 
 export default function HomePage() {
   // const [article, setArticle] = useState('')
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const dispatch = useDispatch()
   const onSubmit = (data) => {
+    console.log(data)
     dispatch(create(data))
   }
 
@@ -20,14 +21,16 @@ export default function HomePage() {
             type="text"
             placeholder="author"
             name="author"
-            ref={register({ required: true, maxLength: 80 })}
+            ref={register({ required: true, minLength: 2, maxLength: 13 })}
           />
+          {errors.author && <span>This field is required</span>}
           <input
             type="text"
             placeholder="body"
             name="body"
-            ref={register({ required: true, minLength: 6, maxLength: 12 })}
+            ref={register({ required: true, minLength: 2, maxLength: 1313 })}
           />
+          {errors.body && <span>This field is required</span>}
           <label htmlFor="article">article body</label>
           {/* <textarea
             className={styles.textarea}
@@ -36,7 +39,7 @@ export default function HomePage() {
             value={article}
             onChange={(e) => setArticle(e.target.value)}
           /> */}
-          <button type="submit">Save article</button>
+          <button type="submit">Submit</button>
         </form>
       </section>
       {/* <section>
