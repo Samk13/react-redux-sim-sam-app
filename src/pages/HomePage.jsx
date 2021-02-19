@@ -1,59 +1,52 @@
-import { useSelector } from 'react-redux'
-import React, { useState } from 'react'
-import styles from './HomePage.module.css'
-import { show } from '../features/articles/articlesSlice'
+import { useDispatch } from 'react-redux'
+import React from 'react'
+// import styles from './HomePage.module.css'
+import { create } from '../features/articles/articlesSlice'
+import { useForm } from 'react-hook-form'
 
 export default function HomePage() {
-  // const dispatch = useDispatch()
-  const articles = useSelector(show)
-  const [author, setAuthor] = useState('')
-  const [data, setData] = useState('')
-
-  const handleCreateNewArticle = () => {
-    console.log('handleCreateNewArticle')
+  // const [article, setArticle] = useState('')
+  const { register, handleSubmit, errors } = useForm()
+  const dispatch = useDispatch()
+  const onSubmit = (data) => {
+    dispatch(create(data))
   }
-  // const handleNewInputChange = () => { console.log('handleNewInputChange');}
-  // const newArticleInput = () => { console.log('newArticleInput');}
 
   return (
-    <section>
-      <div>
-        author: {author}
-        <br />
-        body: {data}
-      </div>
-      <div>
-        <h1>redux</h1>
-        <ul>
-          {articles.map((article, key) => (
-            <li key={key}>
-              <span>{article.id}</span>
-              <span>{article.author}</span>
-              <span>{article.body}</span>
-            </li>
-          ))}
-        </ul>
-        <h1>redux</h1>
-      </div>
-      <form onSubmit={handleCreateNewArticle}>
-        <label htmlFor="author">Author</label>
-        <input
-          className={styles.textbox}
-          aria-label="Set article author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-
-        <label htmlFor="article">article body</label>
-        <textarea
-          className={styles.textarea}
-          id="article"
-          name="articleBoby"
-          value={data}
-          onChange={(e) => setData(e.target.value)}
-        />
-        <button type="submit">Save</button>
-      </form>
-    </section>
+    <>
+      <section>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="author"
+            name="author"
+            ref={register({ required: true, maxLength: 80 })}
+          />
+          <input
+            type="text"
+            placeholder="body"
+            name="body"
+            ref={register({ required: true, minLength: 6, maxLength: 12 })}
+          />
+          <label htmlFor="article">article body</label>
+          {/* <textarea
+            className={styles.textarea}
+            id="article"
+            name="body"
+            value={article}
+            onChange={(e) => setArticle(e.target.value)}
+          /> */}
+          <button type="submit">Save article</button>
+        </form>
+      </section>
+      {/* <section>
+        <h1>articles</h1>
+        <div>
+          <h2>title</h2>
+          <p>{article.length < 1 ? 'write your article' : article}</p>
+          <p>author</p>
+        </div>
+      </section> */}
+    </>
   )
 }

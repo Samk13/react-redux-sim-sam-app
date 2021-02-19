@@ -4,21 +4,30 @@ import { v1 as uuid } from 'uuid'
 const articleIntialState = [
   {
     id: uuid(),
+    createdAt: new Date().toISOString(),
+    lastEdited: '',
+    author: 'Sam',
     body:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-    author: 'Sam'
+    isReaded: false
   },
   {
     id: uuid(),
+    createdAt: new Date().toISOString(),
+    lastEdited: '',
+    author: 'Sam',
     body:
       'I motsättning till vad många tror, är inte Lorem Ipsum slumpvisa ord. Det har sina rötter i ett stycke klassiskt litteratur på latin från 45 år före år 0, och är alltså över 2000 år gammalt. Richard McClintock, en professor i latin på Hampden-Sydney College i Virginia, översatte ett av de mer ovanliga orden, consectetur, från ett stycke Lorem Ipsum och fann dess ursprung genom att studera användningen av dessa ord i klassisk litteratur. Lorem Ipsum kommer från styckena 1.10.32 och 1.10.33 av "de Finibus Bonorum et Malorum" (Ytterligheterna av ont och gott) av Cicero, skriven 45 före år 0. Boken är en avhandling i teorier om etik, och var väldigt populär under renäsanssen. Den inledande meningen i Lorem Ipsum, "Lorem Ipsum dolor sit amet...", kommer från stycke 1.10.32.',
-    author: 'Sam'
+    isReaded: true
   },
   {
     id: uuid(),
+    createdAt: new Date().toISOString(),
+    lastEdited: '',
+    author: 'Sam',
     body:
       'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
-    author: 'Sam'
+    isReaded: false
   }
 ]
 
@@ -26,14 +35,15 @@ export const articleSlice = createSlice({
   name: 'articles',
   initialState: articleIntialState,
   reducers: {
-    create: (state, payload) => {
+    create: (state, { payload }) => {
       return state.push(payload)
     },
-    prepare: ({ body, author }) => ({
+    prepare: (payload) => ({
       payload: {
         id: uuid(),
-        body,
-        author
+        body: payload.body || null,
+        author: payload.author || null,
+        isReaded: false
       }
     }),
     edit: (state, action) => {
