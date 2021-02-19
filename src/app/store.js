@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import counterReducer from '../features/counter/counterSlice'
-import articleReducer from '../features/article/articleSlice'
+import articleReducer from '../features/articles/articlesSlice'
 import menuSlice from '../features/menu/menuSlice'
 
 export default configureStore({
