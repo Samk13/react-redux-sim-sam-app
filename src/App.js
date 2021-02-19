@@ -1,11 +1,11 @@
 import React, { lazy, Suspense } from 'react'
-import { FooterComponent, HeaderComponent, SidebarComponent } from './components'
+import { FooterComponent, HeaderComponent, SidebarComponent, LoadingItem } from './components'
 import styles from './App.module.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import routes from './router/routes'
 
 function App() {
-  const renderLoader = () => <p>Loading ...</p>
+  const renderLoader = () => <LoadingItem />
   return (
     <Router>
       <div className={styles.container}>
