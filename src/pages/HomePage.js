@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 
 export default function HomePage() {
   // const [article, setArticle] = useState('')
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit } = useForm()
   const dispatch = useDispatch()
   const onSubmit = (data) => {
     dispatch(create(data))
