@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import React, { useState } from 'react'
 import styles from './HomePage.module.css'
-import { show } from '../features/article/articleSlice'
+import { show } from '../features/articles/articlesSlice'
 
 export default function HomePage() {
   // const dispatch = useDispatch()
