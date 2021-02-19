@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import React, { useState } from 'react'
 import styles from './HomePage.module.css'
-import { create, edit, remove, show } from '../features/article/articleSlice'
+import { show } from '../features/article/articleSlice'
 
 export default function HomePage() {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const articles = useSelector(show)
   const [author, setAuthor] = useState('')
   const [data, setData] = useState('')
