@@ -3,12 +3,15 @@ import { FooterComponent, HeaderComponent, SidebarComponent, LoadingItem } from 
 import styles from './App.module.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import routes from './router/routes'
+import { useSelector } from 'react-redux'
+import { menuStatus } from './features/menu/menuSlice'
 
 function App() {
   const renderLoader = () => <LoadingItem />
+  const isActive = useSelector(menuStatus)
   return (
     <Router>
-      <div className={styles.container}>
+      <section className={isActive ? styles.container : styles.container_hide_sidebar}>
         <header className={styles.header}>
           <HeaderComponent />
         </header>
@@ -28,11 +31,11 @@ function App() {
             </Suspense>
           </Switch>
         </main>
-        <SidebarComponent className="sidebar" />
+        {isActive && <SidebarComponent />}
         <footer className={styles.footer}>
           <FooterComponent className={styles.footer} />
         </footer>
-      </div>
+      </section>
     </Router>
   )
 }

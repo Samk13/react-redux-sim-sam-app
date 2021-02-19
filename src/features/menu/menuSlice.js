@@ -12,5 +12,7 @@ export const menuSLice = createSlice({
   }
 })
 
+export const menuStatus = (state) => state.menu.open
+
 export const { toggleMenu } = menuSLice.actions
 export default menuSLice.reducer
