@@ -31,7 +31,7 @@ export default function HomePage() {
             ref={register({ required: true, minLength: 3, maxLength: 13 })}
           />
           {errors.author && <span>This field is required</span>}
-          <input
+          <textarea
             type="text"
             placeholder="body"
             name="body"
