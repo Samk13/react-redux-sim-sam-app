@@ -7,12 +7,12 @@ import { useForm } from 'react-hook-form'
 
 export default function HomePage() {
   // const [article, setArticle] = useState('')
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, errors, reset } = useForm()
   const dispatch = useDispatch()
   const selectArticles = useSelector(showArticles)
   const onSubmit = (data) => {
-    console.log(data)
     dispatch(create(data))
+    reset()
   }
   const [isEditMode, setIsEditMode] = useState(false)
   const [editTodoInput, setEditTodoInput] = useState('')
