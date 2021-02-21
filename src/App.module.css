@@ -29,7 +29,7 @@
 
 .main {
   grid-area: main;
-  height: calc(100vh - 150px);
+  height: minmax(calc(100vh - 150px), auto-fill);
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
