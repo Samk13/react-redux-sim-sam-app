@@ -42,7 +42,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .articleContainer{
+  .articleContainer {
     display: flex;
     flex-direction: column;
   }
