@@ -1,63 +1,56 @@
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './HomePage.module.css'
 import { ArticleListItem } from '../components'
-import { create, showArticles } from '../features/articles/articlesSlice'
+import { create, getArticles } from '../features/articles/articlesSlice'
 import { useForm } from 'react-hook-form'
 
 export default function HomePage() {
-  // const [article, setArticle] = useState('')
   const { register, handleSubmit, errors, reset } = useForm()
+  const selectArticles = useSelector(getArticles)
   const dispatch = useDispatch()
-  const selectArticles = useSelector(showArticles)
   const onSubmit = (data) => {
     dispatch(create(data))
     reset()
-  }
-  const [isEditMode, setIsEditMode] = useState(false)
-  const [editTodoInput, setEditTodoInput] = useState('')
-  const handleEditInputChange = (e) => {
-    setEditTodoInput(e.target.value)
   }
 
   return (
     <>
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="author">author</label>
           <input
             type="text"
-            placeholder="author"
+            id="author"
             name="author"
+            placeholder="author"
+            className={styles.textareacomponent}
             ref={register({ required: true, minLength: 3, maxLength: 13 })}
           />
           {errors.author && <span>This field is required</span>}
+          <label htmlFor="body">article body</label>
           <textarea
             type="text"
+            id="body"
+            className={styles.textareacomponent}
             placeholder="body"
             name="body"
             ref={register({ required: true, minLength: 3, maxLength: 1313 })}
           />
           {errors.body && <span>This field is required</span>}
           <label htmlFor="article">article body</label>
-          {/* <textarea
-            className={styles.textarea}
-            id="article"
-            name="body"
-            value={article}
-            onChange={(e) => setArticle(e.target.value)}
-          /> */}
           <button type="submit">Submit</button>
         </form>
       </section>
       <section>
         <h1>all articles</h1>
         <div>
-          <h2>
+          <div>
             {selectArticles.map((article, index) => {
               return (
                 <div className={styles.articlesContainer} key={article.id}>
                   <ArticleListItem
-                    image={article.imageurl}
+                    image={article.imgUrl}
                     id={article.id}
                     author={article.author}
                     body={article.body}
@@ -67,17 +60,9 @@ export default function HomePage() {
                 </div>
               )
             })}
-          </h2>
+          </div>
         </div>
       </section>
-      {/* <section>
-        <h1>articles</h1>
-        <div>
-          <h2>title</h2>
-          <p>{article.length < 1 ? 'write your article' : article}</p>
-          <p>author</p>
-        </div>
-      </section> */}
     </>
   )
 }

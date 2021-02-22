@@ -13,15 +13,16 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 - [x] setup prettier
 - [x] optimize Eslint with Prettier
 - [x] setup husky for pre-commits
-- [x] Create autoimport index for components
-- [ ] finish redux logic
+- [x] Create auto import index for components
+- [] finish redux logic
   - [x] create article
   - [x] show articles
   - [x] show articles
+  - [x] Delete Article
   - [ ] Edit Article
-  - [ ] Delete Article
   - [ ] create input components
-- [ ] better styling home page
+- [] better styling home page
+- [] cleanup css
 
 ## Available Scripts
 
