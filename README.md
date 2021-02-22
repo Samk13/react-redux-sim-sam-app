@@ -14,7 +14,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 - [x] setup husky for pre-commits
 - [x] Create autoimport index for components
 - [ ] finish redux logic
-- [-] create article
+- [x] create article
   - [x] show articles
   - [x] show articles
   - [ ] Edit Article
