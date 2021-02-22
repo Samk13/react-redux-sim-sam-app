@@ -11,16 +11,17 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 - [x] eject react app
 - [x] setup eslint
 - [x] setup prettier
+- [x] optimize Eslint with Prettier
 - [x] setup husky for pre-commits
 - [x] Create autoimport index for components
 - [ ] finish redux logic
-- [x] create article
+  - [x] create article
   - [x] show articles
   - [x] show articles
   - [ ] Edit Article
   - [ ] Delete Article
   - [ ] create input components
-
+- [ ] better styling home page
 ## Available Scripts
 
 In the project directory, you can run:
