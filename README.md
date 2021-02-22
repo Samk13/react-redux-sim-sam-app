@@ -22,6 +22,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
   - [ ] Delete Article
   - [ ] create input components
 - [ ] better styling home page
+
 ## Available Scripts
 
 In the project directory, you can run:
