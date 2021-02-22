@@ -1,12 +1,15 @@
 .articleContainer {
   background-color: var(--gray-200);
   border-radius: var(--main-radius);
-  max-width: 70vw;
+  /* max-width: 70vw; */
   font-size: small;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  /* grid-template-columns: repeat(2, auto); */
+  grid-template-columns: min-content auto;
+  width: 100%;
   grid-column-gap: 2px;
   grid-row-gap: 0px;
+  grid-auto-columns: min-content;
 }
 
 .articleContainer:hover {
@@ -20,7 +23,7 @@
   background-size: contain;
   border-radius: var(--main-radius) 0 0 var(--main-radius);
   object-fit: cover;
-  max-width: minmax(100%, 200px);
+  /* max-width: minmax(100%, 200px); */
   width: 200px;
   height: 100%;
   aspect-ratio: 1/1;
