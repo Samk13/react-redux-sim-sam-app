@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useState } from 'react'
-// import styles from './HomePage.module.css'
+import styles from './HomePage.module.css'
 import { ArticleListItem } from '../components'
 import { create, showArticles } from '../features/articles/articlesSlice'
 import { useForm } from 'react-hook-form'
@@ -55,15 +55,15 @@ export default function HomePage() {
           <h2>
             {selectArticles.map((article, index) => {
               return (
-                <div key={article.id}>
+                <div className={styles.articlesContainer} key={article.id}>
                   <ArticleListItem
+                    image={article.imageurl}
                     id={article.id}
                     author={article.author}
                     body={article.body}
                     createdAt={article.createdAt}
                     seen={article.seen}
                   />
-                  <div>{article.seen ? 'seen' : 'Not seen yet'}</div>
                 </div>
               )
             })}

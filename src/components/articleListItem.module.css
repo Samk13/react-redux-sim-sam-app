@@ -1,0 +1,48 @@
+.articleContainer {
+  background-color: var(--gray-200);
+  border-radius: var(--main-radius);
+  max-width: 70vw;
+  font-size: small;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+}
+
+.articleContainer:hover {
+  grid-area: text;
+  column-span: 3;
+  box-shadow: 0px 0px 10px 0px #00000096;
+  cursor: pointer;
+}
+
+.image {
+  background-size: contain;
+  border-radius: var(--main-radius) 0 0 var(--main-radius);
+  object-fit: cover;
+  max-width: minmax(100%, 200px);
+  width: 200px;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.textContainer {
+  margin: 0 0 0 1em;
+  padding: 0 1em 1em 0;
+  text-align: left;
+  justify-content: start;
+}
+.textContainer > h1 {
+  font-size: x-large;
+  margin: 1em 0;
+}
+
+.articleFooter {
+  margin: 20px 0 0 0;
+}
+
+@media only screen and (max-width: 768px) {
+  grid-template-columns: minmax(auto-fill, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+}
