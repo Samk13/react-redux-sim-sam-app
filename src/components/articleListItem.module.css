@@ -2,7 +2,7 @@
   background-color: var(--gray-200);
   border-radius: var(--main-radius);
   /* max-width: 70vw; */
-  font-size: small;
+  font-size: var(--text-xs);
   display: grid;
   /* grid-template-columns: repeat(2, auto); */
   grid-template-columns: min-content auto;
@@ -36,7 +36,7 @@
   justify-content: start;
 }
 .textContainer > h1 {
-  font-size: x-large;
+  font-size: var(--text-lg);
   margin: 1em 0;
 }
 
