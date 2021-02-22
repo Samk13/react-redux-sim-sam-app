@@ -30,7 +30,7 @@
 .link {
   width: 100%;
   border-radius: var(--main-radius);
-  font-size: xx-large;
+  font-size: var(--text-sm);
 }
 
 .active {
