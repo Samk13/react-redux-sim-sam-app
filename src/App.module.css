@@ -50,7 +50,7 @@
   }
   .main {
     grid-area: main;
-    height: calc(100vh - 20vh);
+    height: minmax(calc(100vh - 20vh), auto-fit);
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
   }
