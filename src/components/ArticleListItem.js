@@ -74,8 +74,6 @@ export default function ArticleListItem(props) {
               name="body"
               value={EditText.body}
             />
-            <button onClick={handleSaveEdit}>Save</button>
-            <button onClick={() => setToggleEditMode(false)}>Cancel</button>
           </>
         ) : (
           <>
@@ -93,7 +91,14 @@ export default function ArticleListItem(props) {
           {props.delete ? (
             <button onClick={() => dispatch(remove(props.id))}>delete article</button>
           ) : null}
-          <button onClick={handleEdit(props)}>edit article</button>
+          {toggleEditMode ? (
+            <>
+              <button onClick={handleSaveEdit}>Save</button>
+              <button onClick={() => setToggleEditMode(false)}>Cancel</button>
+            </>
+          ) : (
+            <button onClick={handleEdit(props)}>edit article</button>
+          )}
         </div>
       </div>
     </article>

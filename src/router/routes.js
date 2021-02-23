@@ -15,6 +15,12 @@ export default [
     path: '/posts',
     exact: false,
     location: './features/posts/Posts',
-    name: 'Posts'
+    name: 'Async Posts'
+  },
+  {
+    path: '/articles',
+    exact: false,
+    location: './features/articles/Articles',
+    name: 'Articles'
   }
 ]
