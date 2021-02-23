@@ -1,10 +1,9 @@
 .textarea {
-
-    margin: 2 rem;
-    padding: 1em;
+  margin: 2 rem;
+  padding: 1em;
 }
 
-input[type="text"],
+input[type='text'],
 select,
 textarea {
   width: 100%;
@@ -15,12 +14,62 @@ textarea {
   margin-bottom: 10px;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   border: none;
   background: #4aaaa5;
   padding: 12px 20px;
   border-radius: 4px;
   cursor: pointer;
   color: #ffffff;
-  font-size: 16px;
+  font-size: var(--text-xl);
+}
+
+.articlesContainer {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.textAreaComponent {
+  font-family: sans-serif, monospace;
+
+  font-size: var(--text-sm);
+  min-height: 40px;
+  min-width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #c1c1c1;
+  height: auto;
+}
+
+.textAreaComponent2 {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textAreaComponent2 {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  padding: 1px 6px;
+}
+.width-machine {
+  /*   Sort of a magic number to add extra space for number spinner */
+  padding: 0 1rem;
+}
+
+.textAreaComponent2 {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textAreaComponent2[contenteditable]:empty::before {
+  content: 'Placeholder still possible';
+  color: gray;
 }
