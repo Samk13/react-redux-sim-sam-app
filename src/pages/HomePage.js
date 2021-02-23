@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import styles from './HomePage.module.css'
 import { ArticleListItem } from '../components'
 import { create, getArticles } from '../features/articles/articlesSlice'
@@ -24,7 +24,7 @@ export default function HomePage() {
             id="author"
             name="author"
             placeholder="author"
-            className={styles.textareacomponent}
+            className={styles.textAreaComponent}
             ref={register({ required: true, minLength: 3, maxLength: 13 })}
           />
           {errors.author && <span>This field is required</span>}
@@ -32,7 +32,7 @@ export default function HomePage() {
           <textarea
             type="text"
             id="body"
-            className={styles.textareacomponent}
+            className={styles.textAreaComponent}
             placeholder="body"
             name="body"
             ref={register({ required: true, minLength: 3, maxLength: 1313 })}
@@ -46,7 +46,7 @@ export default function HomePage() {
         <h1>all articles</h1>
         <div>
           <div>
-            {selectArticles.map((article, index) => {
+            {selectArticles.map((article) => {
               return (
                 <div className={styles.articlesContainer} key={article.id}>
                   <ArticleListItem
