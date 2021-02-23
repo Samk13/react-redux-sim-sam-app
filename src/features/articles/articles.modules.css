@@ -1,7 +1,8 @@
 textarea {
-  width: 100%;
+  width: 50%;
+  max-width: 75vw;
+  margin: 0 auto;
   resize: vertical;
-  padding: calac(var(--main-padding) * 2);
   border-radius: var(--radius);
   border: 0;
   box-shadow: var(--shadow);

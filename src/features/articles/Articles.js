@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './articles.modules.css'
 import { ArticleListItem } from '../../components'
 import { create, getArticles } from './articlesSlice'
 import { useForm } from 'react-hook-form'
+import styles from './articles.modules.css'
 
 export default function Articles() {
   const { register, handleSubmit, errors, reset } = useForm()
@@ -15,7 +15,7 @@ export default function Articles() {
   }
   return (
     <>
-      <section>
+      <section className={styles.articlesContainer}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="author">author</label>
           <input
@@ -47,7 +47,7 @@ export default function Articles() {
           <div>
             {selectArticles.map((article) => {
               return (
-                <div className={styles.articlesContainer} key={article.id}>
+                <div key={article.id}>
                   <ArticleListItem
                     image={article.imgUrl}
                     id={article.id}
