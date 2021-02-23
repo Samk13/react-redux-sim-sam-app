@@ -19,8 +19,11 @@ Gör look&feel tema-baserad med vanilla-css variabler.
   - [x] show articles
   - [x] show articles
   - [x] Delete Article
-  - [ ] Edit Article
+  - [x] Edit Article
+  - [x] toggle seen
   - [ ] create input components
+  - [ ] textarea components
+  - [ ] form components
 - [] better styling home page
 - [] cleanup css
 

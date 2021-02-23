@@ -55,6 +55,7 @@ export default function HomePage() {
                     author={article.author}
                     body={article.body}
                     createdAt={article.createdAt}
+                    lastEdited={article.lastEdited}
                     seen={article.seen}
                   />
                 </div>
