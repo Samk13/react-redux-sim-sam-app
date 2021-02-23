@@ -1,6 +1,6 @@
 .articleContainer {
   background-color: var(--gray-200);
-  border-radius: var(--main-radius);
+  border-radius: var(--radius);
   /* max-width: 70vw; */
   font-size: var(--text-xs);
   display: grid;
@@ -21,7 +21,7 @@
 
 .image {
   background-size: contain;
-  border-radius: var(--main-radius) 0 0 var(--main-radius);
+  border-radius: var(--radius) 0 0 var(--radius);
   object-fit: cover;
   /* max-width: minmax(100%, 200px); */
   width: 200px;
@@ -51,6 +51,6 @@
   }
   .image {
     width: 100%;
-    border-radius: var(--main-radius) 0 0 0;
+    border-radius: var(--radius) 0 0 0;
   }
 }

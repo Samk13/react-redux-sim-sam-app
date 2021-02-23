@@ -24,19 +24,19 @@
 
 .header {
   grid-area: navbar;
-  border-radius: var(--main-radius);
+  border-radius: var(--radius);
 }
 
 .main {
   grid-area: main;
   min-height: calc(100vh - 150px);
-  border-radius: var(--main-radius);
+  border-radius: var(--radius);
   padding-top: var(--main-padding);
 }
 
 .footer {
   grid-area: footer;
-  border-radius: var(--main-radius);
+  border-radius: var(--radius);
 }
 
 @media only screen and (max-width: 768px) {
@@ -51,7 +51,7 @@
   .main {
     grid-area: main;
     height: minmax(calc(100vh - 20vh), auto-fit);
-    border-radius: var(--main-radius);
+    border-radius: var(--radius);
     padding-top: var(--main-padding);
   }
 }

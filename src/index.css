@@ -2,7 +2,7 @@
 
 body {
   margin: 0 auto;
-  /* padding: 0; */
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,22 +14,23 @@ body {
   --blue-900: #292b33;
   --blue-700: #42454b;
   --gray-300: #6b7280;
-  --gray-50: #f9fafb;
   --gray-200: #e5e7eb;
-  --main-radius: 5px;
+  --gray-50: #f9fafb;
+  --border: 1px solid #474a4d;
+  --radius: 10px;
   --main-padding: 10px;
   --main-margin: 1rem;
+  --border-radius: 8px;
   --max-width: 70%;
   --nav-size: 60px;
-  --border: 1px solid #474a4d;
-  --border-radius: 8px;
-  --speed: 500ms;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
+  --speed: 500ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
   --shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f;
 }
 

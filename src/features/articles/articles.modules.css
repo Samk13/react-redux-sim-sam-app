@@ -2,7 +2,7 @@ textarea {
   width: 100%;
   resize: vertical;
   padding: calac(var(--main-padding) * 2);
-  border-radius: 15px;
+  border-radius: var(--radius);
   border: 0;
   box-shadow: var(--shadow);
   height: 150px;

@@ -6,12 +6,6 @@ export default [
     name: 'Home'
   },
   {
-    path: '/redux',
-    exact: false,
-    location: './pages/ReduxPage',
-    name: 'Redux'
-  },
-  {
     path: '/posts',
     exact: false,
     location: './features/posts/Posts',
@@ -19,7 +13,7 @@ export default [
   },
   {
     path: '/articles',
-    exact: false,
+    exact: true,
     location: './features/articles/Articles',
     name: 'Articles'
   }
