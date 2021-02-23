@@ -9,13 +9,13 @@ body {
 }
 
 :root {
-  --blue-500:#00629E;
-  --blue-200:#01ADFD;
-  --blue-900: #292B33;
-  --blue-700: #42454B;
-  --gray-300: #6B7280;
-  --gray-50: #F9FAFB;
-  --gray-200: #E5E7EB;
+  --blue-500: #00629e;
+  --blue-200: #01adfd;
+  --blue-900: #292b33;
+  --blue-700: #42454b;
+  --gray-300: #6b7280;
+  --gray-50: #f9fafb;
+  --gray-200: #e5e7eb;
   --main-radius: 5px;
   --main-padding: 10px;
   --main-margin: 1rem;
@@ -24,6 +24,12 @@ body {
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
 }
 
 ul {
@@ -34,5 +40,5 @@ ul {
 
 a {
   color: var(--gray-50);
-  text-decoration: none;;
+  text-decoration: none;
 }

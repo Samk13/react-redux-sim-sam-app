@@ -4,6 +4,7 @@
   border-radius: var(--main-radius);
   background-color: var(--blue-900);
   color: var(--blue-200);
+  font-size: var(--text-sm);
 }
 
 h1,

@@ -1,33 +1,43 @@
-import React,{ lazy, Suspense } from 'react';
-import HeaderComponent from './components/HeaderComponent'
-import SidebarComponent from './components/sidebarComponent'
-import FooterComponent from './components/FooterComponent'
-import styles from './App.module.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import React, { lazy, Suspense } from 'react'
+import { FooterComponent, HeaderComponent, SidebarComponent, LoadingItem } from './components'
+import styles from './App.module.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import routes from './router/routes'
+import { useSelector } from 'react-redux'
+import { menuStatus } from './features/menu/menuSlice'
 
 function App() {
-  const renderLoader = () => <p>Loading ...</p>;
+  const renderLoader = () => <LoadingItem />
+  const isActive = useSelector(menuStatus)
   return (
     <Router>
-      <div className={styles.container}>
-        <header className={styles.header} >
+      <section className={isActive ? styles.container : styles.container_hide_sidebar}>
+        <header className={styles.header}>
           <HeaderComponent />
         </header>
         <main className={styles.main}>
           <Switch>
             <Suspense fallback={renderLoader()}>
-              <Route  path="/" exact component={ lazy(()=>import('./pages/HomePage'))} />
-              <Route  path="/redux" component={lazy(()=>import('./pages/ReduxPage'))} />
+              {routes.map((route, key) => {
+                return (
+                  <Route
+                    key={key}
+                    path={route.path}
+                    exact={route.exact}
+                    component={lazy(() => import(`${route.location}`))}
+                  />
+                )
+              })}
             </Suspense>
           </Switch>
         </main>
-          <SidebarComponent className="sidebar" />
+        {isActive && <SidebarComponent />}
         <footer className={styles.footer}>
           <FooterComponent className={styles.footer} />
         </footer>
-      </div>
+      </section>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
