@@ -49,31 +49,34 @@ export default function ArticleListItem(props) {
       <div className={styles.textContainer}>
         {toggleEditMode ? (
           <>
-            <input
-              type="text"
-              name="author"
-              placeholder="author"
-              onChange={(e) =>
-                setEditText((prevState) => ({
-                  ...prevState,
-                  author: e.target.value
-                }))
-              }
-              value={EditText.author}
-            />
-            <textarea
-              type="text"
-              className={styles.textAreaComponent}
-              placeholder="body"
-              onChange={(e) =>
-                setEditText((prevState) => ({
-                  ...prevState,
-                  body: e.target.value
-                }))
-              }
-              name="body"
-              value={EditText.body}
-            />
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.input}
+                type="text"
+                name="author"
+                placeholder="author"
+                onChange={(e) =>
+                  setEditText((prevState) => ({
+                    ...prevState,
+                    author: e.target.value
+                  }))
+                }
+                value={EditText.author}
+              />
+              <textarea
+                type="text"
+                className={styles.textAreaComponent}
+                placeholder="body"
+                onChange={(e) =>
+                  setEditText((prevState) => ({
+                    ...prevState,
+                    body: e.target.value
+                  }))
+                }
+                name="body"
+                value={EditText.body}
+              />
+            </div>
           </>
         ) : (
           <>
@@ -83,23 +86,39 @@ export default function ArticleListItem(props) {
         )}
 
         <div className={styles.articleFooter}>
-          {props.createdAt ? <div>{props.createdAt}</div> : null}
-          {props.lastEdited ? <div>{props.createdAt}</div> : null}
-          <div>{props.seen ? 'seen' : null}</div>
+          <div className={styles.info}>
+            <div>
+              <span>createdAt:</span>
+              {props.createdAt ? <div>{props.createdAt}</div> : null}
+            </div>
+            <div>
+              <span>Last Edited</span>
+              {props.lastEdited ? <div>{props.lastEdited}</div> : null}
+            </div>
+          </div>
         </div>
-        <div>
-          {props.delete ? (
-            <button onClick={() => dispatch(remove(props.id))}>delete article</button>
-          ) : null}
+        <div className={styles.cardFooter}>
           {toggleEditMode ? (
             <>
-              <button onClick={handleSaveEdit}>Save</button>
-              <button onClick={() => setToggleEditMode(false)}>Cancel</button>
+              <button className={styles.btnCard} onClick={handleSaveEdit}>
+                Save
+              </button>
+              <button className={styles.btnCard} onClick={() => setToggleEditMode(false)}>
+                Cancel
+              </button>
             </>
           ) : (
-            <button onClick={handleEdit(props)}>edit article</button>
+            <button className={styles.btnCard} onClick={handleEdit(props)}>
+              edit article
+            </button>
           )}
+          {props.delete ? (
+            <button className={styles.btnCard} onClick={() => dispatch(remove(props.id))}>
+              delete article
+            </button>
+          ) : null}
         </div>
+        <div>{props.seen ? 'seen' : null}</div>
       </div>
     </article>
   )

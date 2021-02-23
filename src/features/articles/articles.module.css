@@ -38,9 +38,19 @@
 }
 
 .btnSubmit {
-  padding: 1em;
+  padding: var(--main-padding);
   background-color: var(--blue-500);
   color: var(--gray-50);
   border: 1px solid var(--blue-200);
   border-radius: var(--radius);
+  transition: filter var(--speed);
+  cursor: pointer;
+}
+
+.btnSubmit:hover {
+  filter: brightness(1.2);
+}
+.btnSubmit:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px #0066ff;
 }
