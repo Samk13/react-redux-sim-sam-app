@@ -17,24 +17,23 @@ export default function Articles() {
     <div className={styles.container}>
       <section>
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
-          {/* <label htmlFor="author">author</label> */}
           <InputComponent
+            ref={register({ required: true, minLength: 3, maxLength: 13 })}
+            errors={errors.author && 'This field is required'}
+            placeholder="author"
             label="author"
+            name="author"
             type="text"
             id="author"
-            name="author"
-            placeholder="author"
-            errors={errors.author && 'This field is required'}
-            ref={register({ required: true, minLength: 3, maxLength: 13 })}
           />
           <label htmlFor="body">article body</label>
           <textarea
-            className={styles.textarea}
-            type="text"
-            id="body"
-            placeholder="body"
-            name="body"
             ref={register({ required: true, minLength: 3, maxLength: 1313 })}
+            className={styles.textarea}
+            placeholder="body"
+            type="text"
+            name="body"
+            id="body"
           />
           {errors.body && <span>This field is required</span>}
           <label htmlFor="article">article body</label>
@@ -51,13 +50,13 @@ export default function Articles() {
               return (
                 <div key={article.id} className={styles.article}>
                   <ArticleListItem
-                    image={article.imgUrl}
-                    id={article.id}
-                    author={article.author}
-                    body={article.body}
-                    createdAt={article.createdAt}
                     lastEdited={article.lastEdited}
+                    createdAt={article.createdAt}
+                    author={article.author}
+                    image={article.imgUrl}
+                    body={article.body}
                     seen={article.seen}
+                    id={article.id}
                     delete={true}
                   />
                 </div>

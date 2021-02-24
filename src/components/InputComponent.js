@@ -16,7 +16,6 @@ function useCombinedRefs(...refs) {
       }
     })
   }, [refs])
-
   return targetRef
 }
 
@@ -30,23 +29,18 @@ const TextInput = forwardRef((_props, ref) => {
     setInputValue(event.target.value)
     if (_props.onChange) _props.onChange(inputValue)
   }
-  // calculate width height for input
-  // React.useLayoutEffect(() => {
-  //   const rect = combinedRef.current.getBoundingClientRect()
-  //   console.log('Input dimensions:', rect.width, rect.height)
-  // }, [combinedRef, ref])
   return (
     <div className={styles.inputBody}>
       <label htmlFor={id}> {_props.label} </label>
       <input
-        value={inputValue}
-        onChange={handleChange}
-        placeholder={_props.placeholder}
         className={_props.input || styles.input}
+        placeholder={_props.placeholder}
+        onChange={handleChange}
+        value={inputValue}
         name={_props.name}
+        ref={combinedRef}
         type={inputType}
         {..._props}
-        ref={combinedRef}
         id={id}
       />
       <span className={styles.error}>{_props.errors}</span>
