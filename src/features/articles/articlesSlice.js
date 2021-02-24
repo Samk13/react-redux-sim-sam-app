@@ -3,7 +3,7 @@ import { v1 as uuid } from 'uuid'
 
 const articleInitialState = [
   {
-    id: uuid(),
+    id: `article_${uuid()}`,
     createdAt: new Date().toISOString(),
     lastEdited: '',
     author: 'Sam',
@@ -24,7 +24,7 @@ export const articleSlice = createSlice({
       },
       prepare: ({ body, author }) => ({
         payload: {
-          id: uuid(),
+          id: `article_${uuid()}`,
           createdAt: new Date().toISOString(),
           imgUrl: 'https://picsum.photos/200/300',
           lastEdited: '',

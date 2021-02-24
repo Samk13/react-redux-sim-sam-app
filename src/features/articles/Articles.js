@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './articles.modules.css'
-import { ArticleListItem } from '../../components'
+import { ArticleListItem, InputComponent } from '../../components'
 import { create, getArticles } from './articlesSlice'
 import { useForm } from 'react-hook-form'
 
@@ -18,7 +18,7 @@ export default function Articles() {
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="author">author</label>
-          <input
+          <InputComponent
             type="text"
             id="author"
             name="author"
