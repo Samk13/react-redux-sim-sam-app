@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
-import styles from './inputComponent.modules.css'
+import styles from './inputComponent.module.css'
 import { v1 as uuid } from 'uuid'
 
 // working solution for forwarding refs https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd
@@ -37,21 +37,19 @@ const TextInput = forwardRef((_props, ref) => {
   // }, [combinedRef, ref])
   return (
     <div className={styles.inputBody}>
-      <label htmlFor={id} value={_props.label}>
-        <input
-          value={inputValue}
-          onChange={handleChange}
-          placeholder={_props.placeholder}
-          className={_props.className}
-          name={_props.name}
-          type={inputType}
-          {..._props}
-          ref={combinedRef}
-          id={id}
-          errors={_props.errors}
-        />
-        <span className={styles.error}>error</span>
-      </label>
+      <label htmlFor={id}> {_props.label} </label>
+      <input
+        value={inputValue}
+        onChange={handleChange}
+        placeholder={_props.placeholder}
+        className={_props.input || styles.input}
+        name={_props.name}
+        type={inputType}
+        {..._props}
+        ref={combinedRef}
+        id={id}
+      />
+      <span className={styles.error}>{_props.errors}</span>
     </div>
   )
 })

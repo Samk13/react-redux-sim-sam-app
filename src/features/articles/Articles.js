@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './articles.modules.css'
 import { ArticleListItem, InputComponent } from '../../components'
 import { create, getArticles } from './articlesSlice'
 import { useForm } from 'react-hook-form'
@@ -18,16 +17,16 @@ export default function Articles() {
     <div className={styles.container}>
       <section>
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="author">author</label>
+          {/* <label htmlFor="author">author</label> */}
           <InputComponent
+            label="author"
             type="text"
             id="author"
             name="author"
             placeholder="author"
-            className={styles.input}
+            errors={errors.author && 'This field is required'}
             ref={register({ required: true, minLength: 3, maxLength: 13 })}
           />
-          {errors.author && <span>This field is required</span>}
           <label htmlFor="body">article body</label>
           <textarea
             className={styles.textarea}
