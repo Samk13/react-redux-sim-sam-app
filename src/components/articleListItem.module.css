@@ -54,3 +54,53 @@
     border-radius: var(--radius) 0 0 0;
   }
 }
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: var(--main-margin) 0;
+}
+.input {
+  margin: var(--main-padding) 0;
+  padding: calc(var(--main-padding) / 3);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  outline: 0 none;
+  font-weight: bold;
+  font-size: var(--text-base);
+}
+
+.textAreaComponent {
+  padding: var(--main-padding);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  outline: 0 none;
+  resize: vertical;
+  height: 150px;
+  font-family: 'Roboto';
+  font-size: var(--text-sm);
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnCard {
+  padding: calc(var(--main-padding) / 2) var(--main-padding);
+  background-color: var(--gray-300);
+  color: var(--gray-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius);
+  transition: filter var(--speed);
+  cursor: pointer;
+}
+
+.btnCard:hover {
+  filter: brightness(1.2);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}

@@ -8,10 +8,10 @@ import { menuStatus } from './features/menu/menuSlice'
 
 function App() {
   const renderLoader = () => <LoadingItem />
-  const isActive = useSelector(menuStatus)
+  const menuActive = useSelector(menuStatus)
   return (
     <Router>
-      <section className={isActive ? styles.container : styles.container_hide_sidebar}>
+      <section className={menuActive ? styles.container : styles.container_hide_sidebar}>
         <header className={styles.header}>
           <HeaderComponent />
         </header>
@@ -31,7 +31,7 @@ function App() {
             </Suspense>
           </Switch>
         </main>
-        {isActive && <SidebarComponent />}
+        {menuActive && <SidebarComponent />}
         <footer className={styles.footer}>
           <FooterComponent className={styles.footer} />
         </footer>

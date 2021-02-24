@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, showPosts } from './postsSlice'
-import { ArticleListItem } from '../../components'
 
 export default function Posts() {
   const dispatch = useDispatch()
@@ -16,7 +15,10 @@ export default function Posts() {
       {allPosts.map((post) => {
         return (
           <div key={post.id}>
-            <ArticleListItem body={post.body} author={post.title} />
+            <details>
+              <summary>{post.title}</summary>
+              {post.body}
+            </details>
           </div>
         )
       })}
