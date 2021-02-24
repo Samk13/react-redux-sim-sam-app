@@ -1,8 +1,8 @@
 .inputBody {
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .error {
-    color: red;
-    font-size: var(--text-xs);
+  color: red;
+  font-size: var(--text-xs);
 }
