@@ -12,7 +12,8 @@ ArticleListItem.propTypes = {
   lastEdited: PropTypes.string,
   seen: PropTypes.bool,
   image: PropTypes.string,
-  delete: PropTypes.bool
+  delete: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default function ArticleListItem(props) {
@@ -51,7 +52,7 @@ export default function ArticleListItem(props) {
           <>
             <div className={styles.inputContainer}>
               <input
-                className={styles.input}
+                className={props.className || styles.input}
                 type="text"
                 name="author"
                 placeholder="author"
@@ -112,11 +113,9 @@ export default function ArticleListItem(props) {
               edit article
             </button>
           )}
-          {props.delete ? (
-            <button className={styles.btnCard} onClick={() => dispatch(remove(props.id))}>
-              delete article
-            </button>
-          ) : null}
+          <button className={styles.btnCard} onClick={() => dispatch(remove(props.id))}>
+            delete article
+          </button>
         </div>
         <div>{props.seen ? 'seen' : null}</div>
       </div>

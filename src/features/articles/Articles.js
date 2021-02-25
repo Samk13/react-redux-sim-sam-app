@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { ArticleListItem, InputComponent, TextAreaComponent } from '../../components'
+import {
+  ArticleListItem,
+  InputComponent,
+  TextAreaComponent,
+  ButtonComponent
+} from '../../components'
 import { create, getArticles } from './articlesSlice'
 import { useForm } from 'react-hook-form'
 import styles from './articles.module.css'
@@ -24,7 +29,9 @@ export default function Articles() {
 
   return (
     <div className={styles.container}>
-      <section>
+      <h1 className={styles.title}>Articles</h1>
+      <section className={styles.fromContainer}>
+        <h1 className={styles.createTitle}>Create new Article</h1>
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
             errors={errors?.author && 'This field is required'}
@@ -42,13 +49,11 @@ export default function Articles() {
             name="body"
             id="body"
           />
-          <button className={styles.btnSubmit} type="submit">
-            Submit
-          </button>
+          <ButtonComponent type="submit">Submit</ButtonComponent>
         </form>
       </section>
       <section className={styles.articlesContainer}>
-        <h1>all articles</h1>
+        <h1 className={styles.articlesTitle}>All articles</h1>
         <div>
           <div>
             {selectArticles.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
@@ -62,7 +67,6 @@ export default function Articles() {
                     body={body}
                     seen={seen}
                     id={id}
-                    delete={true}
                   />
                 </div>
               )

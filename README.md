@@ -14,6 +14,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 - [x] optimize Eslint with Prettier
 - [x] setup husky for pre-commits
 - [x] Create auto import index for components
+
   - [x] finish redux logic
   - [x] create article
   - [x] show articles
@@ -24,20 +25,20 @@ Gör look&feel tema-baserad med vanilla-css variabler.
   - [x] merge conflict resolved
   - [x] create input components
   - [x] better styling home page
+
   - [x] cleanup css
-  - [ ] textarea components
-  - [ ] form components
+  - [x] textarea components
+  - [x] fix input bug
+  - [x] button component
 
 Simon Todolist
 
 - [ ] Put CRUD (create, read, update, delete) operations connected to localStorage. Meaning if you create a new article, it will be persisted in window.localStorage. If you edit it, it will update the existing item in localStorage etc. Then read from localStorage during initial load and put in store. When editing -> Update in your store, then “request” change in your localStorage (can be seen as a mocked backend/database).
 - [ ] Put requests in a separate file, e.g /Service/Api.js
 - [ ] Return response and put in your redux store -> Then read from store to populate the fetched articles
-- [ ] Clean up styling - align input/labels, consistent margins
 - [x] Clean up styling - align input/labels, consistent margins
-- [ ] Clean up styling - align textarea/labels, consistent margins
 - [x] Color schemes - compare to https://reactjs.org/docs/getting-started.html What makes the texts/menu easy to read and nice to look at? Where are the primary/secondary colors used?
-- [ ] Highlighting the vital stuff - what’s most important that the user sees? How does the page communicate that a tab is selected for example? Display Submit buttons in different ways and hierarchy - should the “Submit-save”, edit and delete buttons all look the same?
+- [x] Highlighting the vital stuff - what’s most important that the user sees? How does the page communicate that a tab is selected for example? Display Submit buttons in different ways and hierarchy - should the “Submit-save”, edit and delete buttons all look the same?
 
 ## questions
 
