@@ -10,20 +10,6 @@
   flex-direction: column;
 }
 
-.textarea {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: var(--text-sm);
-  padding: var(--main-padding);
-  border: 1px solid var(--blue-200);
-  border-radius: var(--radius);
-  outline: 0 none;
-  resize: vertical;
-  height: 150px;
-}
-.textarea:focus {
-  outline: none;
-  box-shadow: var(--shadow);
-}
 
 .article {
   margin: 1em auto;
@@ -44,10 +30,13 @@
   filter: brightness(1.1);
   font-weight: bolder;
   border: 1px solid var(--blue-200);
+  box-shadow: var(--shadow);
 }
 
 .btnSubmit:focus {
   outline: none;
+  font-weight: bolder;
+  transition: all var(--speed);
   box-shadow: var(--shadow);
 }
 

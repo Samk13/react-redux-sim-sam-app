@@ -1,28 +1,26 @@
-import React, { forwardRef, useRef, useState } from 'react'
-import styles from './inputComponent.module.css'
+import React, { forwardRef, useState, useRef } from 'react'
 import { v1 as uuid } from 'uuid'
-// working solution for forwarding refs https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd
+import styles from './textAreaComponent.module.css'
 
-function TextInput(_props, ref) {
+function TextInputComponent(_props, ref) {
   const [inputValue, setInputValue] = useState('')
-  const [inputType] = useState(_props.type)
   const innerRef = useRef(null)
   const combinedRef = ref || innerRef
-  const id = `input_${uuid()}`
+  const id = `textarea_${uuid()}`
   const handleChange = (event) => {
     setInputValue(event.target.value)
     if (_props.onChange) _props.onChange(inputValue)
   }
+
   return (
-    <div className={styles.inputBody}>
+    <div className={styles.container}>
       <label className={styles.label} htmlFor={id}>
         {_props.label}
       </label>
-      <input
-        className={_props.input || styles.input}
+      <textarea
+        className={_props.input || styles.textArea}
         placeholder={_props.placeholder || null}
-        name={_props.name || 'input'}
-        type={inputType || 'text'}
+        name={_props.name || 'textarea'}
         required={_props.required}
         disabled={_props.disabled}
         onChange={handleChange}
@@ -30,9 +28,9 @@ function TextInput(_props, ref) {
         {..._props}
         id={id}
       />
-      <span className={styles.error}>{_props.errors}</span>
+      {_props.errors && <span className={styles.error}>{_props.errors}</span>}
     </div>
   )
 }
 
-export default forwardRef(TextInput)
+export default forwardRef(TextInputComponent)

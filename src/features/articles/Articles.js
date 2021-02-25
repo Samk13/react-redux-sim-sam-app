@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { ArticleListItem, InputComponent } from '../../components'
+import { ArticleListItem, InputComponent, TextAreaComponent } from '../../components'
 import { create, getArticles } from './articlesSlice'
 import { useForm } from 'react-hook-form'
 import styles from './articles.module.css'
@@ -28,23 +28,20 @@ export default function Articles() {
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
             errors={errors?.author && 'This field is required'}
-            ref={authorRef}
             placeholder="author"
+            ref={authorRef}
             label="author"
             name="author"
-            type="text"
           />
-          <label htmlFor="body">article body</label>
-          <textarea
+          <TextAreaComponent
+            errors={errors?.body && 'This field is required'}
             ref={register({ required: true })}
-            className={styles.textarea}
             placeholder="body"
-            type="text"
+            tag="input"
+            label="body"
             name="body"
             id="body"
           />
-          {errors.body && <span>This field is required</span>}
-          <label htmlFor="article">article body</label>
           <button className={styles.btnSubmit} type="submit">
             Submit
           </button>
