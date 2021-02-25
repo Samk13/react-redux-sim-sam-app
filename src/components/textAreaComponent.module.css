@@ -28,8 +28,8 @@
   font-weight: bold;
   outline: none;
 }
-.label::after{
-  content: "*";
+.label::after {
+  content: '*';
   color: red;
   font-size: var(--text-xs);
   margin-left: calc(var(--main-margin) / 3);
@@ -39,4 +39,3 @@
   font-size: var(--text-xs);
   color: red;
 }
-
