@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ArticleListItem, InputComponent } from '../../components'
 import { create, getArticles } from './articlesSlice'
@@ -10,15 +10,13 @@ export default function Articles() {
   const selectArticles = useSelector(getArticles)
   const authorRef = useRef(null)
   const dispatch = useDispatch()
-  const [input, setInput] = useState('')
   const onSubmit = (data) => {
     dispatch(create(data))
     reset()
-    authorRef.current.value = ''
   }
   useEffect(() => {
     if (authorRef.current) {
-      register(authorRef.current, { required: true })
+      register(authorRef.current, { required: true, maxLength: 20 })
       authorRef.current.focus()
     }
     return
@@ -29,15 +27,12 @@ export default function Articles() {
       <section>
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
-            // ref={register({ required: true })}
+            errors={errors?.author && 'This field is required'}
             ref={authorRef}
-            errors={errors.author && 'This field is required'}
             placeholder="author"
             label="author"
             name="author"
             type="text"
-            onChange={(e) => setInput(e.target.value)}
-            value={input}
           />
           <label htmlFor="body">article body</label>
           <textarea
