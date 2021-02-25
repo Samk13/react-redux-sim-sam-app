@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ArticleListItem, InputComponent } from '../../components'
 import { create, getArticles } from './articlesSlice'
@@ -8,27 +8,35 @@ import styles from './articles.module.css'
 export default function Articles() {
   const { register, handleSubmit, errors, reset } = useForm()
   const selectArticles = useSelector(getArticles)
+  const authorRef = useRef(null)
   const dispatch = useDispatch()
   const onSubmit = (data) => {
     dispatch(create(data))
     reset()
   }
+  useEffect(() => {
+    if (authorRef.current) {
+      register(authorRef.current, { required: true, maxLength: 20 })
+      authorRef.current.focus()
+    }
+    return
+  }, [register])
+
   return (
     <div className={styles.container}>
       <section>
         <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
           <InputComponent
-            ref={register({ required: true, minLength: 3, maxLength: 13 })}
-            errors={errors.author && 'This field is required'}
+            errors={errors?.author && 'This field is required'}
+            ref={authorRef}
             placeholder="author"
             label="author"
             name="author"
             type="text"
-            id="author"
           />
           <label htmlFor="body">article body</label>
           <textarea
-            ref={register({ required: true, minLength: 3, maxLength: 1313 })}
+            ref={register({ required: true })}
             className={styles.textarea}
             placeholder="body"
             type="text"
@@ -46,17 +54,17 @@ export default function Articles() {
         <h1>all articles</h1>
         <div>
           <div>
-            {selectArticles.map((article) => {
+            {selectArticles.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
               return (
-                <div key={article.id} className={styles.article}>
+                <div key={id} className={styles.article}>
                   <ArticleListItem
-                    lastEdited={article.lastEdited}
-                    createdAt={article.createdAt}
-                    author={article.author}
-                    image={article.imgUrl}
-                    body={article.body}
-                    seen={article.seen}
-                    id={article.id}
+                    lastEdited={lastEdited}
+                    createdAt={createdAt}
+                    author={author}
+                    image={imgUrl}
+                    body={body}
+                    seen={seen}
+                    id={id}
                     delete={true}
                   />
                 </div>

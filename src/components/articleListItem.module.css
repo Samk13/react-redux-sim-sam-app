@@ -77,7 +77,7 @@
   outline: 0 none;
   resize: vertical;
   height: 150px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: var(--text-sm);
 }
 
@@ -88,7 +88,7 @@
 
 .btnCard {
   padding: calc(var(--main-padding) / 2) var(--main-padding);
-  background-color: var(--gray-300);
+  background-color: var(--text-light);
   color: var(--gray-50);
   border: 1px solid var(--blue-200);
   border-radius: var(--radius);

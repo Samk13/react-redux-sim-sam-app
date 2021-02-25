@@ -2,11 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: var(--blue-900);
+  background-color: var(--bg-dark);
   color: var(--blue-200);
   padding: var(--main-padding);
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: var(--text-xl);
   /* border-bottom: 1px dashed var(--blue-200); */
 }
