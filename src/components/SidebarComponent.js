@@ -6,15 +6,17 @@ import routes from '../router/routes'
 export default function sidebarComponent() {
   return (
     <aside className={styles.aside}>
-      <ul className={styles.unorderedList}>
-        {routes.map((route, key) => (
-          <li className={styles.list} key={key}>
-            <NavLink className={styles.link} activeClassName={styles.active} to={route.path} exact>
-              {route.name}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      {routes.map((route, key) => (
+        <NavLink
+          className={styles.link}
+          key={key}
+          activeClassName={styles.active}
+          to={route.path}
+          exact
+        >
+          {route.name}
+        </NavLink>
+      ))}
     </aside>
   )
 }

@@ -34,7 +34,9 @@ Simon Todolist
 - [] Put requests in a separate file, e.g /Service/Api.js
 - [] Return response and put in your redux store -> Then read from store to populate the fetched articles
 - [] Clean up styling - align input/labels, consistent margins
-- [] Color schemes - compare to https://reactjs.org/docs/getting-started.html What makes the texts/menys easy to read and nice to look at? Where are the primary/secondary colors used?
+- [x] Clean up styling - align input/labels, consistent margins
+- [] Clean up styling - align textarea/labels, consistent margins
+- [x] Color schemes - compare to https://reactjs.org/docs/getting-started.html What makes the texts/menu easy to read and nice to look at? Where are the primary/secondary colors used?
 - [] Highlighting the vital stuff - what’s most important that the user sees? How does the page communicate that a tab is selected for example? Display Submit buttons in different ways and hierarchy - should the “Submit-save”, edit and delete buttons all look the same?
 
 ## questions

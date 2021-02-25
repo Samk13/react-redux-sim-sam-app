@@ -12,7 +12,7 @@ export default function HeaderComponent() {
       <div className={styles.headerContent}>
         <div>
           <Link className={styles.routeLink} to="/">
-            React-redux App
+            React-reduxToolKit
           </Link>
         </div>
         <span className={styles.icon} onClick={() => dispatch(toggleMenu())}>

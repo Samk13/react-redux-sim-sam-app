@@ -1,9 +1,8 @@
 .footer {
   height: 100%;
-  background-color: var(--blue-200);
-  border-radius: var(--radius);
-  background-color: var(--blue-900);
-  color: var(--blue-200);
+  background-color: var(--bg-dark);
+  color: var(--gray-50);
+  font-weight: lighter;
 }
 
 h1,

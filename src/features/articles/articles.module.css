@@ -11,6 +11,8 @@
 }
 
 .textarea {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: var(--text-sm);
   padding: var(--main-padding);
   border: 1px solid var(--blue-200);
   border-radius: var(--radius);
@@ -20,7 +22,7 @@
 }
 .textarea:focus {
   outline: none;
-  box-shadow: 0px 0px 2px #0066ff;
+  box-shadow: var(--shadow);
 }
 
 .article {
@@ -29,19 +31,23 @@
 
 .btnSubmit {
   padding: var(--main-padding);
-  background-color: var(--blue-500);
-  color: var(--gray-50);
-  border: 1px solid var(--blue-200);
+  /* background-color: var(--text-light); */
+  color: var(--text-dark);
+  font-weight: bolder;
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius);
-  transition: filter var(--speed);
+  transition: all var(--speed);
   cursor: pointer;
 }
 
 .btnSubmit:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
+  font-weight: bolder;
+  border: 1px solid var(--blue-200);
+  /* background-color: var(--text-light); */
 }
 
 .btnSubmit:focus {
   outline: none;
-  box-shadow: 0px 0px 2px #0066ff;
+  box-shadow: var(--shadow);
 }
