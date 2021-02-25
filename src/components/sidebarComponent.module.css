@@ -12,20 +12,15 @@
   font-size: var(--text-sm);
 
   padding: var(--main-padding);
-
 }
 
 .active {
   color: var(--text-dark);
   border-left: solid 5px var(--blue-200);
   font-weight: bold;
-
 }
 
 .link:hover {
   color: var(--gray-300);
   /* filter: brightness(1.2); */
-
 }
-
-
