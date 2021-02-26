@@ -1,11 +1,9 @@
-import React, { forwardRef, useState, useRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { v1 as uuid } from 'uuid'
 import styles from './textAreaComponent.module.css'
 
 function TextInputComponent(_props, ref) {
   const [inputValue, setInputValue] = useState('')
-  const innerRef = useRef(null)
-  const combinedRef = ref || innerRef
   const id = `textarea_${uuid()}`
   const handleChange = (event) => {
     setInputValue(event.target.value)
@@ -18,14 +16,10 @@ function TextInputComponent(_props, ref) {
         {_props.label}
       </label>
       <textarea
-        className={_props.input || styles.textArea}
-        placeholder={_props.placeholder || null}
-        name={_props.name || 'textarea'}
-        required={_props.required}
-        disabled={_props.disabled}
+        className={`${_props.input} ${styles.textArea}`}
         onChange={handleChange}
-        ref={combinedRef}
         {..._props}
+        ref={ref}
         id={id}
       />
       {_props.errors && <span className={styles.error}>{_props.errors}</span>}
