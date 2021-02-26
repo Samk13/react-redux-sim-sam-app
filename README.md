@@ -30,13 +30,16 @@ Gör look&feel tema-baserad med vanilla-css variabler.
   - [x] textarea components
   - [x] fix input bug
   - [x] button component
+  - [x] upgrade green and yellow dependencies
+  - [x] move devDependencies from dependencies
 
-Simon Todolist
+Simon Todo list
 
 - [ ] Put CRUD (create, read, update, delete) operations connected to localStorage. Meaning if you create a new article, it will be persisted in window.localStorage. If you edit it, it will update the existing item in localStorage etc. Then read from localStorage during initial load and put in store. When editing -> Update in your store, then “request” change in your localStorage (can be seen as a mocked backend/database).
 - [ ] Put requests in a separate file, e.g /Service/Api.js
 - [ ] Return response and put in your redux store -> Then read from store to populate the fetched articles
-- [x] Clean up styling - align input/labels, consistent margins
+- [ ] consistent margins
+- [x] Clean up styling - align input/labels,
 - [x] Color schemes - compare to https://reactjs.org/docs/getting-started.html What makes the texts/menu easy to read and nice to look at? Where are the primary/secondary colors used?
 - [x] Highlighting the vital stuff - what’s most important that the user sees? How does the page communicate that a tab is selected for example? Display Submit buttons in different ways and hierarchy - should the “Submit-save”, edit and delete buttons all look the same?
 
