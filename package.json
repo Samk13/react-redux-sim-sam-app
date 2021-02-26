@@ -83,8 +83,7 @@
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "postinstall": "husky install"
+    "prettier:fix": "prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -158,7 +157,5 @@
       "react-app"
     ]
   },
-  "devDependencies": {
-    "husky": "^5.0.9"
-  }
+  "devDependencies": {}
 }
