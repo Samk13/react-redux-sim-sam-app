@@ -56,7 +56,7 @@ export default function Articles() {
         <h1 className={styles.articlesTitle}>All articles</h1>
         <div>
           <div>
-            {selectArticles.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
+            {selectArticles?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
               return (
                 <div key={id} className={styles.article}>
                   <ArticleListItem
