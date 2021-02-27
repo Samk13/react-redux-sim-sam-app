@@ -6,7 +6,7 @@ import { getPosts } from '../../Service/Api'
 export default function Posts() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getPosts({ limit: 10 }))
+    dispatch(getPosts(10))
   }, [dispatch])
   const allPosts = useSelector(showPosts)
 
