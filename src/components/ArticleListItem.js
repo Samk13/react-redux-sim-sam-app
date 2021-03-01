@@ -22,7 +22,8 @@ export default function ArticleListItem(props) {
   const [EditText, setEditText] = useState({
     id: '',
     author: '',
-    body: ''
+    body: '',
+    lastEdited: new Date().toDateString()
   })
   const handleEdit = ({ id, author, body }) => () => {
     setToggleEditMode(true)
