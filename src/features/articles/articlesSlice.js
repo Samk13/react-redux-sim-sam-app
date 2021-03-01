@@ -1,26 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { v1 as uuid } from 'uuid'
+import { localStorageSetState } from '../../Service/LocalStorage'
 
-const saveDataToLocalStorage = (data) => {
-  if (localStorage.getItem('articlesSession') === null) {
-    let b = []
-    b.push(JSON.parse(localStorage.getItem('articlesSession')))
-    localStorage.setItem('articlesSession', JSON.stringify(b))
-  } else {
-    let a = []
-    a = JSON.parse(localStorage.getItem('articlesSession')) || []
-    a.push(data)
-    localStorage.setItem('articlesSession', JSON.stringify(a))
-  }
-}
-
+const LSArray = 'stateSession'
 export const articleSlice = createSlice({
   name: 'articles',
-  initialState: JSON.parse(localStorage.getItem('articlesSession')) || [],
+  initialState: JSON.parse(localStorage.getItem(LSArray)) || [],
   reducers: {
     create: {
       reducer: (state, { payload }) => {
-        saveDataToLocalStorage(payload)
+        localStorageSetState(payload, LSArray)
         state.push(payload)
       },
       prepare: ({ body, author }) => ({
@@ -42,17 +31,17 @@ export const articleSlice = createSlice({
         articleEdit.author = action.payload.author
         articleEdit.lastEdited = new Date().toDateString()
       }
-      localStorage.setItem('articlesSession', JSON.stringify(state))
+      localStorage.setItem(LSArray, JSON.stringify(state))
     },
     remove: (state, { payload }) => {
-      let _state = JSON.parse(localStorage.getItem('articlesSession')) || []
+      let _state = JSON.parse(localStorage.getItem(LSArray)) || []
       for (let i = 0; i < _state.length; i++) {
         let article = _state[i]
         if (article.id == payload) {
           _state.splice(i, 1)
         }
       }
-      localStorage.setItem('articlesSession', JSON.stringify(_state))
+      localStorage.setItem(LSArray, JSON.stringify(_state))
       return _state
     },
     toggleSeen: (state, action) => {
