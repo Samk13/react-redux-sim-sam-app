@@ -1,42 +1,42 @@
-const setLocalStorage = (itemName, data) => {
+const setLocalStorage = async (itemName, data) => {
   try {
     localStorage.setItem(itemName, JSON.stringify(data))
   } catch (error) {
-    console.log(error)
+    console.log(`src/Service/LocalStorage/ -> setLocalStorage func ${error}`)
   }
 }
 const getLocalStorageItem = (itemName) => {
   try {
-    return JSON.parse(localStorage.getItem(itemName)) || []
+    return JSON.parse(localStorage.getItem(itemName))
   } catch (error) {
-    console.log(error)
+    console.log(`src/Service/LocalStorage/ -> getLocalStorageItem func ${error}`)
   }
 }
 
 const localStorageInitialState = (itemName, data) => {
   try {
-    if (localStorage.getItem(itemName) === null) {
+    if (getLocalStorageItem(itemName) === null) {
       let b = data || []
-      localStorage.setItem(itemName, JSON.stringify(b))
-      return JSON.parse(localStorage.getItem(itemName))
+      setLocalStorage(itemName, b)
+      return getLocalStorageItem(itemName)
     } else {
-      return JSON.parse(localStorage.getItem(itemName)) || []
+      return getLocalStorageItem(itemName) || []
     }
   } catch (error) {
     console.log(`check src/service/localStorage -> localStorageInitialState func ${error}`)
   }
 }
 
-const localStorageSetState = (arrayName, data) => {
+const localStorageSetState = (itemName, data) => {
   try {
-    if (localStorage.getItem(arrayName) === null) {
+    if (getLocalStorageItem(itemName) === null) {
       let b = []
-      localStorage.setItem(arrayName, JSON.stringify(b))
+      setLocalStorage(itemName, b)
     } else {
       let a = []
-      a = JSON.parse(localStorage.getItem(arrayName))
+      a = getLocalStorageItem(itemName)
       a.push(data)
-      localStorage.setItem(arrayName, JSON.stringify(a))
+      setLocalStorage(itemName, a)
     }
   } catch {
     console.error('check src/service/localStorage.js -> localStorageSetState func')
