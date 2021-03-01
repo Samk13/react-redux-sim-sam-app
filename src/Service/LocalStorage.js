@@ -1,4 +1,4 @@
-const setLocalStorage = async (itemName, data) => {
+const setLocalStorage = (itemName, data) => {
   try {
     localStorage.setItem(itemName, JSON.stringify(data))
   } catch (error) {
