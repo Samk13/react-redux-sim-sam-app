@@ -1,11 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { v1 as uuid } from 'uuid'
-// import { articleInitialState } from '../../app/data'
-
-// const initialState = JSON.parse(localStorage.getItem('articlesSession'))
 
 const saveDataToLocalStorage = (data) => {
-  if (localStorage.getItem === null) {
+  if (localStorage.getItem('articlesSession') === null) {
     let b = []
     b.push(JSON.parse(localStorage.getItem('articlesSession')))
     localStorage.setItem('articlesSession', JSON.stringify(b))
@@ -17,16 +14,8 @@ const saveDataToLocalStorage = (data) => {
   }
 }
 
-// const saveDataToLocalStorage = (data) => {
-//   let a = []
-//   a = JSON.parse(localStorage.getItem('articlesSession')) || []
-//   a.push(data)
-//   localStorage.setItem('articlesSession', JSON.stringify(a))
-// }
-
 export const articleSlice = createSlice({
   name: 'articles',
-  // initialState: articleInitialState,
   initialState: JSON.parse(localStorage.getItem('articlesSession')) || [],
   reducers: {
     create: {
@@ -47,21 +36,24 @@ export const articleSlice = createSlice({
       })
     },
     edit: (state, action) => {
-      // const articleEdit = state.find((article) => article.id === action.payload.id)
       const articleEdit = state.find((article) => article.id === action.payload.id)
       if (articleEdit) {
         articleEdit.body = action.payload.body
         articleEdit.author = action.payload.author
         articleEdit.lastEdited = new Date().toDateString()
       }
-      // localStorageState.push(articleEdit)
       localStorage.setItem('articlesSession', JSON.stringify(state))
     },
     remove: (state, { payload }) => {
-      state.filter(({ id }) => id !== payload)
-      localStorage.clear()
-      localStorage.setItem('articlesSession', JSON.stringify(state))
-      return state.filter(({ id }) => id !== payload)
+      let _state = JSON.parse(localStorage.getItem('articlesSession')) || []
+      for (let i = 0; i < _state.length; i++) {
+        let article = _state[i]
+        if (article.id == payload) {
+          _state.splice(i, 1)
+        }
+      }
+      localStorage.setItem('articlesSession', JSON.stringify(_state))
+      return _state
     },
     toggleSeen: (state, action) => {
       const getSelectedArticle = state.find((article) => article.id === action.payload)
@@ -73,7 +65,6 @@ export const articleSlice = createSlice({
 })
 
 export const { create, edit, remove, toggleSeen } = articleSlice.actions
-// export const getArticles = ({ articles }) => articles
-export const getArticles = () => JSON.parse(localStorage.getItem('articlesSession'))
-// console.log('💅' + getArticles())
+export const getArticles = ({ articles }) => articles
+
 export default articleSlice.reducer
