@@ -13,6 +13,7 @@ import styles from './articles.module.css'
 export default function Articles() {
   const { register, handleSubmit, errors, reset } = useForm()
   const selectArticles = useSelector(getArticles)
+  const revMyArr = [].concat(selectArticles).reverse()
   const authorRef = useRef(null)
   const dispatch = useDispatch()
   const onSubmit = (data) => {
@@ -56,7 +57,7 @@ export default function Articles() {
         <h1 className={styles.articlesTitle}>All articles</h1>
         <div>
           <div>
-            {selectArticles?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
+            {revMyArr?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
               return (
                 <div key={id} className={styles.article}>
                   <ArticleListItem
