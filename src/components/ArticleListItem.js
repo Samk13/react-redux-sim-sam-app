@@ -22,7 +22,8 @@ export default function ArticleListItem(props) {
   const [EditText, setEditText] = useState({
     id: '',
     author: '',
-    body: ''
+    body: '',
+    lastEdited: new Date().toDateString()
   })
   const handleEdit = ({ id, author, body }) => () => {
     setToggleEditMode(true)
@@ -45,7 +46,7 @@ export default function ArticleListItem(props) {
     dispatch(toggleSeen(id))
   }
   return (
-    <article className={styles.articleContainer} onClick={() => handleToggleSeen(props)}>
+    <article className={styles.articleContainer}>
       {props.image ? <img className={styles.image} src={props.image} alt="article img" /> : null}
       <div className={styles.textContainer}>
         {toggleEditMode ? (
@@ -115,6 +116,9 @@ export default function ArticleListItem(props) {
           )}
           <button className={styles.btnCard} onClick={() => dispatch(remove(props.id))}>
             delete article
+          </button>
+          <button className={styles.btnCard} onClick={() => handleToggleSeen(props)}>
+            toggle seen
           </button>
         </div>
         <div>{props.seen ? 'seen' : null}</div>
