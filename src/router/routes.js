@@ -6,6 +6,12 @@ export default [
     name: 'Articles'
   },
   {
+    path: '/test',
+    exact: true,
+    location: './features/articles/ArticleTest',
+    name: 'Article test css'
+  },
+  {
     path: '/posts',
     exact: false,
     location: './features/posts/Posts',

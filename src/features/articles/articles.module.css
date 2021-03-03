@@ -23,6 +23,7 @@
 
 .article {
   margin: 1em auto;
+  padding: 0 var(--main-padding);
 }
 
 .createTitle,
