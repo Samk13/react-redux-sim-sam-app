@@ -1,3 +1,57 @@
 .card {
-  background-color: coral;
+  border-radius: var(--radius);
+  background: var(--bg-semi-dark);
+  color: var(--gray-200);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none;
+  text-align: left;
+  padding: calc(var(--main-margin) / 3);
+  border: var(--gray-200) solid 1px;
+  transition: var(--speed);
+}
+
+.figure img {
+  border-radius: var(--radius) var(--radius) 0 0;
+  clip-path: ellipse(100% 55% at 48% 44%);
+  place-items: center center;
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+}
+.closeBtn {
+  margin: var(--main-margin);
+  border-radius: 50%;
+  transition: var(--speed);
+  color: var(--gray-200);
+  position: absolute;
+  cursor: pointer;
+  font-size: x-large;
+  right: 0;
+  top: 0;
+}
+.closeBtn:hover {
+  color: var(--blue-200);
+}
+
+.cardTitle {
+  margin: var(--main-margin);
+  font-size: x-large;
+}
+.cardBody {
+  padding: var(--main-padding);
+}
+
+.divider {
+  border: 1px solid var(--blue-200);
+  border-radius: 5px;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: var(--main-padding);
 }

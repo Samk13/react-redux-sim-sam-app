@@ -1,11 +1,12 @@
 .btn {
+  padding: var(--main-padding) calc(var(--main-padding) * 4);
   border: 1px solid var(--gray-200);
-  background-color: var(--blue-200);
+  /* background-color: var(--blue-200); */
+  background: transparent;
   border-radius: var(--radius);
-  padding: var(--main-padding);
   text-transform: capitalize;
   transition: all var(--speed);
-  color: var(--text-dark);
+  color: var(--gray-200);
   font-weight: 900;
   cursor: pointer;
 }

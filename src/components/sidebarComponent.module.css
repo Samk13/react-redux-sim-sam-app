@@ -3,19 +3,21 @@
   flex-direction: column;
   text-align: left;
   grid-area: sidebar;
-  background-color: var(--gray-200);
+  background-color: #bdbdbd13;
+  color: var(--gray-200);
   border-left: solid 2px rgba(189, 189, 189, 0.205);
 }
 
 .link {
-  color: var(--text-dark);
+  /* color: var(--text-dark); */
+  color: var(--gray-200);
   font-size: var(--text-sm);
 
   padding: var(--main-padding);
 }
 
 .active {
-  color: var(--text-dark);
+  color: var(--blue-200);
   border-left: solid 5px var(--blue-200);
   font-weight: bold;
 }
