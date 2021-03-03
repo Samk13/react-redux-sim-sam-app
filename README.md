@@ -9,7 +9,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 ## Todos
 - [ ] restyle input form, looks empty now
 - [ ] consistent margins
-- [ ] new articles should appear on top
+- [x] new articles should appear on top
 - [ ] show some feedback when new article is created
 
 ## done:
