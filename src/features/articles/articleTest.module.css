@@ -11,7 +11,8 @@
   box-shadow: var(--shadow);
   color: var(--text-dark);
   font-size: xx-large;
-  border-radius: 50px;
+  border-radius: var(--radius);
+  text-transform: capitalize;
   font-weight: bold;
   margin: var(--main-padding) 0;
 }
@@ -20,12 +21,6 @@
   height: auto;
   width: 100%;
   margin: var(--main-padding) 0;
-}
-
-.form {
-  background: linear-gradient(to right, var(--blue-200), #2ebf91);
-  height: 100%;
-
 }
 
 .cardContainer {

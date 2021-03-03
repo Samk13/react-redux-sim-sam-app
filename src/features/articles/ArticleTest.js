@@ -9,9 +9,7 @@ export default function ArticleTest() {
         <p className={styles.title}>The Article Generator</p>
       </div>
       <div className={styles.formContainer}>
-        <div className={styles.form}>
-          <ArticleForm />
-        </div>
+        <ArticleForm />
       </div>
       <div className={styles.container}>
         <div className={styles.cardContainer}>

@@ -1,5 +1,13 @@
-.form{
-  background-color: aqua;
+.formContainer {
   border-radius: var(--radius);
-;
+  border-radius: var(--radius);
+  text-align: left;
+  border-radius: var(--radius);
+  background-color: var(--bg-dark);
+  padding: var(--main-padding);
+}
+
+.formTitle {
+  padding: var(--main-margin) 0;
+  color: var(--gray-200);
 }
