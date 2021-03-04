@@ -1,80 +1,37 @@
-import React, { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  ArticleListItem,
-  InputComponent,
-  TextAreaComponent,
-  ButtonComponent
-} from '../../components'
-import { create, getArticles } from './articlesSlice'
-import { useForm } from 'react-hook-form'
+import React from 'react'
+import { ArticleForm, CardItem } from '../../components'
+import { useSelector } from 'react-redux'
 import styles from './articles.module.css'
+import { getArticles } from './articlesSlice'
 
-export default function Articles() {
-  const { register, handleSubmit, errors, reset } = useForm()
+export default function ArticleTest() {
   const selectArticles = useSelector(getArticles)
   const revMyArr = [].concat(selectArticles).reverse()
-  const authorRef = useRef(null)
-  const dispatch = useDispatch()
-  const onSubmit = (data) => {
-    dispatch(create(data))
-    reset()
-  }
-  useEffect(() => {
-    if (authorRef.current) {
-      register(authorRef.current, { required: true, maxLength: 20 })
-      authorRef.current.focus()
-    }
-    return
-  }, [register])
-
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Articles</h1>
-      <section className={styles.fromContainer}>
-        <h1 className={styles.createTitle}>Create new Article</h1>
-        <form className={styles.articlesContainer} onSubmit={handleSubmit(onSubmit)}>
-          <InputComponent
-            errors={errors?.author && 'This field is required'}
-            placeholder="author"
-            ref={authorRef}
-            label="author"
-            name="author"
-          />
-          <TextAreaComponent
-            errors={errors?.body && 'This field is required'}
-            ref={register({ required: true })}
-            placeholder="body"
-            tag="input"
-            label="body"
-            name="body"
-            id="body"
-          />
-          <ButtonComponent type="submit">Submit</ButtonComponent>
-        </form>
-      </section>
-      <section className={styles.articlesContainer}>
-        <h1 className={styles.articlesTitle}>All articles</h1>
-        <div>
-          <div>
-            {revMyArr?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
-              return (
-                <div key={id} className={styles.article}>
-                  <ArticleListItem
-                    lastEdited={lastEdited}
-                    createdAt={createdAt}
-                    author={author}
-                    image={imgUrl}
-                    body={body}
-                    seen={seen}
-                    id={id}
-                  />
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+    <div>
+      <div className={styles.formContainer}>
+        <p className={styles.title}>The Article Generator</p>
+      </div>
+      <div className={styles.formContainer}>
+        <ArticleForm />
+      </div>
+      <div className={styles.container}>
+        {revMyArr?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => {
+          return (
+            <div className={styles.cardContainer} key={id}>
+              <CardItem
+                lastEdited={lastEdited}
+                createdAt={createdAt}
+                author={author}
+                image={imgUrl}
+                body={body}
+                seen={seen}
+                id={id}
+              />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

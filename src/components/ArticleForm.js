@@ -13,6 +13,7 @@ export default function ArticleForm() {
     dispatch(create(data))
     reset()
   }
+
   const authorRef = useRef(null)
   useEffect(() => {
     if (authorRef.current) {
@@ -21,6 +22,7 @@ export default function ArticleForm() {
     }
     return
   }, [register])
+
   return (
     <div className={styles.formContainer}>
       <div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from './cardItem.module.css'
 import { ReactComponent as CloseIcon } from '../icons/close.svg'
 import ButtonComponent from './ButtonComponent'
@@ -27,6 +27,8 @@ export default function CardItem(props) {
     body: '',
     lastEdited: new Date().toDateString()
   })
+
+  const inputRef = useRef(null)
   const handleEdit = ({ id, author, body }) => () => {
     setToggleEditMode(true)
     setEditText((prevState) => ({
@@ -38,6 +40,7 @@ export default function CardItem(props) {
     setToggleEditMode(id)
     setEditText((prevState) => ({ ...prevState, author, body }))
   }
+
   const handleSaveEdit = () => {
     dispatch(edit(EditText))
     setEditText(() => ({ id: '', author: '', body: '' }))
@@ -47,6 +50,15 @@ export default function CardItem(props) {
   const handleToggleSeen = ({ id }) => {
     dispatch(toggleSeen(id))
   }
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const inp = inputRef.current
+      return inp.focus()
+    }
+    return
+  }, [toggleEditMode])
+
   return (
     <div className={styles.card}>
       <figure className={styles.figure}>
@@ -61,6 +73,7 @@ export default function CardItem(props) {
         {toggleEditMode ? (
           <input
             className={styles.editAuthor}
+            ref={inputRef}
             type="text"
             name="author"
             placeholder="author"
@@ -70,6 +83,7 @@ export default function CardItem(props) {
                 author: e.target.value
               }))
             }
+            id="input"
             value={EditText.author}
           />
         ) : (
@@ -95,7 +109,6 @@ export default function CardItem(props) {
           <p>{props.body}</p>
         )}
       </div>
-
       <div className={styles.cardFooter}>
         <hr className={styles.divider} />
         <div className={styles.cardInfo}>
