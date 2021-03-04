@@ -12,6 +12,10 @@
   border: var(--gray-200) solid 1px;
   transition: var(--speed);
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .figure img {
@@ -38,18 +42,17 @@
   filter: invert() brightness(2);
 }
 
-.cancelBtn{
+.cancelBtn {
   /* filter: invert(); */
   filter: brightness(0.5);
 }
-.cancelBtn:hover{
+.cancelBtn:hover {
   filter: invert() brightness(2);
 }
 
-.saveBtn:hover{
+.saveBtn:hover {
   filter: invert() brightness(2) hue-rotate(90deg);
 }
-
 
 .saveCancelContainer {
   display: flex;
@@ -64,7 +67,8 @@
 
 .cardBody {
   padding: var(--main-padding);
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  flex-grow: 1;
 }
 
 .divider {
@@ -72,17 +76,19 @@
   border-radius: 5px;
 }
 
+.cardInfo {
+}
+
 .cardFooter {
-  position: absolute;
-  bottom: 0;
-  padding-top: 50px;
+  /* position: absolute;
+  bottom: 0; */
+  /* padding-top: 50px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: var(--main-padding);
   width: 100%;
 }
-
 
 .editAuthor {
   border: 1px solid var(--blue-200);
@@ -108,4 +114,5 @@
   resize: vertical;
   height: 150px;
   width: 100%;
+  /* margin: var(--main-margin) 0; */
 }

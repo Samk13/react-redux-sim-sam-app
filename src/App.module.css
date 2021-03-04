@@ -19,9 +19,9 @@
     'main main main main'
     'main main main main'
     'footer footer footer footer';
-    gap: 0.2rem;
-    text-align: center;
-    background-color: var(--text-dark);
+  gap: 0.2rem;
+  text-align: center;
+  background-color: var(--text-dark);
 }
 
 .header {

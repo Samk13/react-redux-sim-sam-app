@@ -54,50 +54,51 @@ export default function CardItem(props) {
           <img src={props.image} alt="article img" onClick={() => handleToggleSeen(props)} />
         ) : null}
       </figure>
-      <div>
-        <div className={styles.closeBtn} onClick={() => dispatch(remove(props.id))}>
-          <CloseIcon />
-        </div>
-        <div className={styles.cardTitle}>
-          {toggleEditMode ? (
-            <input
-              className={styles.editAuthor}
-              type="text"
-              name="author"
-              placeholder="author"
-              onChange={(e) =>
-                setEditText((prevState) => ({
-                  ...prevState,
-                  author: e.target.value
-                }))
-              }
-              value={EditText.author}
-            />
-          ) : (
-            <div>{props.author}</div>
-          )}
-        </div>
-        <div className={styles.cardBody}>
-          {toggleEditMode ? (
-            <textarea
-              type="text"
-              className={styles.editBody}
-              placeholder="body"
-              onChange={(e) =>
-                setEditText((prevState) => ({
-                  ...prevState,
-                  body: e.target.value
-                }))
-              }
-              name="body"
-              value={EditText.body}
-            />
-          ) : (
-            <p>{props.body}</p>
-          )}
-        </div>
+      <div className={styles.closeBtn} onClick={() => dispatch(remove(props.id))}>
+        <CloseIcon />
+      </div>
+      <div className={styles.cardTitle}>
+        {toggleEditMode ? (
+          <input
+            className={styles.editAuthor}
+            type="text"
+            name="author"
+            placeholder="author"
+            onChange={(e) =>
+              setEditText((prevState) => ({
+                ...prevState,
+                author: e.target.value
+              }))
+            }
+            value={EditText.author}
+          />
+        ) : (
+          <div>{props.author}</div>
+        )}
+      </div>
+      <div className={styles.cardBody}>
+        {toggleEditMode ? (
+          <textarea
+            type="text"
+            className={styles.editBody}
+            placeholder="body"
+            onChange={(e) =>
+              setEditText((prevState) => ({
+                ...prevState,
+                body: e.target.value
+              }))
+            }
+            name="body"
+            value={EditText.body}
+          />
+        ) : (
+          <p>{props.body}</p>
+        )}
+      </div>
+
+      <div className={styles.cardFooter}>
         <hr className={styles.divider} />
-        <div className={styles.cardBody}>
+        <div className={styles.cardInfo}>
           <span>
             <p>created at: </p>
             {props.createdAt ? <div>{props.createdAt}</div> : null}
@@ -109,22 +110,20 @@ export default function CardItem(props) {
           <span>{props.seen ? 'seen' : null}</span>
         </div>
       </div>
-      <div className={styles.cardFooter}>
-        {toggleEditMode ? (
-          <>
-            <div className={styles.saveCancelContainer}>
-              <span className={styles.saveBtn}>
-                <ButtonComponent onClick={handleSaveEdit}>Save</ButtonComponent>
-              </span>
-              <span className={styles.cancelBtn}>
-                <ButtonComponent onClick={() => setToggleEditMode(false)}>Cancel</ButtonComponent>
-              </span>
-            </div>
-          </>
-        ) : (
-          <ButtonComponent onClick={handleEdit(props)}>edit</ButtonComponent>
-        )}
-      </div>
+      {toggleEditMode ? (
+        <>
+          <div className={styles.saveCancelContainer}>
+            <span className={styles.saveBtn}>
+              <ButtonComponent onClick={handleSaveEdit}>Save</ButtonComponent>
+            </span>
+            <span className={styles.cancelBtn}>
+              <ButtonComponent onClick={() => setToggleEditMode(false)}>Cancel</ButtonComponent>
+            </span>
+          </div>
+        </>
+      ) : (
+        <ButtonComponent onClick={handleEdit(props)}>edit</ButtonComponent>
+      )}
     </div>
   )
 }
