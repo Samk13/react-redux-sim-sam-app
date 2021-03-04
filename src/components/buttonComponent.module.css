@@ -1,6 +1,6 @@
 .btn {
   padding: var(--main-padding) calc(var(--main-padding) * 4);
-  border: 1px solid var(--gray-200);
+  border: 1px solid transparent;
   border-radius: var(--radius);
   transition: all var(--speed);
   text-transform: capitalize;

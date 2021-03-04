@@ -100,14 +100,12 @@ export default function CardItem(props) {
         <hr className={styles.divider} />
         <div className={styles.cardInfo}>
           <span>
-            <p>created at: </p>
-            {props.createdAt ? <div>{props.createdAt}</div> : null}
+            <span>{props.createdAt ? <div>created at: {props.createdAt}</div> : null}</span>
+            <span>
+              {props.lastEdited ? <div>last edited: {props.lastEdited}</div> : null}
+              <span>{props.seen ? 'clicked' : 'not clicked'}</span>
+            </span>
           </span>
-          <span>
-            <p>last edited:</p>
-            {props.lastEdited ? <div>{props.lastEdited}</div> : null}
-          </span>
-          <span>{props.seen ? 'seen' : null}</span>
         </div>
       </div>
       {toggleEditMode ? (

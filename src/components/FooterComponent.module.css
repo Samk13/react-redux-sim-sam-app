@@ -1,4 +1,5 @@
 .footer {
+  margin-top: 50px;
   background-color: var(--bg-dark);
   color: var(--gray-50);
   font-weight: lighter;

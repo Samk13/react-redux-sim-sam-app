@@ -18,6 +18,12 @@
   justify-content: space-between;
 }
 
+.card:hover {
+  transform: scale(1.1);
+  background-color: var(--bg-dark);
+  z-index: 10;
+}
+
 .figure img {
   border-radius: var(--radius) var(--radius) 0 0;
   clip-path: ellipse(100% 55% at 48% 44%);
@@ -73,10 +79,14 @@
 
 .divider {
   border: 1px solid var(--blue-200);
+  filter: opacity(0.4);
   border-radius: 5px;
 }
 
 .cardInfo {
+  display: flex;
+  font-size: small;
+  color: var(--gray-300);
 }
 
 .cardFooter {
