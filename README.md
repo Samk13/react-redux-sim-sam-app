@@ -8,13 +8,13 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
 
-- [ ] restyle input form, looks empty now
-- [ ] consistent margins
-- [x] new articles should appear on top
 - [ ] show some feedback when new article is created
 
 ## done:
 
+- [x] restyle input form, looks empty now
+- [x] consistent margins
+- [x] new articles should appear on top
 - [x] Put CRUD (create, read, update, delete) operations connected to localStorage. Meaning if you create a new article, it will be persisted in window.localStorage. If you edit it, it will update the existing item in localStorage etc. Then read from localStorage during initial load and put in store. When editing -> Update in your store, then “request” change in your localStorage (can be seen as a mocked backend/database).
 - [x] Put requests in a separate file, e.g /Service/Api.js
 - [x] Return response and put in your redux store -> Then read from store to populate the fetched articles
