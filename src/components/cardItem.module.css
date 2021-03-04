@@ -1,25 +1,22 @@
 .card {
-  border-radius: var(--radius);
-  background: var(--bg-semi-dark);
-  color: var(--gray-200);
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none;
-  text-align: left;
   padding: calc(var(--main-margin) / 3);
   border: var(--gray-200) solid 1px;
-  transition: var(--speed);
+  background: var(--bg-semi-dark);
+  justify-content: space-between;
+  border-radius: var(--radius);
+  transition: calc(var(--speed) / 2);
+  color: var(--gray-200);
+  flex-direction: column;
+  position: relative;
+  user-select: none;
+  text-align: left;
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
   background-color: var(--bg-dark);
   z-index: 10;
 }
@@ -31,6 +28,7 @@
   object-fit: cover;
   height: 150px;
   width: 100%;
+  cursor: pointer;
 }
 .closeBtn {
   margin: var(--main-margin);

@@ -100,9 +100,15 @@ export default function CardItem(props) {
         <hr className={styles.divider} />
         <div className={styles.cardInfo}>
           <span>
-            <span>{props.createdAt ? <div>created at: {props.createdAt}</div> : null}</span>
             <span>
-              {props.lastEdited ? <div>last edited: {props.lastEdited}</div> : null}
+              {props.createdAt ? <div>created at: {props.createdAt}</div> : <div>created at:</div>}
+            </span>
+            <span>
+              {props.lastEdited ? (
+                <div>last edited: {props.lastEdited}</div>
+              ) : (
+                <div>last edited:</div>
+              )}
               <span>{props.seen ? 'clicked' : 'not clicked'}</span>
             </span>
           </span>
