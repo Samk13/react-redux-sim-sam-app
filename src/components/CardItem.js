@@ -61,7 +61,7 @@ export default function CardItem(props) {
         <div className={styles.cardTitle}>
           {toggleEditMode ? (
             <input
-              className={props.className || styles.input}
+              className={styles.editAuthor}
               type="text"
               name="author"
               placeholder="author"
@@ -74,14 +74,14 @@ export default function CardItem(props) {
               value={EditText.author}
             />
           ) : (
-            <h3>{props.author}</h3>
+            <div>{props.author}</div>
           )}
         </div>
         <div className={styles.cardBody}>
           {toggleEditMode ? (
             <textarea
               type="text"
-              className={styles.textAreaComponent}
+              className={styles.editBody}
               placeholder="body"
               onChange={(e) =>
                 setEditText((prevState) => ({
@@ -112,8 +112,14 @@ export default function CardItem(props) {
       <div className={styles.cardFooter}>
         {toggleEditMode ? (
           <>
-            <ButtonComponent onClick={handleSaveEdit}>Save</ButtonComponent>
-            <ButtonComponent onClick={() => setToggleEditMode(false)}>Cancel</ButtonComponent>
+            <div className={styles.saveCancelContainer}>
+              <span className={styles.saveBtn}>
+                <ButtonComponent onClick={handleSaveEdit}>Save</ButtonComponent>
+              </span>
+              <span className={styles.cancelBtn}>
+                <ButtonComponent onClick={() => setToggleEditMode(false)}>Cancel</ButtonComponent>
+              </span>
+            </div>
           </>
         ) : (
           <ButtonComponent onClick={handleEdit(props)}>edit</ButtonComponent>
