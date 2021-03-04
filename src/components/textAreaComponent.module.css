@@ -13,6 +13,8 @@
 .textArea {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   margin: calc(var(--main-margin) / 3) 0;
+  background-color: var(--text-dark);
+  color: var(--gray-200);
   border: 1px solid var(--blue-200);
   padding: var(--main-padding);
   border-radius: var(--radius);
