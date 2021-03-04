@@ -1,0 +1,23 @@
+.card-container-enter {
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  transform: translate(0 -100px);
+}
+
+.card-container-enter-active {
+  transform: rotateX(0);
+  transform: translate(0 0);
+  transition: transform var(--speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-container-enter-done {
+}
+
+.card-container-exit {
+}
+
+.card-container-exit-active {
+}
+
+.card-container-exit-done {
+}
