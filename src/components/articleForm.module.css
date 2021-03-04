@@ -1,11 +1,11 @@
 .formContainer {
-  border-radius: var(--radius);
-  border-radius: var(--radius);
-  text-align: left;
-  border-radius: var(--radius);
   background-color: var(--bg-semi-dark);
-  padding: var(--main-padding);
   border: var(--gray-200) solid 1px;
+  border-radius: var(--radius);
+  border-radius: var(--radius);
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  text-align: left;
 }
 
 .formTitle {

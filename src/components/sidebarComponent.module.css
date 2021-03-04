@@ -1,28 +1,25 @@
 .aside {
-  display: flex;
+  border-left: solid 2px var(--border-color);
+  background-color: var(--bg-semi-dark);
   flex-direction: column;
-  text-align: left;
-  grid-area: sidebar;
-  background-color: #bdbdbd13;
   color: var(--gray-200);
-  border-left: solid 2px rgba(189, 189, 189, 0.205);
+  grid-area: sidebar;
+  text-align: left;
+  display: flex;
 }
 
 .link {
-  /* color: var(--text-dark); */
-  color: var(--gray-200);
-  font-size: var(--text-sm);
-
   padding: var(--main-padding);
+  font-size: var(--text-sm);
+  color: var(--gray-200);
 }
 
 .active {
-  color: var(--blue-200);
   border-left: solid 5px var(--blue-200);
+  color: var(--blue-200);
   font-weight: bold;
 }
 
 .link:hover {
   color: var(--gray-300);
-  /* filter: brightness(1.2); */
 }

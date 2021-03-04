@@ -11,10 +11,10 @@
 }
 
 .label::after {
+  margin-left: calc(var(--main-margin) / 3);
+  font-size: var(--text-xs);
   content: '*';
   color: red;
-  font-size: var(--text-xs);
-  margin-left: calc(var(--main-margin) / 3);
 }
 
 .error {

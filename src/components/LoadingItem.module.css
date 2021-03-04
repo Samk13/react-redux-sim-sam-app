@@ -1,16 +1,16 @@
 .loader {
-  color: var(--blue-500);
-  font-size: var(--text-sm);
-  margin: 100px auto;
-  width: 1em;
-  height: 1em;
-  border-radius: var(--radius);
-  position: relative;
   -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
   transform: translateZ(0);
+  color: var(--blue-500);
+  margin: 100px auto;
+  position: relative;
+  height: 1em;
+  width: 1em;
 }
 @-webkit-keyframes load4 {
   0%,
