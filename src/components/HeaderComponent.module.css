@@ -1,9 +1,9 @@
 .header {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-dark, #20232a);
   padding: var(--main-padding);
   font-size: var(--text-xl);
-  color: var(--blue-200);
+  color: var(--blue-200, #61dafb);
   position: sticky;
   font-weight: bold;
   z-index: 1;
@@ -11,13 +11,13 @@
 }
 
 .routeLink {
-  color: var(--blue-200);
+  color: var(--blue-200, #61dafb);
   text-decoration: none;
 }
 
 .headerContent {
   justify-content: space-between;
-  color: var(--blue-200);
+  color: var(--blue-200, #61dafb);
   align-items: center;
   display: flex;
 }

@@ -8,7 +8,7 @@
     'footer footer footer sidebar';
   gap: 0.2rem;
   text-align: center;
-  background-color: var(--text-dark);
+  background-color: var(--text-dark, #282c34);
 }
 
 .container_hide_sidebar {
@@ -21,7 +21,7 @@
     'footer footer footer footer';
   gap: 0.2rem;
   text-align: center;
-  background-color: var(--text-dark);
+  background-color: var(--text-dark, #282c34);
 }
 
 .header {

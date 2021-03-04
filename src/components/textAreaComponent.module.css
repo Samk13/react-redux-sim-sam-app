@@ -6,15 +6,15 @@
 }
 
 .label {
-  color: var(--text-light);
+  color: var(--text-light, #999);
   font-weight: normal;
 }
 
 .textArea {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   margin: calc(var(--main-margin) / 3) 0;
-  background-color: var(--text-dark);
-  border: 1px solid var(--blue-200);
+  background-color: var(--text-dark, #282c34);
+  border: 1px solid var(--blue-200, #61dafb);
   padding: var(--main-padding);
   border-radius: var(--radius);
   font-size: var(--text-sm);

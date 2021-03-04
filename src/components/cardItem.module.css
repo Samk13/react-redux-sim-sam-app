@@ -1,7 +1,7 @@
 .card {
   padding: calc(var(--main-margin) / 3);
   border: var(--gray-200) solid 1px;
-  background: var(--bg-semi-dark);
+  background: var(--bg-semi-dark, #bdbdbd13);
   justify-content: space-between;
   border-radius: var(--radius);
   transition: calc(var(--speed) / 2);
@@ -17,7 +17,7 @@
 
 .card:hover {
   transform: scale(1.03);
-  background-color: var(--bg-dark);
+  background-color: var(--bg-dark, #20232a);
   z-index: 10;
 }
 
@@ -42,7 +42,7 @@
   top: 0;
 }
 .closeBtn:hover {
-  color: var(--blue-200);
+  color: var(--blue-200, #61dafb);
   filter: invert() brightness(2);
 }
 
@@ -76,7 +76,7 @@
 }
 
 .divider {
-  border: 1px solid var(--blue-200);
+  border: 1px solid var(--blue-200, #61dafb);
   filter: opacity(0.4);
   border-radius: 5px;
 }
@@ -99,7 +99,7 @@
 }
 
 .editAuthor {
-  border: 1px solid var(--blue-200);
+  border: 1px solid var(--blue-200, #61dafb);
   padding: 2px 5px;
   background-color: var(--drark);
   border-radius: var(--radius);
@@ -112,7 +112,7 @@
 
 .editBody {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  border: 1px solid var(--blue-200);
+  border: 1px solid var(--blue-200, #61dafb);
   background-color: var(--drark);
   color: var(--gray-200);
   padding: var(--main-padding);

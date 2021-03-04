@@ -1,5 +1,5 @@
 .formContainer {
-  background-color: var(--bg-semi-dark);
+  background-color: var(--bg-semi-dark, #bdbdbd13);
   border: var(--gray-200) solid 1px;
   border-radius: var(--radius);
   border-radius: var(--radius);
