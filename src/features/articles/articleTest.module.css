@@ -5,7 +5,6 @@
 }
 
 .title {
-
   background: linear-gradient(to right bottom, var(--blue-200), #2ebf91);
   margin: var(--main-padding) 0;
   border-radius: var(--radius);
