@@ -5,14 +5,15 @@
 }
 
 .title {
+
   background: linear-gradient(to right bottom, var(--blue-200), #2ebf91);
-  background-color: var(--blue-200);
+  background-clip: text;
+  color: transparent;
   margin: var(--main-padding) 0;
   border-radius: var(--radius);
   padding: var(--main-padding);
   text-transform: capitalize;
   box-shadow: var(--shadow);
-  color: var(--text-dark);
   font-size: xx-large;
   font-weight: bold;
 }
