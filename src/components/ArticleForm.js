@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './articleForm.module.css'
-import ButtonComponent from './ButtonComponent'
+import ArticleButton from './ArticleButton'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
 import { create } from '../features/articles/articlesSlice'
@@ -45,7 +45,7 @@ export default function ArticleForm() {
           errors={errors?.body && 'This field is required'}
           ref={register({ required: true })}
         />
-        <ButtonComponent type="submit">Submit</ButtonComponent>
+        <ArticleButton type="submit">Submit</ArticleButton>
       </form>
     </div>
   )

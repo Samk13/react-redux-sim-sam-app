@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './cardItem.module.css'
 import { ReactComponent as CloseIcon } from '../icons/close.svg'
-import ButtonComponent from './ButtonComponent'
+import ArticleButton from './ArticleButton'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { remove, edit, toggleSeen } from '../features/articles/articlesSlice'
@@ -131,15 +131,15 @@ export default function CardItem(props) {
         <>
           <div className={styles.saveCancelContainer}>
             <span className={styles.saveBtn}>
-              <ButtonComponent onClick={handleSaveEdit}>Save</ButtonComponent>
+              <ArticleButton onClick={handleSaveEdit}>Save</ArticleButton>
             </span>
             <span className={styles.cancelBtn}>
-              <ButtonComponent onClick={() => setToggleEditMode(false)}>Cancel</ButtonComponent>
+              <ArticleButton onClick={() => setToggleEditMode(false)}>Cancel</ArticleButton>
             </span>
           </div>
         </>
       ) : (
-        <ButtonComponent onClick={handleEdit(props)}>edit</ButtonComponent>
+        <ArticleButton onClick={handleEdit(props)}>edit</ArticleButton>
       )}
     </div>
   )

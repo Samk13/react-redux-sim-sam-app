@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
-import styles from './buttonComponent.module.css'
+import styles from './articleButton.module.css'
 
-function ButtonComponent(_props, ref) {
+function ArticleButton(_props, ref) {
   return (
     <button className={styles.btn} ref={ref} {..._props}>
       {_props.children}
@@ -9,4 +9,4 @@ function ButtonComponent(_props, ref) {
   )
 }
 
-export default forwardRef(ButtonComponent)
+export default forwardRef(ArticleButton)
