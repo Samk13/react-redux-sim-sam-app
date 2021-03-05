@@ -8,9 +8,11 @@
   color: var(--blue-200, #61dafb);
   font-weight: 900;
   cursor: pointer;
+  width: 100%;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   border: 1px solid var(--blue-200, #61dafb);
   box-shadow: var(--shadow);
   filter: brightness(1.1);
