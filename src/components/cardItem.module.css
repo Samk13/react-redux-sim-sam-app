@@ -78,7 +78,7 @@
 }
 
 .divider {
-  margin: var(--main-margin);
+  margin: var(--main-margin) 0;
   filter: opacity(0.4);
   border-radius: 5px;
 }
