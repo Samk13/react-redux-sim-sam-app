@@ -70,13 +70,10 @@
   font-size: x-large;
   font-weight: bold;
   padding: var(--main-padding);
-  /* margin: 0 var(--main-margin); */
 }
 
 .cardBody {
-  /* margin: 0 var(--main-margin); */
   padding: var(--main-padding);
-  /* margin-top: var(--main-margin); */
   flex-grow: 1;
 }
 
@@ -94,33 +91,17 @@
 
 .cardFooter {
   padding: var(--main-padding);
-  /* margin: var(--main-margin); */
-}
-
-.editAuthor {
-  padding: 2px 5px;
-  background-color: var(--drark);
-  border-radius: var(--radius);
-  font-size: x-large;
-  font-weight: bold;
-  color: var(--gray-200);
-  color: var(--gray-200);
-  width: 100%;
-}
-
-.editBody:focus-within {
-  border: 1px solid var(--blue-200, #61dafb);
 }
 
 .editBody {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   background-color: var(--drark);
-  color: var(--gray-200);
   padding: var(--main-padding);
   border-radius: var(--radius);
   font-size: var(--text-sm);
-  outline: 0 none;
+  color: var(--gray-200);
   resize: vertical;
+  outline: 0 none;
   height: 150px;
   width: 100%;
 }
@@ -130,9 +111,9 @@
 }
 
 .btnContainer {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
   padding: var(--main-padding);
+  flex-direction: column;
+  display: flex;
   width: 100%;
 }
