@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import styles from './cardItem.module.css'
 import { ReactComponent as CloseIcon } from '../icons/close.svg'
 import ArticleButton from './ArticleButton'
+import InputComponent from './InputComponent'
+import TextAreaComponent from './TextAreaComponent'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { remove, edit, toggleSeen } from '../features/articles/articlesSlice'
@@ -71,12 +73,13 @@ export default function CardItem(props) {
       </div>
       <div className={styles.cardTitle}>
         {toggleEditMode ? (
-          <input
-            className={styles.editAuthor}
+          <InputComponent
+            // className={styles.editAuthor}
             ref={inputRef}
             type="text"
             name="author"
             placeholder="author"
+            tabIndex="1"
             onChange={(e) =>
               setEditText((prevState) => ({
                 ...prevState,
@@ -92,9 +95,9 @@ export default function CardItem(props) {
       </div>
       <div className={styles.cardBody}>
         {toggleEditMode ? (
-          <textarea
+          <TextAreaComponent
             type="text"
-            className={styles.editBody}
+            // className={styles.editBody}
             placeholder="body"
             onChange={(e) =>
               setEditText((prevState) => ({
@@ -104,13 +107,14 @@ export default function CardItem(props) {
             }
             name="body"
             value={EditText.body}
+            tabIndex="2"
           />
         ) : (
           <p>{props.body}</p>
         )}
       </div>
+      <hr className={styles.divider} />
       <div className={styles.cardFooter}>
-        <hr className={styles.divider} />
         <div className={styles.cardInfo}>
           <span>
             <span>
@@ -127,20 +131,26 @@ export default function CardItem(props) {
           </span>
         </div>
       </div>
-      {toggleEditMode ? (
-        <>
-          <div className={styles.saveCancelContainer}>
-            <span className={styles.saveBtn}>
-              <ArticleButton onClick={handleSaveEdit}>Save</ArticleButton>
-            </span>
-            <span className={styles.cancelBtn}>
-              <ArticleButton onClick={() => setToggleEditMode(false)}>Cancel</ArticleButton>
-            </span>
-          </div>
-        </>
-      ) : (
-        <ArticleButton onClick={handleEdit(props)}>edit</ArticleButton>
-      )}
+      <div className={styles.btnContainer}>
+        {toggleEditMode ? (
+          <>
+            <div className={styles.saveCancelContainer}>
+              <span className={styles.saveBtn}>
+                <ArticleButton onClick={handleSaveEdit} tabIndex="3">
+                  Save
+                </ArticleButton>
+              </span>
+              <span className={styles.cancelBtn}>
+                <ArticleButton tabIndex="4" onClick={() => setToggleEditMode(false)}>
+                  Cancel
+                </ArticleButton>
+              </span>
+            </div>
+          </>
+        ) : (
+          <ArticleButton onClick={handleEdit(props)}>edit</ArticleButton>
+        )}
+      </div>
     </div>
   )
 }
