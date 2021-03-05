@@ -17,13 +17,12 @@ body {
 :root {
   --blue-200: #61dafb;
   --gray-200: #f7f7f7;
-  --gray-50: #f9fafb;
   --gray-300: #6d6d6d;
-  --text-dark: #282c34;
   --text-light: #999;
+  --text-dark: #282c34;
   --bg-dark: #20232a;
-  --bg-semidark: #282c34;
-
+  --bg-semi-dark: #bdbdbd13;
+  --border-color: #bdbdbd34;
   --radius: 10px;
   --main-padding: 10px;
   --main-margin: 1rem;

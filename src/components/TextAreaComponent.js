@@ -12,11 +12,13 @@ function TextInputComponent(_props, ref) {
 
   return (
     <div className={styles.container}>
-      <label className={styles.label} htmlFor={id}>
-        {_props.label}
-      </label>
+      {_props.label && (
+        <label className={styles.label} htmlFor={id}>
+          {_props.label}
+        </label>
+      )}
       <textarea
-        className={`${_props.input} ${styles.textArea}`}
+        className={`${_props.className} ${styles.textArea}`}
         onChange={handleChange}
         {..._props}
         ref={ref}

@@ -6,15 +6,15 @@
 }
 
 .label {
-  color: var(--text-light);
+  color: var(--text-light, #999);
   font-weight: normal;
 }
 
 .label::after {
+  margin-left: calc(var(--main-margin) / 3);
+  font-size: var(--text-xs);
   content: '*';
   color: red;
-  font-size: var(--text-xs);
-  margin-left: calc(var(--main-margin) / 3);
 }
 
 .error {
@@ -24,9 +24,11 @@
 
 .input {
   margin: calc(var(--main-margin) / 3) 0;
-  border: 1px solid var(--blue-200);
+  background-color: var(--text-dark, #282c34);
+  border: 1px solid var(--blue-200, #61dafb);
   border-radius: var(--radius);
   padding: var(--main-padding);
+  color: var(--gray-200);
   font-weight: lighter;
 }
 

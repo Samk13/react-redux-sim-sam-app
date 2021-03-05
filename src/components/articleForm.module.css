@@ -1,0 +1,14 @@
+.formContainer {
+  background-color: var(--bg-semi-dark, #bdbdbd13);
+  border: var(--gray-200) solid 1px;
+  border-radius: var(--radius);
+  border-radius: var(--radius);
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  text-align: left;
+}
+
+.formTitle {
+  padding: var(--main-margin) 0;
+  color: var(--gray-200);
+}

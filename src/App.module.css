@@ -8,6 +8,7 @@
     'footer footer footer sidebar';
   gap: 0.2rem;
   text-align: center;
+  background-color: var(--text-dark, #282c34);
 }
 
 .container_hide_sidebar {
@@ -20,6 +21,7 @@
     'footer footer footer footer';
   gap: 0.2rem;
   text-align: center;
+  background-color: var(--text-dark, #282c34);
 }
 
 .header {
@@ -32,6 +34,9 @@
   min-height: calc(100vh - 10vh);
   border-radius: var(--radius);
   padding-top: var(--main-padding);
+  max-width: 80%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .footer {
@@ -53,5 +58,7 @@
     height: minmax(calc(100vh - 20vh), auto-fit);
     border-radius: var(--radius);
     padding-top: var(--main-padding);
+    max-width: 100%;
+    width: 90%;
   }
 }

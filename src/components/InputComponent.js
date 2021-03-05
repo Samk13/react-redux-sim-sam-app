@@ -13,9 +13,12 @@ function TextInput(_props, ref) {
   }
   return (
     <div className={styles.inputBody}>
-      <label className={styles.label} htmlFor={id}>
-        {_props.label}
-      </label>
+      {_props.label && (
+        <label className={styles.label} htmlFor={id}>
+          {_props.label}
+        </label>
+      )}
+
       <input
         className={`${_props.input} ${styles.input}`}
         onChange={handleChange}
