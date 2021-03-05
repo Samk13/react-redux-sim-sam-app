@@ -3,14 +3,11 @@ import { ArticleForm, CardItem } from '../../components'
 import { useSelector } from 'react-redux'
 import styles from './articles.module.css'
 import { getArticles } from './articlesSlice'
-import * as ReactTranstionGroup from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './transitions.css'
-const Transition = ReactTranstionGroup.CSSTransition
-const GroupTransition = ReactTranstionGroup.TransitionGroup
 
 export default function ArticleTest() {
   const selectArticles = useSelector(getArticles)
-  const revMyArr = [].concat(selectArticles).reverse()
   const nodeRef = useRef(null)
 
   return (
@@ -21,30 +18,28 @@ export default function ArticleTest() {
       <div className={styles.formContainer}>
         <ArticleForm />
       </div>
-      <div className={styles.container}>
-        <GroupTransition component={null}>
-          {revMyArr?.map(({ id, lastEdited, createdAt, author, imgUrl, body, seen }) => (
-            <Transition
-              nodeRef={nodeRef}
-              key={id}
-              timeout={{ enter: 800, exit: 500 }}
-              classNames="card-container"
-            >
-              <div ref={nodeRef}>
-                <CardItem
-                  lastEdited={lastEdited}
-                  createdAt={createdAt}
-                  author={author}
-                  image={imgUrl}
-                  body={body}
-                  seen={seen}
-                  id={id}
-                />
-              </div>
-            </Transition>
-          ))}
-        </GroupTransition>
-      </div>
+      <TransitionGroup className={styles.container}>
+        {selectArticles?.map(({ id, lastEdited, createdAt, author, body, imgUrl, seen }) => (
+          <CSSTransition
+            // nodeRef={nodeRef}
+            key={id}
+            timeout={{ enter: 800, exit: 500 }}
+            classNames="card-container"
+            unmountOnExit
+          >
+            <CardItem
+              ref={nodeRef}
+              lastEdited={lastEdited}
+              createdAt={createdAt}
+              author={author}
+              image={imgUrl}
+              body={body}
+              seen={seen}
+              id={id}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </div>
   )
 }
