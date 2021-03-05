@@ -57,6 +57,7 @@ export const articleSlice = createSlice({
 })
 
 export const { create, edit, remove, toggleSeen } = articleSlice.actions
-export const getArticles = ({ articles }) => articles
-
+export const getArticles = ({ articles }) => {
+  return [...Array.from(articles).reverse()]
+}
 export default articleSlice.reducer
