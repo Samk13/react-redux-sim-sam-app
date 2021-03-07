@@ -20,7 +20,7 @@ function TextInput(_props, ref) {
       )}
 
       <input
-        className={`${_props.input} ${styles.input}`}
+        className={[_props.styling, styles.input].join(' ')}
         onChange={handleChange}
         {..._props}
         ref={ref}
