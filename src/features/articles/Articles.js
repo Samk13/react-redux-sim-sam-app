@@ -6,9 +6,9 @@ import { getArticles } from './articlesSlice'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './transitions.css'
 
-export default function ArticleTest() {
+export default function Articles() {
   const selectArticles = useSelector(getArticles)
-  const nodeRef = useRef(null)
+  // const nodeRef = useRef(null)
 
   return (
     <div>
@@ -28,7 +28,7 @@ export default function ArticleTest() {
             unmountOnExit
           >
             <CardItem
-              ref={nodeRef}
+              // ref={nodeRef}
               lastEdited={lastEdited}
               createdAt={createdAt}
               author={author}
