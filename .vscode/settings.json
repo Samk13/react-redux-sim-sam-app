@@ -1,4 +1,9 @@
 {
   "prettier.trailingComma": "none",
-  "eslint.validate": ["javascript"]
+  "eslint.validate": [
+    "javascript"
+  ],
+  "cSpell.words": [
+    "LOCALSTATE"
+  ]
 }
