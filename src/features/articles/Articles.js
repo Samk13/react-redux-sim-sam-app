@@ -12,7 +12,7 @@ export default function Articles() {
 
   return (
     <div>
-      <div className={styles.formContainer}>
+      <div className={styles.TitleContainer}>
         <p className={styles.title}>The Article Generator</p>
       </div>
       <div className={styles.formContainer}>

@@ -6,10 +6,9 @@
 
 .title {
   background: linear-gradient(to right bottom, var(--blue-200, #61dafb), #2ebf91);
-  /* margin: var(--main-padding) 0; */
   text-align: left;
   border-radius: var(--radius);
-  padding: var(--main-padding);
+  /* padding: var(--main-padding) 0; */
   text-transform: capitalize;
   background-clip: text;
   font-size: xx-large;
@@ -18,5 +17,5 @@
 }
 
 .formContainer {
-  margin: var(--main-padding) 0;
+  /* margin: var(--main-padding) 0; */
 }

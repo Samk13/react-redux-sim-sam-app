@@ -1,11 +1,12 @@
 .header {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   background-color: var(--bg-dark, #20232a);
-  padding: var(--main-padding);
+
   font-size: var(--text-xl);
   color: var(--blue-200, #61dafb);
   position: sticky;
   font-weight: bold;
+  /* width: 100%; */
   z-index: 1;
   top: 0;
 }
@@ -16,9 +17,12 @@
 }
 
 .headerContent {
-  justify-content: space-between;
+  padding: var(--main-padding) 0;
   color: var(--blue-200, #61dafb);
+  justify-content: space-between;
+  max-width: var(--max-width);
   align-items: center;
+  margin: auto;
   display: flex;
 }
 
@@ -28,7 +32,6 @@
   height: calc(var(--text-sm) * 2);
   width: calc(var(--text-sm) * 2);
   transition: filter var(--speed);
-  margin: 0 var(--main-margin);
   align-items: center;
   padding: 5px;
   cursor: pointer;
