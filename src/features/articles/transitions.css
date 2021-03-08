@@ -26,5 +26,29 @@
   opacity: 0;
 }
 
-.card-container-exit-done {
+.side-bar-enter {
+  transform: translate(500px);
+  transform-origin: right;
+  opacity: 0;
+}
+
+.side-bar-enter-active {
+  transition: transform var(--speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translate(0);
+  transform-origin: right;
+  opacity: 1;
+}
+
+.side-bar-exit {
+  transition: transform var(--speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translate(0);
+  transform-origin: right;
+  opacity: 1;
+}
+
+.side-bar-exit-active {
+  transition: transform var(--speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translate(100px);
+  transform-origin: right;
+  opacity: 0;
 }
