@@ -6,9 +6,5 @@
   border-radius: var(--radius);
   padding: var(--main-padding);
   text-align: left;
-}
-
-.formTitle {
-  padding: var(--main-margin) 0;
-  color: var(--gray-200);
+  padding: var(--main-margin);
 }

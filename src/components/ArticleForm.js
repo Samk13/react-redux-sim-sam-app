@@ -25,9 +25,6 @@ export default function ArticleForm() {
 
   return (
     <div className={styles.formContainer}>
-      <div>
-        <h2 className={styles.formTitle}>Create new Article</h2>
-      </div>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
           label="author"

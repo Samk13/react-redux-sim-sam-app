@@ -12,32 +12,37 @@ export default function Articles() {
 
   return (
     <div>
-      <div className={styles.TitleContainer}>
-        <p className={styles.title}>The Article Generator</p>
+      <div className={styles.inputContainer}>
+        <div className={styles.TitleContainer}>
+          <p className={styles.title}>The Article Generator</p>
+        </div>
+        <h2 className={styles.formTitle}>Create new Article</h2>
+        <ArticleForm className={styles.formContainer} />
       </div>
-      <div className={styles.formContainer}>
-        <ArticleForm />
+      <hr className={styles.divider} />
+      <div>
+        <h2 className={styles.formTitle}>All Article</h2>
+        <TransitionGroup className={styles.container}>
+          {selectArticles?.map(({ id, lastEdited, createdAt, author, body, imgUrl, seen }) => (
+            <CSSTransition
+              key={id}
+              timeout={{ enter: 800, exit: 500 }}
+              classNames="card-container"
+              unmountOnExit
+            >
+              <CardItem
+                lastEdited={lastEdited}
+                createdAt={createdAt}
+                author={author}
+                image={imgUrl}
+                body={body}
+                seen={seen}
+                id={id}
+              />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
       </div>
-      <TransitionGroup className={styles.container}>
-        {selectArticles?.map(({ id, lastEdited, createdAt, author, body, imgUrl, seen }) => (
-          <CSSTransition
-            key={id}
-            timeout={{ enter: 800, exit: 500 }}
-            classNames="card-container"
-            unmountOnExit
-          >
-            <CardItem
-              lastEdited={lastEdited}
-              createdAt={createdAt}
-              author={author}
-              image={imgUrl}
-              body={body}
-              seen={seen}
-              id={id}
-            />
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
     </div>
   )
 }

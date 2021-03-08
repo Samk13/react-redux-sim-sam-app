@@ -6,7 +6,15 @@
   grid-area: sidebar;
   text-align: left;
   display: flex;
-  padding: var(--main-padding);
+  /* margin:  */
+  /* padding: calc(var(--main-padding) * 5) var(--main-padding); */
+}
+
+.emptySpace {
+  transform: translate(-2px);
+  width: 101%;
+  background-color: var(--bg-dark, #20232a);
+  height: calc(var(--main-padding) * 5);
 }
 
 .link {
@@ -51,5 +59,9 @@
     border-left: none;
     color: var(--blue-200, #61dafb);
     font-weight: bold;
+  }
+
+  .emptySpace {
+    display: none;
   }
 }

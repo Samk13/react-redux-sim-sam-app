@@ -1,10 +1,10 @@
 .card {
   margin: calc(var(--main-margin) / 2) auto;
-  border: var(--gray-200) solid 1px;
   background: var(--bg-semi-dark, #bdbdbd13);
+  transition: calc(var(--speed) / 2);
+  border: var(--gray-200) solid 1px;
   justify-content: space-between;
   border-radius: var(--radius);
-  transition: calc(var(--speed) / 2);
   color: var(--gray-200);
   flex-direction: column;
   position: relative;
@@ -30,16 +30,22 @@
   cursor: pointer;
 }
 .closeBtn {
-  margin: var(--main-margin);
+  margin: calc(var(--main-margin) / 2);
   border-radius: 50%;
   transition: var(--speed);
-  color: var(--gray-200);
   position: absolute;
   cursor: pointer;
   font-size: x-large;
   right: 0;
   top: 0;
 }
+
+.closeIcon {
+  background-color: var(--gray-300);
+  box-shadow: var(--shadow);
+  border-radius: 50%;
+}
+
 .closeBtn:hover {
   color: var(--blue-200, #61dafb);
   filter: invert() brightness(2);
