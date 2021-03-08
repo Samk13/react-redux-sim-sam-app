@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { ArticleForm, CardItem } from '../../components'
 import { useSelector } from 'react-redux'
 import styles from './articles.module.css'
@@ -8,7 +8,7 @@ import './transitions.css'
 
 export default function Articles() {
   const selectArticles = useSelector(getArticles)
-  // const nodeRef = useRef(null)
+  // const nodeRef = React.useRef(null)
 
   return (
     <div>
@@ -21,14 +21,12 @@ export default function Articles() {
       <TransitionGroup className={styles.container}>
         {selectArticles?.map(({ id, lastEdited, createdAt, author, body, imgUrl, seen }) => (
           <CSSTransition
-            // nodeRef={nodeRef}
             key={id}
             timeout={{ enter: 800, exit: 500 }}
             classNames="card-container"
             unmountOnExit
           >
             <CardItem
-              // ref={nodeRef}
               lastEdited={lastEdited}
               createdAt={createdAt}
               author={author}
