@@ -10,9 +10,9 @@
   position: relative;
   user-select: none;
   text-align: left;
+  display: flex;
   height: 100%;
   width: 100%;
-  display: flex;
 }
 
 .card:hover {
@@ -25,17 +25,17 @@
   clip-path: ellipse(100% 55% at 48% 44%);
   place-items: center center;
   object-fit: cover;
+  cursor: pointer;
   height: 150px;
   width: 100%;
-  cursor: pointer;
 }
 .closeBtn {
   margin: calc(var(--main-margin) / 2);
-  border-radius: 50%;
   transition: var(--speed);
+  border-radius: 50%;
   position: absolute;
-  cursor: pointer;
   font-size: x-large;
+  cursor: pointer;
   right: 0;
   top: 0;
 }
