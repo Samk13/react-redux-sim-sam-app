@@ -148,7 +148,9 @@ export default function CardItem(props) {
             </div>
           </>
         ) : (
-          <ArticleButton onClick={handleEdit(props)}>edit</ArticleButton>
+          <ArticleButton variant="primary" onClick={handleEdit(props)}>
+            edit
+          </ArticleButton>
         )}
       </div>
     </div>
