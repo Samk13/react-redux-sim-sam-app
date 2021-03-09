@@ -119,6 +119,7 @@
 
 .btnContainer {
   justify-content: space-around;
+  align-self: center;
   padding: var(--main-padding);
   flex-direction: column;
   display: flex;
