@@ -69,7 +69,7 @@ export default function CardItem(props) {
         ) : null}
       </figure>
       <div className={styles.closeBtn} onClick={() => dispatch(remove(props.id))}>
-        <CloseIcon />
+        <CloseIcon className={styles.closeIcon} />
       </div>
       <div className={styles.cardTitle}>
         {toggleEditMode ? (

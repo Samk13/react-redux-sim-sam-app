@@ -5,6 +5,16 @@
   font-weight: lighter;
 }
 
+.footerContent {
+  padding: var(--main-padding) 0;
+  color: var(--blue-200, #61dafb);
+  justify-content: space-between;
+  max-width: var(--max-width);
+  align-items: center;
+  margin: auto;
+  display: flex;
+}
+
 h1,
 p,
 footer {

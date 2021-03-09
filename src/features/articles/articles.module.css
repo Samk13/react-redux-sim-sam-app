@@ -1,15 +1,15 @@
 .container {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--main-padding);
+  gap: calc(var(--main-padding) * 2);
   display: grid;
 }
 
 .title {
   background: linear-gradient(to right bottom, var(--blue-200, #61dafb), #2ebf91);
-  /* margin: var(--main-padding) 0; */
   text-align: left;
   border-radius: var(--radius);
-  padding: var(--main-padding);
+  margin: var(--main-padding) 0;
+  padding: calc(var(--main-padding) * 4) 0;
   text-transform: capitalize;
   background-clip: text;
   font-size: xx-large;
@@ -19,4 +19,20 @@
 
 .formContainer {
   margin: var(--main-padding) 0;
+}
+
+.divider {
+  background: #000;
+  opacity: 0.2;
+}
+
+.formTitle {
+  text-align: left;
+  color: var(--gray-200);
+  margin: var(--main-margin) 0;
+  font-weight: 200;
+}
+
+.inputContainer {
+  margin-bottom: calc(var(--main-margin) * 5);
 }

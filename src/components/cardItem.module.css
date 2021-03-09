@@ -1,18 +1,18 @@
 .card {
   margin: calc(var(--main-margin) / 2) auto;
-  border: var(--gray-200) solid 1px;
   background: var(--bg-semi-dark, #bdbdbd13);
+  transition: calc(var(--speed) / 2);
+  border: var(--gray-200) solid 1px;
   justify-content: space-between;
   border-radius: var(--radius);
-  transition: calc(var(--speed) / 2);
   color: var(--gray-200);
   flex-direction: column;
   position: relative;
   user-select: none;
   text-align: left;
+  display: flex;
   height: 100%;
   width: 100%;
-  display: flex;
 }
 
 .card:hover {
@@ -25,21 +25,27 @@
   clip-path: ellipse(100% 55% at 48% 44%);
   place-items: center center;
   object-fit: cover;
+  cursor: pointer;
   height: 150px;
   width: 100%;
-  cursor: pointer;
 }
 .closeBtn {
-  margin: var(--main-margin);
-  border-radius: 50%;
+  margin: calc(var(--main-margin) / 2);
   transition: var(--speed);
-  color: var(--gray-200);
+  border-radius: 50%;
   position: absolute;
-  cursor: pointer;
   font-size: x-large;
+  cursor: pointer;
   right: 0;
   top: 0;
 }
+
+.closeIcon {
+  background-color: var(--gray-300);
+  box-shadow: var(--shadow);
+  border-radius: 50%;
+}
+
 .closeBtn:hover {
   color: var(--blue-200, #61dafb);
   filter: invert() brightness(2);
@@ -70,18 +76,15 @@
   font-size: x-large;
   font-weight: bold;
   padding: var(--main-padding);
-  /* margin: 0 var(--main-margin); */
 }
 
 .cardBody {
-  /* margin: 0 var(--main-margin); */
   padding: var(--main-padding);
-  /* margin-top: var(--main-margin); */
   flex-grow: 1;
 }
 
 .divider {
-  margin: var(--main-margin);
+  margin: var(--main-margin) 0;
   filter: opacity(0.4);
   border-radius: 5px;
 }
@@ -94,33 +97,17 @@
 
 .cardFooter {
   padding: var(--main-padding);
-  /* margin: var(--main-margin); */
-}
-
-.editAuthor {
-  padding: 2px 5px;
-  background-color: var(--drark);
-  border-radius: var(--radius);
-  font-size: x-large;
-  font-weight: bold;
-  color: var(--gray-200);
-  color: var(--gray-200);
-  width: 100%;
-}
-
-.editBody:focus-within {
-  border: 1px solid var(--blue-200, #61dafb);
 }
 
 .editBody {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   background-color: var(--drark);
-  color: var(--gray-200);
   padding: var(--main-padding);
   border-radius: var(--radius);
   font-size: var(--text-sm);
-  outline: 0 none;
+  color: var(--gray-200);
   resize: vertical;
+  outline: 0 none;
   height: 150px;
   width: 100%;
 }
@@ -130,9 +117,9 @@
 }
 
 .btnContainer {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
   padding: var(--main-padding);
+  flex-direction: column;
+  display: flex;
   width: 100%;
 }

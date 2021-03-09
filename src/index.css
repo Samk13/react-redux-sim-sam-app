@@ -23,10 +23,10 @@ body {
   --bg-dark: #20232a;
   --bg-semi-dark: #bdbdbd13;
   --border-color: #bdbdbd34;
-  --radius: 10px;
+  --radius: 13px;
   --main-padding: 10px;
-  --main-margin: 1rem;
-  --max-width: 70%;
+  --main-margin: 1em;
+  --max-width: 90%;
   --nav-size: 60px;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;

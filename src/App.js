@@ -11,7 +11,7 @@ function App() {
   const menuActive = useSelector(menuStatus)
   return (
     <Router>
-      <section className={menuActive ? styles.container : styles.container_hide_sidebar}>
+      <section className={menuActive ? styles.container : styles.containerHideSidebar}>
         <header className={styles.header}>
           <HeaderComponent />
         </header>
