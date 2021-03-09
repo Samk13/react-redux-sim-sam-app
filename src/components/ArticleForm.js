@@ -42,7 +42,9 @@ export default function ArticleForm() {
           errors={errors?.body && 'This field is required'}
           ref={register({ required: true })}
         />
-        <ArticleButton type="submit">Submit</ArticleButton>
+        <ArticleButton variant="primary" type="submit" isloading="false">
+          Submit
+        </ArticleButton>
       </form>
     </div>
   )

@@ -1,25 +1,50 @@
 .btn {
   padding: var(--main-padding) calc(var(--main-padding) * 4);
+  border: 1px solid var(--blue-200, #61dafb);
+  color: var(--text-dark );
   border: 1px solid transparent;
   border-radius: var(--radius);
   transition: all var(--speed);
-  text-transform: capitalize;
-  background: transparent;
-  color: var(--blue-200, #61dafb);
+  background: var(--blue-200, #61dafb);
   font-weight: 900;
+  font-size: var(--text-base);
   cursor: pointer;
-  width: 100%;
+  min-height: calc(var(--main-margin) * 2);
+}
+
+.children {
+  font-size: large;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.loading {
+  display: inline-block;
+  margin: 0 0 0 var(--main-margin);
+  /* background-color:var(--text-dark); */
+  border-radius: 50%;
+  vertical-align: middle;
+  /* box-shadow: 0px 0px 5px var(--pink-500); */
 }
 
 .btn:hover,
 .btn:focus {
-  border: 1px solid var(--blue-200, #61dafb);
+  border: 1px solid var(--gray-200, #61dafb);
+  box-shadow: 0px 0px 6px var(--pink-500);
+  background: var(--blue-200, #61dafb);
+  color: var(--text-dark );
   box-shadow: var(--shadow);
   filter: brightness(1.1);
+  outline: none;
 }
 
-.btn:focus {
-  transition: all var(--speed);
+.primaryPink {
+  background: var(--blue-200);
+  color: black;
+}
+
+.primaryPink:hover{
+  background: var(--pink-500);
+  color: white;
   box-shadow: var(--shadow);
-  outline: none;
 }

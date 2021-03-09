@@ -1,28 +1,27 @@
 import React, { forwardRef } from 'react'
 import styles from './articleButton.module.css'
+import LoadingItem from './LoadingItem'
 
 function ArticleButton(_props, ref) {
   const VARIANTS = {
     primary: 'primary',
-    secondary: 'secondary'
+    primaryPink: 'primary-pink',
+    secondary: 'secondary',
+    secondaryPink: 'secondary-pink'
   }
   const handleVariants = (variant) => {
     switch (variant) {
       case VARIANTS.primary:
-        return {
-          backgroundColor: 'var(--blue-200)',
-          color: 'var(--text-dark)',
-          backfaceVisibility: 'hidden',
-          transform: 'translateZ(0) scale(1, 1)'
-        }
+        return [styles.btn, styles.primary].join(' ')
+      case VARIANTS.primaryPink:
+        return [styles.btn, styles.primaryPink].join(' ')
       case VARIANTS.secondary:
-        return {
-          backgroundColor: 'blue'
-        }
-
+        return [styles.btn, styles.secondary].join(' ')
+      case VARIANTS.secondaryPink:
+        return [styles.btn, styles.secondaryPink].join(' ')
       default:
         console.error(
-          `${variant} does not exist on ArticleButton variant type, try '${VARIANTS.primary}' or '${VARIANTS.secondary}'
+          `${variant} does not exist on ArticleButton variant type, try '${VARIANTS.primaryPink}' or '${VARIANTS.secondaryPink}'
           or check src/components/ArticleButton.js
           `
         )
@@ -31,12 +30,18 @@ function ArticleButton(_props, ref) {
   }
   return (
     <button
-      className={styles.btn}
-      style={_props.variant ? handleVariants(_props.variant) : null}
+      className={_props.variant ? handleVariants(_props.variant) : styles.btn}
       ref={ref}
       {..._props}
     >
-      {_props.children}
+      <span>
+        <p className={styles.children}>{_props.children}</p>
+        {_props.isloading === 'true' && (
+          <span className={styles.loading}>
+            <LoadingItem />
+          </span>
+        )}
+      </span>
     </button>
   )
 }
