@@ -147,7 +147,11 @@ export default function CardItem(props) {
                 </ArticleButton>
               </span>
               <span className={styles.cancelBtn}>
-                <ArticleButton tabIndex="4" onClick={() => setToggleEditMode(false)}>
+                <ArticleButton
+                  variant="secondary"
+                  tabIndex="4"
+                  onClick={() => setToggleEditMode(false)}
+                >
                   Cancel
                 </ArticleButton>
               </span>
