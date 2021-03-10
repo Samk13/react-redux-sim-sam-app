@@ -142,7 +142,7 @@ export default function CardItem(props) {
           <>
             <div className={styles.saveCancelContainer}>
               <span className={styles.saveBtn}>
-                <ArticleButton onClick={handleSaveEdit} tabIndex="3">
+                <ArticleButton variant="primary-pink" onClick={handleSaveEdit} tabIndex="3">
                   Save
                 </ArticleButton>
               </span>
@@ -163,7 +163,7 @@ export default function CardItem(props) {
             loading={isLoading.toString()}
             onClick={handleEdit(props)}
           >
-            edit
+            Edit
           </ArticleButton>
         )}
       </div>

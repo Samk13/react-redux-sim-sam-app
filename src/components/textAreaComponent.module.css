@@ -35,10 +35,10 @@
   margin-left: calc(var(--main-margin) / 3);
   font-size: var(--text-xs);
   content: '*';
-  color: red;
+  color: var(--pink-500);
 }
 
 .error {
   font-size: var(--text-xs);
-  color: red;
+  color: var(--pink-500);
 }

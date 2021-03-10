@@ -52,18 +52,6 @@
   filter: invert() brightness(2);
 }
 
-.cancelBtn {
-  /* filter: invert(); */
-  filter: brightness(0.5);
-}
-.cancelBtn:hover {
-  filter: invert() brightness(2);
-}
-
-.saveBtn:hover {
-  filter: invert() brightness(2) hue-rotate(90deg);
-}
-
 .saveBtn:focus {
   filter: invert() brightness(2) hue-rotate(90deg);
 }

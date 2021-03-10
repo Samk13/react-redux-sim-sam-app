@@ -6,9 +6,9 @@
   border: 1px solid transparent;
   border-radius: var(--radius);
   transition: all var(--speed);
-  font-size: var(--text-base);
+  font-size: var(--text-xs);
   color: var(--text-dark);
-  font-weight: 900;
+  /* font-weight: 900; */
   cursor: pointer;
 }
 
