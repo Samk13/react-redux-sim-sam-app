@@ -25,7 +25,7 @@
 .input {
   margin: calc(var(--main-margin) / 3) 0;
   background-color: var(--text-dark, #282c34);
-  border: 1px solid var(--blue-200, #61dafb);
+  border: 1px solid var(--gray-200, #61dafb);
   border-radius: var(--radius);
   padding: var(--main-padding);
   color: var(--gray-200);
@@ -33,6 +33,7 @@
 }
 
 .input:focus {
+  border: 1px solid var(--blue-200, #61dafb);
   transition: all var(--speed);
   box-shadow: var(--shadow);
   font-weight: bold;

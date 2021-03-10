@@ -59,12 +59,14 @@
 
 .primaryPink {
   background-color: var(--pink-500);
+  color: var(--gray-200)
 }
 
 .primaryPink:hover,
 .primaryPink:focus {
   background-color: var(--pink-500);
   color: var(--gray-200);
+  filter: brightness(1.2);
 }
 
 .secondary {
@@ -79,6 +81,7 @@
 .secondary:focus {
   border: 1px solid var(--blue-200);
   color: var(--text-dark);
+  filter: brightness(1.2);
 }
 .secondary:disabled {
   border: 1px solid transparent;

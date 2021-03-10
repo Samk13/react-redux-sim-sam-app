@@ -5,7 +5,8 @@
 }
 
 .title {
-  background: linear-gradient(to right bottom, var(--blue-200, #61dafb), #2ebf91);
+  /* background: linear-gradient(to right bottom, var(--blue-200, #61dafb), #2ebf91); */
+  background: var(--blue-200);
   text-align: left;
   border-radius: var(--radius);
   margin: var(--main-padding) 0;
