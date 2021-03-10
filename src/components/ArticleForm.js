@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './articleForm.module.css'
 import ArticleButton from './ArticleButton'
 import TextAreaComponent from './TextAreaComponent'
@@ -9,9 +9,14 @@ import { useDispatch } from 'react-redux'
 export default function ArticleForm() {
   const { register, handleSubmit, errors, reset } = useForm()
   const dispatch = useDispatch()
+  const [isLoading, setIsLoading] = useState('false')
   const onSubmit = (data) => {
-    dispatch(create(data))
-    reset()
+    setIsLoading('true')
+    setTimeout(() => {
+      dispatch(create(data))
+      reset()
+      setIsLoading('false')
+    }, 1500)
   }
 
   const authorRef = useRef(null)
@@ -42,7 +47,7 @@ export default function ArticleForm() {
           errors={errors?.body && 'This field is required'}
           ref={register({ required: true })}
         />
-        <ArticleButton variant="primary" type="submit" isloading="false">
+        <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
           Submit
         </ArticleButton>
       </form>

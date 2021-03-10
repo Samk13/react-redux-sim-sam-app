@@ -30,17 +30,23 @@ export default function CardItem(props) {
     lastEdited: new Date().toDateString()
   })
 
+  const [isLoading, setIsLoading] = useState('false')
+
   const inputRef = useRef(null)
   const handleEdit = ({ id, author, body }) => () => {
-    setToggleEditMode(true)
-    setEditText((prevState) => ({
-      ...prevState,
-      id: props.id,
-      author: props.author,
-      body: props.body
-    }))
-    setToggleEditMode(id)
-    setEditText((prevState) => ({ ...prevState, author, body }))
+    setIsLoading('true')
+    setTimeout(() => {
+      setToggleEditMode(true)
+      setEditText((prevState) => ({
+        ...prevState,
+        id: props.id,
+        author: props.author,
+        body: props.body
+      }))
+      setToggleEditMode(id)
+      setEditText((prevState) => ({ ...prevState, author, body }))
+      setIsLoading('false')
+    }, 1500)
   }
 
   const handleSaveEdit = () => {
@@ -148,7 +154,11 @@ export default function CardItem(props) {
             </div>
           </>
         ) : (
-          <ArticleButton variant="primary" onClick={handleEdit(props)}>
+          <ArticleButton
+            variant="secondary"
+            loading={isLoading.toString()}
+            onClick={handleEdit(props)}
+          >
             edit
           </ArticleButton>
         )}

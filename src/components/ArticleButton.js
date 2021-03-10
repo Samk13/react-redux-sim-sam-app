@@ -31,12 +31,13 @@ function ArticleButton(_props, ref) {
   return (
     <button
       className={_props.variant ? handleVariants(_props.variant) : styles.btn}
+      disabled={(_props.loading === 'true' && true) || _props.disabled}
       ref={ref}
       {..._props}
     >
       <span>
         <p className={styles.children}>{_props.children}</p>
-        {_props.isloading === 'true' && (
+        {_props.loading === 'true' && (
           <span className={styles.loading}>
             <LoadingItem />
           </span>
