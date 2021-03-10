@@ -21,9 +21,7 @@ function ArticleButton(_props, ref) {
         return [styles.btn, styles.secondaryPink].join(' ')
       default:
         console.error(
-          `${variant} does not exist on ArticleButton variant type, try '${VARIANTS.primaryPink}' or '${VARIANTS.secondaryPink}'
-          or check src/components/ArticleButton.js
-          `
+          `${variant} does not exist on ArticleButton variant type, try '${VARIANTS.primary}', '${VARIANTS.primaryPink}', '${VARIANTS.secondary}', '${VARIANTS.secondaryPink}', or check src/components/ArticleButton.js`
         )
         break
     }
