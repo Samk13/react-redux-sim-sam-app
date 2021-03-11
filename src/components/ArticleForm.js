@@ -3,6 +3,7 @@ import styles from './articleForm.module.css'
 import ArticleButton from './ArticleButton'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
+import DropDownMenu from './dropDownMenu/DropDownMenu'
 import { create } from '../features/articles/articlesSlice'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
@@ -47,6 +48,7 @@ export default function ArticleForm() {
           errors={errors?.body && 'This field is required'}
           ref={register({ required: true })}
         />
+        <DropDownMenu />
         <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
           Submit
         </ArticleButton>

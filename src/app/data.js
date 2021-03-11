@@ -12,3 +12,42 @@ export const articleInitialState = [
     seen: true
   }
 ]
+
+export const articleTypes = [
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Research',
+    selected: false,
+    key: 'research'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Observations',
+    selected: false,
+    key: 'observations'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Hypotheses',
+    selected: false,
+    key: 'Hypotheses'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Commentaries',
+    selected: false,
+    key: 'commentaries'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Perspectives',
+    selected: false,
+    key: 'Perspectives'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Editorials',
+    selected: false,
+    key: 'editorials'
+  }
+]

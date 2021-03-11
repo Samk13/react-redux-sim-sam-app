@@ -1,5 +1,12 @@
 {
   "prettier.trailingComma": "none",
-  "eslint.validate": ["javascript"],
-  "cSpell.words": ["LOCALSTATE"]
+  "eslint.validate": [
+    "javascript"
+  ],
+  "cSpell.words": [
+    "LOCALSTATE"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }
