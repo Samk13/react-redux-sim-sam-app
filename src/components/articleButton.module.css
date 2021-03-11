@@ -69,6 +69,14 @@
   filter: brightness(1.2);
 }
 
+.primaryPink:disabled {
+  border: 1px solid transparent;
+  background: var(--gray-300);
+  box-shadow: var(--shadow);
+  color: var(--gray-200);
+  outline: none;
+}
+
 .secondary {
   background-color: transparent;
   border: 1px solid var(--gray-200);
@@ -88,7 +96,6 @@
   background: var(--gray-300);
   box-shadow: var(--shadow);
   color: var(--gray-200);
-  filter: brightness(1.1);
   outline: none;
 }
 
@@ -110,6 +117,5 @@
   background: var(--gray-300);
   box-shadow: var(--shadow);
   color: var(--gray-200);
-  filter: brightness(1.1);
   outline: none;
 }
