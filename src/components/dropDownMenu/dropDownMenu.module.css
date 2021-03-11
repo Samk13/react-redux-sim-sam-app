@@ -1,13 +1,103 @@
-.ddWrapper {
+
+.image {
+  width: 50px;
 }
 
-.ddHeader {
+
+.arrowDown {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--text-light);
+  cursor: pointer;
+}
+.dropdownContainer{
+  position: relative;
 }
 
-.ddHeaderTitle {
+.label {
+  color: var(--text-light, #999);
+  font-weight: normal;
 }
 
-.ddList {
+.label::after {
+  margin-left: calc(var(--main-margin) / 3);
+  font-size: var(--text-xs);
+  content: '*';
+  color: var(--pink-500);
 }
-.ddListItem {
+
+.dropdownInput{
+  display: flex;
+  align-items: center;
+  margin: calc(var(--main-margin) / 3) 0;
+  background-color: var(--text-dark, #282c34);
+  border: 1px solid var(--gray-200, #61dafb);
+  border-radius: var(--radius);
+  padding: var(--main-padding);
+  color: var(--gray-200);
+  font-weight: lighter;
+}
+.dropdownPlaceholder{
+  margin-bottom: 6px;
+  color: dimgrey;
+
+}
+.dropdownValues{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 6px;
+}
+.dropdownValue{
+  color: black;
+  padding:4px;
+  background-color: darkgray;
+  border-radius: 5px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  animation: expand .1s ease-in-out;
+
+}
+.dropdownRemove{
+  cursor: pointer;
+}
+.dropdownOptions{
+  visibility: hidden;
+  position: absolute;
+  top:100%;
+  opacity: 0;
+  -webkit-transition: opacity 600ms, visibility 600ms;
+  transition: opacity 600ms, visibility 600ms;
+}
+.dropdownActive{
+  visibility: visible;
+  opacity: 10;
+}
+.dropdownItem{
+  width: 100%;
+  height: calc(var(--main-margin) * 3);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--bg-dark);
+  color: var(--gray-200);
+  padding: var(--main-padding);
+  margin: 1px;
+  border-bottom: 1px dotted grey;
+}
+.dropdownItem:hover{
+  background-color: slategray;
+}
+.dropdownItem img{
+  width: 40px;
+  margin-right: 20px;
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
 }

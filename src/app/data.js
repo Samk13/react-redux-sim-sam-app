@@ -18,36 +18,46 @@ export const articleTypes = [
     id: `articleType_${uuid()}`,
     title: 'Research',
     selected: false,
-    key: 'research'
+    key: 'research',
+    logo:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Observations',
     selected: false,
-    key: 'observations'
+    key: 'observations',
+    logo: 'https://www.php.net//images/logos/new-php-logo.svg'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Hypotheses',
     selected: false,
-    key: 'Hypotheses'
+    key: 'Hypotheses',
+    logo: 'https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Commentaries',
     selected: false,
-    key: 'commentaries'
+    key: 'commentaries',
+    logo:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Perspectives',
     selected: false,
-    key: 'Perspectives'
+    key: 'Perspectives',
+    logo:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Editorials',
     selected: false,
-    key: 'editorials'
+    key: 'editorials',
+    logo:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
   }
 ]
