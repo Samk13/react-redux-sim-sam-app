@@ -47,17 +47,6 @@
 }
 
 .primaryPink {
-  background: var(--blue-200);
-  color: black;
-}
-
-.primaryPink:hover {
-  background: var(--pink-500);
-  box-shadow: var(--shadow);
-  color: white;
-}
-
-.primaryPink {
   background-color: var(--pink-500);
   color: var(--gray-200);
 }

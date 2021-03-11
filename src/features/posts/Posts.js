@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { showPosts } from './postsSlice'
 import { getPosts } from '../../Service/Api'
+import styles from './posts.module.css'
 
 export default function Posts() {
   const dispatch = useDispatch()
@@ -12,10 +13,10 @@ export default function Posts() {
 
   return (
     <div>
-      <h1>Posts</h1>
+      <h1 className={styles.title}>Posts</h1>
       {allPosts?.map((post) => {
         return (
-          <div key={post.id}>
+          <div key={post.id} className={StyleSheet.postsContainer}>
             <details>
               <summary>{post.title}</summary>
               {post.body}
