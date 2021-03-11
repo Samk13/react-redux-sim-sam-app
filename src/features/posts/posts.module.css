@@ -1,5 +1,14 @@
 .title {
-  composes: title from "./../articles/articles.module.css"
+  background: var(--blue-200);
+  text-align: left;
+  border-radius: var(--radius);
+  margin: var(--main-padding);
+  padding: var(--main-padding);
+  text-transform: capitalize;
+  background-clip: text;
+  font-size: xx-large;
+  color: transparent;
+  font-weight: bold;
 }
 
 details {
@@ -13,7 +22,6 @@ details {
 
 summary {
   font-weight: bold;
-  /* margin: -0.5em -0.5em 0; */
   padding: var(--main-padding);
   transition: all var(--speed);
   outline: none;
