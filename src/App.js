@@ -7,7 +7,11 @@ import { useSelector } from 'react-redux'
 import { menuStatus } from './features/menu/menuSlice'
 
 function App() {
-  const renderLoader = () => <LoadingItem />
+  const renderLoader = () => (
+    <div className={styles.laoderContainer}>
+      <LoadingItem className={styles.laoder} />
+    </div>
+  )
   const menuActive = useSelector(menuStatus)
   return (
     <Router>

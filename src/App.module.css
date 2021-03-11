@@ -68,3 +68,11 @@
     /* max-width: 100%; */
   }
 }
+
+.laoderContainer {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+transform: scale(3);
+}
