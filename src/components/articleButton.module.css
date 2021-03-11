@@ -59,7 +59,7 @@
 
 .primaryPink {
   background-color: var(--pink-500);
-  color: var(--gray-200)
+  color: var(--gray-200);
 }
 
 .primaryPink:hover,
