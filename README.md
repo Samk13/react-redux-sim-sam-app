@@ -7,11 +7,14 @@ Kan ha avstämning varje eller varannan dag och diskutera progress och utvecklin
 Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
+- [] save routes as variabels in the routes so we have better erroring message
+- [] fix menu jumps to a new location when it is closed / opened
+- [] code split cardItem into smaller components
 
-- [ ] show some feedback when new article is created
 
 ## done:
 
+- [x] show some feedback when new article is created
 - [x] restyle input form, looks empty now
 - [x] consistent margins
 - [x] new articles should appear on top
