@@ -3,9 +3,12 @@ import styles from './articleForm.module.css'
 import ArticleButton from './ArticleButton'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
+import DropDownMenu from './dropDownMenu/DropDownMenu'
 import { create } from '../features/articles/articlesSlice'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { articleTypes } from '../app/data'
+
 export default function ArticleForm() {
   const { register, handleSubmit, errors, reset } = useForm()
   const dispatch = useDispatch()
@@ -28,6 +31,8 @@ export default function ArticleForm() {
     return
   }, [register])
 
+  const [selectedType, setSelectedType] = useState([])
+
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -46,6 +51,12 @@ export default function ArticleForm() {
           id="body"
           errors={errors?.body && 'This field is required'}
           ref={register({ required: true })}
+        />
+        <DropDownMenu
+          onChange={(v) => setSelectedType(v)}
+          title="Select article type:"
+          options={articleTypes}
+          value={selectedType}
         />
         <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
           Submit
