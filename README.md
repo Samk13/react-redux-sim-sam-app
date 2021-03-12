@@ -8,13 +8,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 - [] save routes as variabels in the routes so we have better erroring message
->>>>>>> Stashed changes
 - [] fix menu jumps to a new location when it is closed / opened
 - [] continue development with select from many component
 - [] code split cardItem into smaller components
