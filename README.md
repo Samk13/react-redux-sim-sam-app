@@ -8,7 +8,9 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
 
-- [ ] show some feedback when new article is created
+- [] save routes as variabels in the routes so we have better erroring message
+- [] fix menu jumps to a new location when it is closed / opened
+- [] code split cardItem into smaller components
 
 ## done:
 

@@ -10,6 +10,7 @@
   border-top: 10px solid var(--text-light);
   cursor: pointer;
 }
+
 .dropdownContainer {
   position: relative;
 }
@@ -47,6 +48,7 @@
   align-items: center;
   margin-left: 6px;
 }
+
 .dropdownValue {
   color: black;
   padding: 4px;
@@ -56,6 +58,7 @@
   margin-bottom: 6px;
   animation: expand 0.1s ease-in-out;
 }
+
 .dropdownRemove {
   cursor: pointer;
 }
