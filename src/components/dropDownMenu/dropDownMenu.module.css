@@ -87,6 +87,7 @@
 }
 .dropdownItem {
   width: 100%;
+  border-radius: var(--radius);
   height: calc(var(--main-margin) * 3);
   display: flex;
   justify-content: flex-start;
@@ -94,8 +95,7 @@
   background-color: var(--bg-dark);
   color: var(--gray-200);
   padding: var(--main-padding);
-  margin: 1px;
-  border-bottom: 1px dotted grey;
+  border-bottom: 1px solid grey;
 }
 .dropdownItem:hover {
   background-color: slategray;
@@ -103,6 +103,8 @@
 .dropdownItem img {
   width: 40px;
   margin-right: 20px;
+  border-radius: 50%;
+  padding: 0 calc(var(--main-padding) / 2);
 }
 
 @keyframes expand {
