@@ -11,6 +11,17 @@
   cursor: pointer;
 }
 
+.arrowUp {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--text-light);
+  cursor: pointer;
+  transform: rotate(-90deg);
+  transition: transform var(--speed);
+}
+
 .dropdownContainer {
   position: relative;
 }
