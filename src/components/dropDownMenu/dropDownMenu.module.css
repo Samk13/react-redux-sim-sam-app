@@ -9,6 +9,18 @@
   border-right: 10px solid transparent;
   border-top: 10px solid var(--text-light);
   cursor: pointer;
+  transition: transform var(--speed);
+}
+
+.arrowUp {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--text-light);
+  cursor: pointer;
+  transform: rotate(-90deg);
+  transition: transform var(--speed);
 }
 .dropdownContainer {
   position: relative;
@@ -31,7 +43,7 @@
   align-items: center;
   margin: calc(var(--main-margin) / 3) 0;
   background-color: var(--text-dark, #282c34);
-  border: 1px solid var(--gray-200, #61dafb);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius);
   padding: var(--main-padding);
   color: var(--gray-200);
@@ -45,20 +57,37 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding: calc(var(--main-padding) / 2);
   margin-left: 6px;
 }
 .dropdownValue {
-  color: black;
-  padding: 4px;
-  background-color: darkgray;
+  color: var(--gray-200);
+  display: flex;
+  align-items: center;
+  padding: var(--main-padding);
+  background-color: var(--gray-300);
   border-radius: 5px;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  animation: expand 0.1s ease-in-out;
+  margin: 0 calc(var(--main-margin) / 2) calc(var(--main-margin) / 2) 0;
+  animation: expand calc(var(--speed) / 3) ease-in-out;
 }
 .dropdownRemove {
   cursor: pointer;
+  margin-left: calc(var(--main-margin) / 2);
 }
+
+.closeIcon {
+  display: flex;
+  align-items: center;
+  transition: color var(--speed);
+}
+
+.closeIcon:hover {
+  background-color: var(--bg-dark);
+  border-radius: 50%;
+  padding: 1px;
+  color: var(--pink-500);
+}
+
 .dropdownOptions {
   visibility: hidden;
   position: absolute;

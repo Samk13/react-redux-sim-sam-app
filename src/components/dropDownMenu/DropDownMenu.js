@@ -17,7 +17,10 @@ export default function DropDownMenu(_props) {
     <div className={styles.dropdownContainer}>
       <label className={styles.label}>{_props.title}</label>
       <div className={styles.dropdownInput}>
-        <span onClick={() => setIsActive(!isActive)} className={styles.arrowDown}></span>
+        <span
+          onClick={() => setIsActive(!isActive)}
+          className={!isActive ? styles.arrowDown : styles.arrowUp}
+        ></span>
         <div className={styles.dropdownValues}>
           {_props.value.length ? (
             _props.value.map((v) => (
@@ -28,7 +31,7 @@ export default function DropDownMenu(_props) {
                   }
                 })}
                 <span className={styles.dropdownRemove} onClick={() => removeValue(v)}>
-                  <CloseIcon />
+                  <CloseIcon className={styles.closeIcon} />
                 </span>
               </div>
             ))
