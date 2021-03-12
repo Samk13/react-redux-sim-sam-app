@@ -11,6 +11,7 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 - [] fix menu jumps to a new location when it is closed / opened
 - [] continue development with select from many component
 - [] code split cardItem into smaller components
+
 ## done:
 
 - [x] styles refactor and cleanups
