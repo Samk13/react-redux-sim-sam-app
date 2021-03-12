@@ -1,14 +1,17 @@
+const Articles = './features/articles/Articles'
+const Posts = './features/posts/Posts'
+
 export default [
   {
     path: '/',
     exact: true,
-    location: './features/articles/Articles',
+    location: Articles,
     name: 'Articles'
   },
   {
     path: '/posts',
     exact: false,
-    location: './features/posts/Posts',
+    location: Posts,
     name: 'Async Posts'
   }
 ]
