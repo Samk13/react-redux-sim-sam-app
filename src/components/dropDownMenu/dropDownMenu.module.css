@@ -78,8 +78,8 @@
   position: absolute;
   top: 100%;
   opacity: 0;
-  -webkit-transition: opacity 600ms, visibility 600ms;
-  transition: opacity 600ms, visibility 600ms;
+  -webkit-transition: all 600ms, visibility 600ms;
+  transition: all 600ms, visibility 600ms;
 }
 .dropdownActive {
   visibility: visible;
@@ -96,6 +96,12 @@
   color: var(--gray-200);
   padding: var(--main-padding);
   border-bottom: 1px solid grey;
+}
+.dropdownItem:nth-child(odd) {
+  filter: brightness(0.8);
+}
+.dropdownItem:last-child {
+  margin-bottom: var(--main-margin);
 }
 .dropdownItem:hover {
   background-color: slategray;
