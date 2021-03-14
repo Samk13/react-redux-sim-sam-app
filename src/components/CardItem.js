@@ -82,7 +82,6 @@ export default function CardItem(props) {
           <>
             <InputComponent
               ref={inputRef}
-              type="text"
               name="author"
               placeholder="author"
               tabIndex="1"
@@ -92,11 +91,9 @@ export default function CardItem(props) {
                   author: e.target.value
                 }))
               }
-              id="input"
               value={EditText.author}
             />
             <TextAreaComponent
-              type="text"
               placeholder="body"
               onChange={(e) =>
                 setEditText((prevState) => ({
@@ -111,7 +108,6 @@ export default function CardItem(props) {
           </>
         )}
       </div>
-      <div className={styles.cardBody}></div>
       <hr className={styles.divider} />
       <div className={styles.cardFooter}>
         <div className={styles.cardInfo}>
