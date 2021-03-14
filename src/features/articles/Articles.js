@@ -23,22 +23,14 @@ export default function Articles() {
       <div>
         <h2 className={styles.formTitle}>All Article</h2>
         <TransitionGroup className={styles.container}>
-          {selectArticles?.map(({ id, lastEdited, createdAt, author, body, imgUrl, seen }) => (
+          {selectArticles?.map((_props) => (
             <CSSTransition
-              key={id}
+              key={_props.id}
               timeout={{ enter: 800, exit: 500 }}
               classNames="card-container"
               unmountOnExit
             >
-              <CardItem
-                lastEdited={lastEdited}
-                createdAt={createdAt}
-                author={author}
-                image={imgUrl}
-                body={body}
-                seen={seen}
-                id={id}
-              />
+              <CardItem {..._props} />
             </CSSTransition>
           ))}
         </TransitionGroup>

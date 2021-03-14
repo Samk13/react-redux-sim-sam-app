@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import styles from './cardItem.module.css'
-import { ReactComponent as CloseIcon } from '../icons/close.svg'
-import ArticleButton from './ArticleButton'
-import InputComponent from './InputComponent'
-import TextAreaComponent from './TextAreaComponent'
-import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import { remove, edit, toggleSeen } from '../features/articles/articlesSlice'
+import { ReactComponent as CloseIcon } from '../icons/close.svg'
+import TextAreaComponent from './TextAreaComponent'
+import InputComponent from './InputComponent'
+import ArticleButton from './ArticleButton'
+import CardImage from './_CardImage'
+import CardBody from './_CardBody'
+
+import styles from './cardItem.module.css'
 
 CardItem.propTypes = {
   id: PropTypes.string,
@@ -15,7 +18,7 @@ CardItem.propTypes = {
   createdAt: PropTypes.string,
   lastEdited: PropTypes.string,
   seen: PropTypes.bool,
-  image: PropTypes.string,
+  imgUrl: PropTypes.string,
   delete: PropTypes.bool,
   className: PropTypes.string
 }
@@ -69,56 +72,46 @@ export default function CardItem(props) {
 
   return (
     <div className={styles.card}>
-      <figure className={styles.figure}>
-        {props.image ? (
-          <img src={props.image} alt="article img" onClick={() => handleToggleSeen(props)} />
-        ) : null}
-      </figure>
+      <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
       <div className={styles.closeBtn} onClick={() => dispatch(remove(props.id))}>
         <CloseIcon className={styles.closeIcon} />
       </div>
+      {!toggleEditMode && <CardBody title={props.author} body={props.body} />}
       <div className={styles.cardTitle}>
-        {toggleEditMode ? (
-          <InputComponent
-            // className={styles.editAuthor}
-            ref={inputRef}
-            type="text"
-            name="author"
-            placeholder="author"
-            tabIndex="1"
-            onChange={(e) =>
-              setEditText((prevState) => ({
-                ...prevState,
-                author: e.target.value
-              }))
-            }
-            id="input"
-            value={EditText.author}
-          />
-        ) : (
-          <div>{props.author}</div>
+        {toggleEditMode && (
+          <>
+            <InputComponent
+              ref={inputRef}
+              type="text"
+              name="author"
+              placeholder="author"
+              tabIndex="1"
+              onChange={(e) =>
+                setEditText((prevState) => ({
+                  ...prevState,
+                  author: e.target.value
+                }))
+              }
+              id="input"
+              value={EditText.author}
+            />
+            <TextAreaComponent
+              type="text"
+              placeholder="body"
+              onChange={(e) =>
+                setEditText((prevState) => ({
+                  ...prevState,
+                  body: e.target.value
+                }))
+              }
+              name="body"
+              value={EditText.body}
+              tabIndex="2"
+            />
+          </>
         )}
       </div>
-      <div className={styles.cardBody}>
-        {toggleEditMode ? (
-          <TextAreaComponent
-            type="text"
-            // className={styles.editBody}
-            placeholder="body"
-            onChange={(e) =>
-              setEditText((prevState) => ({
-                ...prevState,
-                body: e.target.value
-              }))
-            }
-            name="body"
-            value={EditText.body}
-            tabIndex="2"
-          />
-        ) : (
-          <p>{props.body}</p>
-        )}
-      </div>
+      <div className={styles.cardBody}></div>
       <hr className={styles.divider} />
       <div className={styles.cardFooter}>
         <div className={styles.cardInfo}>
