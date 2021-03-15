@@ -16,8 +16,8 @@
 }
 
 .card:hover {
-  transform: perspective(1px) scale(1.04);
-  backface-visibility: hidden;
+  /* transform: perspective(1px) scale(1.04); */
+  /* backface-visibility: hidden; */
   background-color: var(--bg-dark, #20232a);
 }
 
