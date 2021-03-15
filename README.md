@@ -7,17 +7,14 @@ Kan ha avstämning varje eller varannan dag och diskutera progress och utvecklin
 Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
-- [] save routes as variabels in the routes so we have better erroring message
-- [] fix menu jumps to a new location when it is closed / opened
-- [] code split cardItem into smaller components
 
-- [] save routes as variabels in the routes so we have better erroring message
-- [] fix menu jumps to a new location when it is closed / opened
 - [] continue development with select from many component
-- [] code split cardItem into smaller components
 
 ## done:
 
+- [x] save routes as variabels in the routes so we have better erroring message
+- [x] fix menu jumps to a new location when it is closed / opened
+- [x] code split cardItem into smaller components
 - [x] styles refactor and cleanups
 - [x] set timeout when submit create or edit
 - [x] auto disable when is loading
