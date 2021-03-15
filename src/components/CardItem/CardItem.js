@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { remove, edit, toggleSeen } from '../../features/articles/articlesSlice'
 import { ReactComponent as CloseIcon } from '../../icons/close.svg'
-
-import ArticleButton from '../ArticleButton'
 import CardImage from './CardImage'
-import CardBody from './CardBody'
+import CardContent from './CardContent'
+import CardEdit from './CardEdit'
 
 import styles from './cardItem.module.css'
-import CardEdit from './CardEdit'
 
 CardItem.propTypes = {
   id: PropTypes.string,
@@ -21,6 +19,11 @@ CardItem.propTypes = {
   imgUrl: PropTypes.string,
   delete: PropTypes.bool,
   className: PropTypes.string
+}
+
+const UPDATEDATATYPE = {
+  AUTHOR: 'author',
+  BODY: 'body'
 }
 
 export default function CardItem(props) {
@@ -36,19 +39,18 @@ export default function CardItem(props) {
   const [isLoading, setIsLoading] = useState('false')
 
   const inputRef = useRef(null)
-  const handleEdit = ({ id, author, body }) => () => {
-    console.log(id, author, body)
+  const handleEdit = ({ id }) => () => {
     setIsLoading('true')
     setTimeout(() => {
       setToggleEditMode(true)
       setEditText((prevState) => ({
         ...prevState,
-        id: props.id,
+        id,
         author: props.author,
         body: props.body
       }))
       setToggleEditMode(id)
-      setEditText((prevState) => ({ ...prevState, author, body }))
+      setEditText((prevState) => ({ ...prevState }))
       setIsLoading('false')
     }, 1500)
   }
@@ -71,6 +73,26 @@ export default function CardItem(props) {
     return
   }, [toggleEditMode])
 
+  const handleUpdateData = (payload, type) => {
+    switch (type) {
+      case UPDATEDATATYPE.AUTHOR:
+        setEditText((prevState) => ({
+          ...prevState,
+          author: payload.target.value
+        }))
+        break
+      case UPDATEDATATYPE.BODY:
+        setEditText((prevState) => ({
+          ...prevState,
+          body: payload.target.value
+        }))
+        break
+      default:
+        console.error(
+          `${type} is not supported type check sec/components/CardItem/CardItem.js -> handleData function`
+        )
+    }
+  }
   return (
     <div className={styles.card}>
       <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
@@ -78,32 +100,21 @@ export default function CardItem(props) {
         <CloseIcon className={styles.closeIcon} />
       </div>
       {!toggleEditMode && (
-        <CardBody
+        <CardContent
           {...props}
-          onClickEdit={() => handleEdit(props)}
           onChildIsLoading={(value) => isLoading(value)}
+          onClickEdit={() => handleEdit(props)}
           loading={isLoading.toString()}
         />
       )}
-
       {toggleEditMode && (
         <CardEdit
           {...props}
-          editText={editText}
-          setEditTextArea={(e) =>
-            setEditText((prevState) => ({
-              ...prevState,
-              body: e.target.value
-            }))
-          }
-          setEditAuthor={(e) =>
-            setEditText((prevState) => ({
-              ...prevState,
-              author: e.target.value
-            }))
-          }
+          setEditAuthor={(e) => handleUpdateData(e, UPDATEDATATYPE.AUTHOR)}
+          setEditBody={(e) => handleUpdateData(e, UPDATEDATATYPE.BODY)}
           onClickCancel={() => setToggleEditMode(false)}
           onClickSave={() => handleSaveEdit}
+          editText={editText}
         />
       )}
     </div>

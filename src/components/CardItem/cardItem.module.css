@@ -68,7 +68,7 @@
 }
 
 .cardBody {
-  min-height: 190px;
+  min-height: 200px;
   padding: var(--main-padding);
   flex-grow: 1;
 }

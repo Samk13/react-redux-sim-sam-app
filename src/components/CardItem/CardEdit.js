@@ -5,15 +5,14 @@ import InputComponent from '../InputComponent'
 import ArticleButton from '../ArticleButton'
 
 import styles from './cardItem.module.css'
+import CardFooter from './CardFooter'
 
 CardEdit.propTypes = {
   createdAt: PropTypes.string,
-  lastEdited: PropTypes.string,
-  seen: PropTypes.bool,
   onClickCancel: PropTypes.func,
   onClickSave: PropTypes.func,
   editText: PropTypes.object,
-  setEditTextArea: PropTypes.func,
+  setEditBody: PropTypes.func,
   setEditAuthor: PropTypes.func
 }
 
@@ -22,58 +21,43 @@ export default function CardEdit(props) {
   useEffect(() => {
     if (inputRef.current) {
       const inp = inputRef.current
-      return inp.focus()
+      return inp?.focus()
     }
     return
   }, [])
 
   return (
     <>
-      <div className={styles.cardTitle}>
+      <div className={styles.cardBody}>
         <InputComponent
-          ref={inputRef}
-          name="author"
-          placeholder="Author"
-          tabIndex="1"
           onChange={(e) => props.setEditAuthor(e)}
           value={props.editText.author}
+          placeholder="Author"
+          ref={inputRef}
+          name="author"
+          tabIndex="1"
         />
-      </div>
-      <div className={styles.cardBody}>
         <TextAreaComponent
-          placeholder="Body"
-          onChange={(e) => props.setEditTextArea(e)}
-          name="body"
+          onChange={(e) => props.setEditBody(e)}
           value={props.editText.body}
+          placeholder="Body"
           tabIndex="2"
+          name="body"
         />
       </div>
-      <hr className={styles.divider} />
-      <div className={styles.cardFooter}>
-        <div className={styles.cardInfo}>
-          <div>
-            <div>
-              <div>Created at: {props.createdAt && props.createdAt}</div>
-            </div>
-            <div>
-              <div>Last edited: {props.lastEdited && props.lastEdited}</div>
-              <div>{props.seen ? 'clicked' : 'not clicked'}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CardFooter {...props} />
       <div className={styles.btnContainer}>
         <div className={styles.saveCancelContainer}>
-          <span className={styles.saveBtn}>
+          <div className={styles.saveBtn}>
             <ArticleButton variant="primary-pink" onClick={props.onClickSave()} tabIndex="3">
               Save
             </ArticleButton>
-          </span>
-          <span className={styles.cancelBtn}>
+          </div>
+          <div className={styles.cancelBtn}>
             <ArticleButton variant="secondary" tabIndex="4" onClick={() => props.onClickCancel()}>
               Cancel
             </ArticleButton>
-          </span>
+          </div>
         </div>
       </div>
     </>
