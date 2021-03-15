@@ -1,5 +1,6 @@
 import React from 'react'
-import { ArticleForm, CardItem } from '../../components'
+import { ArticleForm } from '../../components'
+import CardItem from '../../components/CardItem/CardItem'
 import { useSelector } from 'react-redux'
 import styles from './articles.module.css'
 import { getArticles } from './articlesSlice'
