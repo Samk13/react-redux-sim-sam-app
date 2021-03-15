@@ -27,8 +27,14 @@ const UPDATEDATATYPE = {
 }
 
 export default function CardItem(props) {
-  const dispatch = useDispatch()
   const [toggleEditMode, setToggleEditMode] = useState(false)
+
+  const [isLoading, setIsLoading] = useState('false')
+
+  const dispatch = useDispatch()
+
+  const inputRef = useRef(null)
+
   const [editText, setEditText] = useState({
     id: '',
     author: '',
@@ -36,9 +42,27 @@ export default function CardItem(props) {
     lastEdited: new Date().toDateString()
   })
 
-  const [isLoading, setIsLoading] = useState('false')
+  const handleUpdateData = (payload, type) => {
+    switch (type) {
+      case UPDATEDATATYPE.AUTHOR:
+        setEditText((prevState) => ({
+          ...prevState,
+          author: payload.target.value
+        }))
+        break
+      case UPDATEDATATYPE.BODY:
+        setEditText((prevState) => ({
+          ...prevState,
+          body: payload.target.value
+        }))
+        break
+      default:
+        console.error(
+          `${type} is not supported type check sec/components/CardItem/CardItem.js -> handleData function`
+        )
+    }
+  }
 
-  const inputRef = useRef(null)
   const handleEdit = ({ id }) => () => {
     setIsLoading('true')
     setTimeout(() => {
@@ -67,32 +91,11 @@ export default function CardItem(props) {
 
   useEffect(() => {
     if (inputRef.current) {
-      const inp = inputRef.current
-      return inp.focus()
+      return inputRef.current.focus()
     }
     return
   }, [toggleEditMode])
 
-  const handleUpdateData = (payload, type) => {
-    switch (type) {
-      case UPDATEDATATYPE.AUTHOR:
-        setEditText((prevState) => ({
-          ...prevState,
-          author: payload.target.value
-        }))
-        break
-      case UPDATEDATATYPE.BODY:
-        setEditText((prevState) => ({
-          ...prevState,
-          body: payload.target.value
-        }))
-        break
-      default:
-        console.error(
-          `${type} is not supported type check sec/components/CardItem/CardItem.js -> handleData function`
-        )
-    }
-  }
   return (
     <div className={styles.card}>
       <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
