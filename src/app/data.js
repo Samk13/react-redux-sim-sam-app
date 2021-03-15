@@ -19,45 +19,48 @@ export const articleTypes = [
     title: 'Research',
     selected: false,
     key: 'research',
-    logo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
+    logo: 'https://picsum.photos/300/300'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Observations',
     selected: false,
     key: 'observations',
-    logo: 'https://www.php.net//images/logos/new-php-logo.svg'
+    logo: 'https://picsum.photos/300/300'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Hypotheses',
     selected: false,
     key: 'Hypotheses',
-    logo: 'https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png'
+    logo: 'https://picsum.photos/300/300'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Commentaries',
     selected: false,
     key: 'commentaries',
-    logo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png'
+    logo: 'https://picsum.photos/300/300'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Perspectives',
     selected: false,
     key: 'Perspectives',
-    logo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
+    logo: 'https://picsum.photos/300/300'
   },
   {
     id: `articleType_${uuid()}`,
     title: 'Editorials',
     selected: false,
     key: 'editorials',
-    logo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
+    logo: 'https://picsum.photos/300/300'
+  },
+  {
+    id: `articleType_${uuid()}`,
+    title: 'Other',
+    selected: false,
+    key: 'other',
+    logo: 'https://picsum.photos/300/300'
   }
 ]

@@ -37,16 +37,16 @@ export default function ArticleForm() {
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
-          label="author"
+          label="Author"
           name="author"
           errors={errors?.author && 'This field is required'}
-          placeholder="author"
+          placeholder="Author"
           ref={authorRef}
         />
         <TextAreaComponent
-          placeholder="body"
+          placeholder="Body"
           tag="input"
-          label="body"
+          label="Body"
           name="body"
           id="body"
           errors={errors?.body && 'This field is required'}

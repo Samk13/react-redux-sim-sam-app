@@ -22,6 +22,18 @@
   transform: rotate(-90deg);
   transition: transform var(--speed);
 }
+
+.arrowUp {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--text-light);
+  cursor: pointer;
+  transform: rotate(-90deg);
+  transition: transform var(--speed);
+}
+
 .dropdownContainer {
   position: relative;
 }
@@ -60,6 +72,7 @@
   padding: calc(var(--main-padding) / 2);
   margin-left: 6px;
 }
+
 .dropdownValue {
   color: var(--gray-200);
   display: flex;
@@ -70,6 +83,7 @@
   margin: 0 calc(var(--main-margin) / 2) calc(var(--main-margin) / 2) 0;
   animation: expand calc(var(--speed) / 3) ease-in-out;
 }
+
 .dropdownRemove {
   cursor: pointer;
   margin-left: calc(var(--main-margin) / 2);
@@ -93,8 +107,8 @@
   position: absolute;
   top: 100%;
   opacity: 0;
-  -webkit-transition: opacity 600ms, visibility 600ms;
-  transition: opacity 600ms, visibility 600ms;
+  -webkit-transition: all 600ms, visibility 600ms;
+  transition: all 600ms, visibility 600ms;
 }
 .dropdownActive {
   visibility: visible;
@@ -102,6 +116,7 @@
 }
 .dropdownItem {
   width: 100%;
+  border-radius: var(--radius);
   height: calc(var(--main-margin) * 3);
   display: flex;
   justify-content: flex-start;
@@ -109,8 +124,13 @@
   background-color: var(--bg-dark);
   color: var(--gray-200);
   padding: var(--main-padding);
-  margin: 1px;
-  border-bottom: 1px dotted grey;
+  border-bottom: 1px solid grey;
+}
+.dropdownItem:nth-child(odd) {
+  filter: brightness(0.8);
+}
+.dropdownItem:last-child {
+  margin-bottom: var(--main-margin);
 }
 .dropdownItem:hover {
   background-color: slategray;
@@ -118,6 +138,8 @@
 .dropdownItem img {
   width: 40px;
   margin-right: 20px;
+  border-radius: 50%;
+  padding: 0 calc(var(--main-padding) / 2);
 }
 
 @keyframes expand {
