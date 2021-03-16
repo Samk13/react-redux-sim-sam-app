@@ -14,7 +14,7 @@ export const articleSlice = createSlice({
         SetState(LOCALSTATE, payload)
         state.push(payload)
       },
-      prepare: ({ body, author }) => ({
+      prepare: ({ body, author, type }) => ({
         payload: {
           id: `article_${uuid()}`,
           createdAt: new Date().toISOString(),
@@ -22,6 +22,7 @@ export const articleSlice = createSlice({
           lastEdited: '',
           body,
           author,
+          type,
           seen: false
         }
       })

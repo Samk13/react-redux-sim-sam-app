@@ -1,28 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './articleForm.module.css'
-import ArticleButton from './ArticleButton'
-import TextAreaComponent from './TextAreaComponent'
-import InputComponent from './InputComponent'
-import DropDownMenu from './dropDownMenu/DropDownMenu'
-import { create } from '../features/articles/articlesSlice'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { create } from '../features/articles/articlesSlice'
+import DropDownMenu from './dropDownMenu/DropDownMenu'
+import TextAreaComponent from './TextAreaComponent'
+import InputComponent from './InputComponent'
+import ArticleButton from './ArticleButton'
 import { articleTypes } from '../app/data'
+
+import styles from './articleForm.module.css'
 
 export default function ArticleForm() {
   const { register, handleSubmit, errors, reset } = useForm()
-  const dispatch = useDispatch()
+  const [selectedType, setSelectedType] = useState([])
   const [isLoading, setIsLoading] = useState('false')
+  const dispatch = useDispatch()
+  const authorRef = useRef(null)
   const onSubmit = (data) => {
     setIsLoading('true')
     setTimeout(() => {
+      data.type = selectedType
       dispatch(create(data))
       reset()
       setIsLoading('false')
     }, 1500)
   }
 
-  const authorRef = useRef(null)
   useEffect(() => {
     if (authorRef.current) {
       register(authorRef.current, { required: true, maxLength: 20 })
@@ -30,8 +33,6 @@ export default function ArticleForm() {
     }
     return
   }, [register])
-
-  const [selectedType, setSelectedType] = useState([])
 
   return (
     <div className={styles.formContainer}>
