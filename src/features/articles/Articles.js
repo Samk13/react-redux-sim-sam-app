@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArticleForm } from '../../components'
-import CardItem from '../../components/CardItem/CardItem'
+import CardItem from '../../components/cardItem/CardItem'
 import { useSelector } from 'react-redux'
 import styles from './articles.module.css'
 import { getArticles } from './articlesSlice'
