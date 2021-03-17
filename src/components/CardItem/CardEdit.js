@@ -6,6 +6,7 @@ import ArticleButton from '../ArticleButton'
 
 import styles from './cardItem.module.css'
 import CardFooter from './CardFooter'
+import DropDownMenu from '../dropDownMenu/DropDownMenu'
 
 CardEdit.propTypes = {
   createdAt: PropTypes.string,
@@ -13,7 +14,12 @@ CardEdit.propTypes = {
   onClickSave: PropTypes.func,
   editText: PropTypes.object,
   setEditBody: PropTypes.func,
-  setEditAuthor: PropTypes.func
+  setEditAuthor: PropTypes.func,
+  onDdChange: PropTypes.func,
+  options: PropTypes.array,
+  type: PropTypes.array,
+  removeType: PropTypes.func,
+  selectedType: PropTypes.array
 }
 
 export default function CardEdit(props) {
@@ -44,8 +50,14 @@ export default function CardEdit(props) {
           tabIndex="2"
           name="body"
         />
+        <DropDownMenu
+          onChange={(v) => props.onDdChange(v)}
+          title="Select article type:"
+          options={props.options}
+          value={props.selectedType}
+        />
       </div>
-      <CardFooter {...props} />
+      <CardFooter {...props} canRemoveType removeType={(e) => props.removeType(e)} />
       <div className={styles.btnContainer}>
         <div className={styles.saveCancelContainer}>
           <div className={styles.saveBtn}>

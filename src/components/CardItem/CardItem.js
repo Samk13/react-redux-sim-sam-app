@@ -6,6 +6,7 @@ import { ReactComponent as CloseIcon } from '../../icons/close.svg'
 import CardImage from './CardImage'
 import CardContent from './CardContent'
 import CardEdit from './CardEdit'
+import { articleTypes } from '../../app/data'
 
 import styles from './cardItem.module.css'
 
@@ -24,7 +25,8 @@ CardItem.propTypes = {
 
 const UPDATEDATATYPE = {
   AUTHOR: 'author',
-  BODY: 'body'
+  BODY: 'body',
+  TYPE: 'type'
 }
 
 export default function CardItem(props) {
@@ -36,10 +38,13 @@ export default function CardItem(props) {
 
   const inputRef = useRef(null)
 
+  const [selectedType, setSelectedType] = useState([])
+
   const [editText, setEditText] = useState({
     id: '',
     author: '',
     body: '',
+    type: selectedType,
     lastEdited: new Date().toDateString()
   })
 
@@ -57,6 +62,12 @@ export default function CardItem(props) {
           body: payload.target.value
         }))
         break
+      case UPDATEDATATYPE.TYPE:
+        setEditText((prevState) => ({
+          ...prevState,
+          type: selectedType
+        }))
+        break
       default:
         console.error(
           `${type} is not supported type check sec/components/CardItem/CardItem.js -> handleData function`
@@ -72,7 +83,8 @@ export default function CardItem(props) {
         ...prevState,
         id,
         author: props.author,
-        body: props.body
+        body: props.body,
+        type: props.type
       }))
       setToggleEditMode(id)
       setEditText((prevState) => ({ ...prevState }))
@@ -82,7 +94,7 @@ export default function CardItem(props) {
 
   const handleSaveEdit = () => {
     dispatch(edit(editText))
-    setEditText(() => ({ id: '', author: '', body: '' }))
+    setEditText(() => ({ id: '', author: '', body: '', type: [] }))
     setToggleEditMode(false)
   }
 
@@ -96,6 +108,10 @@ export default function CardItem(props) {
     }
     return
   }, [toggleEditMode])
+
+  const removeType = (e) => {
+    console.log(e)
+  }
 
   return (
     <div className={styles.card}>
@@ -119,6 +135,10 @@ export default function CardItem(props) {
           onClickCancel={() => setToggleEditMode(false)}
           onClickSave={() => handleSaveEdit}
           editText={editText}
+          options={articleTypes}
+          onDdChange={(e) => setSelectedType(e)}
+          selectedType={selectedType}
+          removeType={(e) => removeType(e)}
         />
       )}
     </div>
