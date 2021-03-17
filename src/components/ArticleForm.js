@@ -22,6 +22,7 @@ export default function ArticleForm() {
       data.type = selectedType
       dispatch(create(data))
       reset()
+      setSelectedType([])
       setIsLoading('false')
     }, 1500)
   }
