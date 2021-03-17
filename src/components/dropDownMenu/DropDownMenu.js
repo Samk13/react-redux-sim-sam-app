@@ -3,6 +3,7 @@ import propTypes from 'prop-types'
 import { ReactComponent as CloseIcon } from '../../icons/close.svg'
 
 import styles from './dropDownMenu.module.css'
+import DdChip from './DdChip'
 
 DropDownMenu.propTypes = {
   onChange: propTypes.func,
@@ -34,16 +35,9 @@ export default function DropDownMenu(props) {
         <div className={styles.dropdownValues}>
           {props.value.length ? (
             props.value.map((v) => (
-              <div key={v.id} className={styles.dropdownValue}>
-                {props.options.map((i) => {
-                  if (i.title === v.title) {
-                    return i.title
-                  }
-                })}
-                <span className={styles.dropdownRemove} onClick={() => removeValue(v)}>
-                  <CloseIcon className={styles.closeIcon} />
-                </span>
-              </div>
+              <DdChip key={v.id} canRemove removeValue={() => removeValue(v)}>
+                {v.title}
+              </DdChip>
             ))
           ) : (
             <div onClick={() => setIsActive(!isActive)} className={styles.dropdownPlaceholder}>
