@@ -21,11 +21,6 @@ export default function CardContent(props) {
       </div>
       <div className={styles.cardBody}>
         <div>{props.body}</div>
-        {props.type?.map((t) => (
-          <div key={t.key}>
-            <p>{t.title}</p>
-          </div>
-        ))}
       </div>
       <CardFooter {...props} />
       <div className={styles.btnContainer}>
