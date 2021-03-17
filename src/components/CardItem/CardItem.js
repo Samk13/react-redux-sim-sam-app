@@ -18,7 +18,8 @@ CardItem.propTypes = {
   seen: PropTypes.bool,
   imgUrl: PropTypes.string,
   delete: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  type: PropTypes.array
 }
 
 const UPDATEDATATYPE = {

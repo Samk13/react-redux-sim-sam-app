@@ -15,6 +15,7 @@ export default function DropDownMenu(props) {
   const [isActive, setIsActive] = useState(false)
 
   const applyChange = (newItemId) => {
+    newItemId.selected = true
     props.onChange && props.onChange([...props.value, newItemId])
   }
 
@@ -33,9 +34,9 @@ export default function DropDownMenu(props) {
         <div className={styles.dropdownValues}>
           {props.value.length ? (
             props.value.map((v) => (
-              <div key={v} className={styles.dropdownValue}>
+              <div key={v.id} className={styles.dropdownValue}>
                 {props.options.map((i) => {
-                  if (i.id === v) {
+                  if (i.title === v.title) {
                     return i.title
                   }
                 })}
@@ -53,9 +54,9 @@ export default function DropDownMenu(props) {
       </div>
       <div className={isActive ? styles.dropdownOptions : styles.isActive}>
         {props.options
-          .filter((i) => props.value.findIndex((v) => v === i.id) === -1)
+          .filter((i) => props.value.findIndex((v) => v.key === i.key) === -1)
           .map((item) => (
-            <div key={item.id} onClick={() => applyChange(item.id)} className={styles.dropdownItem}>
+            <div key={item.id} onClick={() => applyChange(item)} className={styles.dropdownItem}>
               <img className={styles.image} src={item.logo} />
               {item.title}
             </div>

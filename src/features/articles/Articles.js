@@ -24,14 +24,14 @@ export default function Articles() {
       <div>
         <h2 className={styles.formTitle}>All Article</h2>
         <TransitionGroup className={styles.container}>
-          {selectArticles?.map((_props) => (
+          {selectArticles?.map((article) => (
             <CSSTransition
-              key={_props.id}
+              key={article.id}
               timeout={{ enter: 800, exit: 500 }}
               classNames="card-container"
               unmountOnExit
             >
-              <CardItem {..._props} />
+              <CardItem {...article} />
             </CSSTransition>
           ))}
         </TransitionGroup>
