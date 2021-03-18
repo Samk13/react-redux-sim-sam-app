@@ -21,10 +21,12 @@ ArticleForm.propTypes = {
 }
 
 export default function ArticleForm(props) {
+  const { id, author, body, type, editMode, onClose } = props
+
   const preloadedData = {
-    author: props?.author,
-    body: props?.body,
-    type: props?.type
+    author,
+    body,
+    type
   }
   const { register, handleSubmit, errors, reset } = useForm({
     defaultValues: preloadedData
@@ -34,7 +36,7 @@ export default function ArticleForm(props) {
   const dispatch = useDispatch()
   const authorRef = useRef(null)
   const onSubmit = (data) => {
-    if (!props.editMode) {
+    if (!editMode) {
       setIsLoading('true')
       setTimeout(() => {
         data.type = selectedType
@@ -45,24 +47,24 @@ export default function ArticleForm(props) {
       }, 1500)
     } else {
       data.type = selectedType
-      data.id = props.id
+      data.id = id
       dispatch(edit(data))
       reset()
       setSelectedType([])
-      props.onClose()
+      onClose()
     }
   }
 
   useEffect(() => {
-    if (props.type) {
-      setSelectedType(props.type)
+    if (type) {
+      setSelectedType(type)
     }
     if (authorRef.current) {
       register(authorRef.current, { required: true, maxLength: 20 })
       authorRef.current.focus()
     }
     return
-  }, [register, props.type])
+  }, [register, type])
 
   return (
     <div className={styles.formContainer}>
@@ -105,7 +107,7 @@ export default function ArticleForm(props) {
             </div>
           </div>
         ) : (
-          <div className={styles.submitBtn}>
+          <div className={buttonStyle.submitBtn}>
             <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
               Submit
             </ArticleButton>
