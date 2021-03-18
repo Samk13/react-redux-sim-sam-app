@@ -14,7 +14,7 @@ CardFooter.propTypes = {
 }
 
 export default function CardFooter(props) {
-  const { createdAt, lastEdited, seen, type, canRemoveType } = props
+  const { createdAt, lastEdited, seen, type } = props
   return (
     <>
       <hr className={styles.divider} />
@@ -25,13 +25,7 @@ export default function CardFooter(props) {
             <div>Last edited: {lastEdited && lastEdited}</div>
             <div className={styles.clicked}>{seen ? 'clicked' : 'not clicked'}</div>
             {type?.map((t) => (
-              <DdChip
-                removeValue={() => props.removeType(t.id)}
-                canRemoveType={canRemoveType}
-                key={t.key}
-              >
-                {t.title}
-              </DdChip>
+              <DdChip key={t.key}>{t.title}</DdChip>
             ))}
           </div>
         </div>

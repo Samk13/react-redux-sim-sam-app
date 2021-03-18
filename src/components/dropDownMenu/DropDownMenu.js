@@ -14,7 +14,6 @@ export default function DropDownMenu(props) {
   const [isActive, setIsActive] = useState(true)
 
   const applyChange = (newItemId) => {
-    newItemId.selected = true
     props.onChange && props.onChange([...props.value, newItemId])
   }
 

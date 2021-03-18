@@ -1,31 +1,65 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { create } from '../features/articles/articlesSlice'
+import { create, edit } from '../features/articles/articlesSlice'
 import DropDownMenu from './dropDownMenu/DropDownMenu'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
 import ArticleButton from './ArticleButton'
 import { articleTypes } from '../app/data'
-
+import propTypes from 'prop-types'
+import buttonStyle from './cardItem/cardItem.module.css'
 import styles from './articleForm.module.css'
 
-export default function ArticleForm() {
-  const { register, handleSubmit, errors, reset } = useForm()
+ArticleForm.propTypes = {
+  id: propTypes.string,
+  editMode: propTypes.bool,
+  author: propTypes.string,
+  body: propTypes.string,
+  type: propTypes.array,
+  onClose: propTypes.func
+}
+
+export default function ArticleForm(props) {
+  const preloadedData = {
+    author: props?.author,
+    body: props?.body,
+    type: props?.type
+  }
+  const { register, handleSubmit, errors, reset } = useForm({
+    defaultValues: preloadedData
+  })
   const [selectedType, setSelectedType] = useState([])
   const [isLoading, setIsLoading] = useState('false')
   const dispatch = useDispatch()
   const authorRef = useRef(null)
   const onSubmit = (data) => {
-    setIsLoading('true')
-    setTimeout(() => {
+    if (!props.editMode) {
+      setIsLoading('true')
+      setTimeout(() => {
+        data.type = selectedType
+        dispatch(create(data))
+        reset()
+        setSelectedType([])
+        setIsLoading('false')
+      }, 1500)
+    } else {
       data.type = selectedType
-      dispatch(create(data))
+      data.id = props.id
+      dispatch(edit(data))
       reset()
       setSelectedType([])
-      setIsLoading('false')
-    }, 1500)
+      props.onClose()
+    }
   }
+
+  useEffect(() => {
+    if (props.type) {
+      setSelectedType(props.type)
+    }
+    return
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (authorRef.current) {
@@ -60,9 +94,26 @@ export default function ArticleForm() {
           options={articleTypes}
           value={selectedType}
         />
-        <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
-          Submit
-        </ArticleButton>
+        {props.editMode ? (
+          <div className={buttonStyle.btnContainer}>
+            <div className={buttonStyle.saveCancelContainer}>
+              <div className={buttonStyle.saveBtn}>
+                <ArticleButton variant="primary-pink" type="submit" tabIndex="3">
+                  Save
+                </ArticleButton>
+              </div>
+              <div className={buttonStyle.cancelBtn}>
+                <ArticleButton variant="secondary" tabIndex="4" onClick={() => props.onClose()}>
+                  Cancel
+                </ArticleButton>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
+            Submit
+          </ArticleButton>
+        )}
       </form>
     </div>
   )
