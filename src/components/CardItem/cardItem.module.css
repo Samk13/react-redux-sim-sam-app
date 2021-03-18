@@ -114,3 +114,7 @@
   display: flex;
   width: 100%;
 }
+
+.clicked {
+  margin-bottom: var(--main-margin);
+}

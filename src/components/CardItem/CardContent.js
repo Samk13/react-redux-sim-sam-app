@@ -9,7 +9,8 @@ CardContent.propTypes = {
   author: PropTypes.string,
   body: PropTypes.string,
   onClickEdit: PropTypes.func,
-  loading: PropTypes.string
+  loading: PropTypes.string,
+  type: PropTypes.array
 }
 
 export default function CardContent(props) {

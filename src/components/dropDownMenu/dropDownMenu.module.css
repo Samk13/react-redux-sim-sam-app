@@ -75,11 +75,13 @@
 
 .dropdownValue {
   color: var(--gray-200);
-  display: flex;
+  display: inline-flex;
+  justify-content: space-between;
+  width: fit-content;
   align-items: center;
   padding: var(--main-padding);
   background-color: var(--gray-300);
-  border-radius: 5px;
+  border-radius: var(--radius);
   margin: 0 calc(var(--main-margin) / 2) calc(var(--main-margin) / 2) 0;
   animation: expand calc(var(--speed) / 3) ease-in-out;
 }
