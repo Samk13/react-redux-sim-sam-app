@@ -3,19 +3,14 @@ import { NavLink } from 'react-router-dom'
 import styles from './sidebarComponent.module.css'
 import routes from '../router/routes'
 
+const { aside, emptySpace, link, active } = styles
 export default function sidebarComponent() {
   return (
     <>
-      <aside className={styles.aside}>
-        <div className={styles.emptySpace}></div>
+      <aside className={aside}>
+        <div className={emptySpace}></div>
         {routes.map((route, key) => (
-          <NavLink
-            className={styles.link}
-            key={key}
-            activeClassName={styles.active}
-            to={route.path}
-            exact
-          >
+          <NavLink className={link} key={key} activeClassName={active} to={route.path} exact>
             {route.name}
           </NavLink>
         ))}

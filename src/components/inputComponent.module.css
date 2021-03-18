@@ -5,12 +5,12 @@
   display: flex;
 }
 
-.label {
+.inputLabel {
   color: var(--text-light, #999);
   font-weight: normal;
 }
 
-.label::after {
+.inputLabel::after {
   margin-left: calc(var(--main-margin) / 3);
   font-size: var(--text-xs);
   content: '*';

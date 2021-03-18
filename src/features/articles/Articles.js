@@ -7,23 +7,33 @@ import { getArticles } from './articlesSlice'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './transitions.css'
 
+const {
+  inputContainer,
+  TitleContainer,
+  title,
+  formTitle,
+  formContainer,
+  divider,
+  container
+} = styles
+
 export default function Articles() {
   const selectArticles = useSelector(getArticles)
   // const nodeRef = React.useRef(null)
 
   return (
     <div>
-      <div className={styles.inputContainer}>
-        <div className={styles.TitleContainer}>
-          <p className={styles.title}>The Article Generator</p>
+      <div className={inputContainer}>
+        <div className={TitleContainer}>
+          <p className={title}>The Article Generator</p>
         </div>
-        <h2 className={styles.formTitle}>Create new Article</h2>
-        <ArticleForm className={styles.formContainer} />
+        <h2 className={formTitle}>Create new Article</h2>
+        <ArticleForm className={formContainer} />
       </div>
-      <hr className={styles.divider} />
+      <hr className={divider} />
       <div>
-        <h2 className={styles.formTitle}>All Article</h2>
-        <TransitionGroup className={styles.container}>
+        <h2 className={formTitle}>All Article</h2>
+        <TransitionGroup className={container}>
           {selectArticles?.map((article) => (
             <CSSTransition
               key={article.id}

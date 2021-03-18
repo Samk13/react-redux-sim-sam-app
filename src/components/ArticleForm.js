@@ -19,6 +19,7 @@ ArticleForm.propTypes = {
   type: propTypes.array,
   onClose: propTypes.func
 }
+const { formContainer, formContainerEditMode, form } = styles
 
 export default function ArticleForm(props) {
   const { id, author, body, type, editMode, onClose } = props
@@ -67,8 +68,8 @@ export default function ArticleForm(props) {
   }, [register, type])
 
   return (
-    <div className={!editMode ? `${styles.formContainer}` : `${styles.formContainerEditMode}`}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <div className={!editMode ? `${formContainer}` : `${formContainerEditMode}`}>
+      <form className={form} onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
           label="Author"
           name="author"

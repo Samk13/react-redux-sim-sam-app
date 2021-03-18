@@ -13,18 +13,20 @@ CardContent.propTypes = {
   type: PropTypes.array
 }
 
+const { cardTitle, cardBody, btnContainer } = styles
+
 export default function CardContent(props) {
   const { author, body, loading, onClickEdit } = props
   return (
     <>
-      <div className={styles.cardTitle}>
+      <div className={cardTitle}>
         <div>{author}</div>
       </div>
-      <div className={styles.cardBody}>
+      <div className={cardBody}>
         <div>{body}</div>
       </div>
       <CardFooter {...props} />
-      <div className={styles.btnContainer}>
+      <div className={btnContainer}>
         <ArticleButton variant="secondary" loading={loading} onClick={onClickEdit()}>
           Edit
         </ArticleButton>

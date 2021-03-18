@@ -13,17 +13,18 @@ CardFooter.propTypes = {
   removeType: PropTypes.func
 }
 
+const { divider, cardFooter, cardInfo, clicked } = styles
 export default function CardFooter(props) {
   const { createdAt, lastEdited, seen, type } = props
   return (
     <>
-      <hr className={styles.divider} />
-      <div className={styles.cardFooter}>
-        <div className={styles.cardInfo}>
+      <hr className={divider} />
+      <div className={cardFooter}>
+        <div className={cardInfo}>
           <div>
             <div>Created at: {createdAt && createdAt}</div>
             <div>Last edited: {lastEdited && lastEdited}</div>
-            <div className={styles.clicked}>{seen ? 'clicked' : 'not clicked'}</div>
+            <div className={clicked}>{seen ? 'clicked' : 'not clicked'}</div>
             {type?.map((t) => (
               <DdChip key={t.key}>{t.title}</DdChip>
             ))}

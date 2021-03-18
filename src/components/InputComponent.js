@@ -4,6 +4,7 @@ import { v1 as uuid } from 'uuid'
 // working solution for forwarding refs https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd
 // seems to work without it keep the link for reference in the future
 
+const { inputBody, inputLabel, input, error } = styles
 function TextInput(_props, ref) {
   const { onChange, label, styling, errors } = _props
   const [inputValue, setInputValue] = useState('')
@@ -13,21 +14,21 @@ function TextInput(_props, ref) {
     if (onChange) onChange(inputValue)
   }
   return (
-    <div className={styles.inputBody}>
+    <div className={inputBody}>
       {label && (
-        <label className={styles.label} htmlFor={id}>
+        <label className={inputLabel} htmlFor={id}>
           {label}
         </label>
       )}
 
       <input
-        className={[styling, styles.input].join(' ')}
+        className={[styling, input].join(' ')}
         onChange={handleChange}
         {..._props}
         ref={ref}
         id={id}
       />
-      <span className={styles.error}>{errors}</span>
+      <span className={error}>{errors}</span>
     </div>
   )
 }

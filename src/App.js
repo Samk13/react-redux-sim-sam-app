@@ -6,20 +6,21 @@ import routes from './router/routes'
 import { useSelector } from 'react-redux'
 import { menuStatus } from './features/menu/menuSlice'
 
+const { loaderContainer, container, containerHideSidebar, header, main, footer } = styles
 function App() {
   const renderLoader = () => (
-    <div className={styles.laoderContainer}>
-      <LoadingItem className={styles.laoder} />
+    <div className={loaderContainer}>
+      <LoadingItem />
     </div>
   )
   const menuActive = useSelector(menuStatus)
   return (
     <Router>
-      <section className={menuActive ? styles.container : styles.containerHideSidebar}>
-        <header className={styles.header}>
+      <section className={menuActive ? container : containerHideSidebar}>
+        <header className={header}>
           <HeaderComponent />
         </header>
-        <main className={styles.main}>
+        <main className={main}>
           <Switch>
             <Suspense fallback={renderLoader()}>
               {routes.map((route, key) => {
@@ -36,8 +37,8 @@ function App() {
           </Switch>
         </main>
         {menuActive && <SidebarComponent />}
-        <footer className={styles.footer}>
-          <FooterComponent className={styles.footer} />
+        <footer className={footer}>
+          <FooterComponent className={footer} />
         </footer>
       </section>
     </Router>

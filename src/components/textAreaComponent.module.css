@@ -5,7 +5,7 @@
   display: flex;
 }
 
-.label {
+.taLabel {
   color: var(--text-light, #999);
   font-weight: normal;
 }
@@ -31,7 +31,8 @@
   font-weight: bold;
   outline: none;
 }
-.label::after {
+
+.taLabel::after {
   margin-left: calc(var(--main-margin) / 3);
   font-size: var(--text-xs);
   content: '*';

@@ -34,12 +34,13 @@ export default function CardItem(props) {
   const handleToggleSeen = ({ id }) => {
     dispatch(toggleSeen(id))
   }
+  const { card, closeBtn, closeIcon } = styles
 
   return (
-    <div className={styles.card}>
+    <div className={card}>
       <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
-      <div className={styles.closeBtn} onClick={() => dispatch(remove(props.id))}>
-        <CloseIcon className={styles.closeIcon} />
+      <div className={closeBtn} onClick={() => dispatch(remove(props.id))}>
+        <CloseIcon className={closeIcon} />
       </div>
       {!toggleEditMode && (
         <CardContent

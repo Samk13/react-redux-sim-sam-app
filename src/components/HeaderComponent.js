@@ -5,15 +5,16 @@ import { ReactComponent as MenuIcon } from '../icons/menu.svg'
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../features/menu/menuSlice'
 
+const { header, headerContent, routeLink, icon } = styles
 export default function HeaderComponent() {
   const dispatch = useDispatch()
   return (
-    <div className={styles.header}>
-      <div className={styles.headerContent}>
-        <Link className={styles.routeLink} to="/">
+    <div className={header}>
+      <div className={headerContent}>
+        <Link className={routeLink} to="/">
           React-reduxToolKit
         </Link>
-        <span className={styles.icon} onClick={() => dispatch(toggleMenu())}>
+        <span className={icon} onClick={() => dispatch(toggleMenu())}>
           <MenuIcon />
         </span>
       </div>

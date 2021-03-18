@@ -12,13 +12,13 @@
   cursor: pointer;
 }
 
-.children {
+.btnChildren {
   vertical-align: middle;
   display: inline-block;
   font-size: var(--text-base);
 }
 
-.loading {
+.loadingBtn {
   margin: 0 0 0 var(--main-margin);
   display: inline-block;
   vertical-align: middle;

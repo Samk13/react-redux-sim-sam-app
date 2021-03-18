@@ -30,11 +30,6 @@
   border-radius: var(--radius);
 }
 
-.sidbar {
-  grid-area: sidebar;
-  border-radius: var(--radius);
-}
-
 .main {
   grid-area: main;
   min-height: calc(100vh - 10vh);
@@ -65,11 +60,10 @@
     height: minmax(calc(100vh - 20vh), auto-fit);
     border-radius: var(--radius);
     padding-top: var(--main-padding);
-    /* max-width: 100%; */
   }
 }
 
-.laoderContainer {
+.loaderContainer {
   display: flex;
   align-items: center;
   justify-content: center;
