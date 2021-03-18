@@ -8,10 +8,13 @@ CardFooter.propTypes = {
   createdAt: PropTypes.string,
   lastEdited: PropTypes.string,
   seen: PropTypes.bool,
-  type: PropTypes.array
+  type: PropTypes.array,
+  canRemoveType: PropTypes.bool,
+  removeType: PropTypes.func
 }
 
-export default function CardFooter({ createdAt, lastEdited, seen, type }) {
+export default function CardFooter(props) {
+  const { createdAt, lastEdited, seen, type } = props
   return (
     <>
       <hr className={styles.divider} />

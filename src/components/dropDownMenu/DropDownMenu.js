@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import propTypes from 'prop-types'
-import { ReactComponent as CloseIcon } from '../../icons/close.svg'
-
 import styles from './dropDownMenu.module.css'
 import DdChip from './DdChip'
 
@@ -13,10 +11,9 @@ DropDownMenu.propTypes = {
 }
 
 export default function DropDownMenu(props) {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(true)
 
   const applyChange = (newItemId) => {
-    newItemId.selected = true
     props.onChange && props.onChange([...props.value, newItemId])
   }
 
@@ -35,7 +32,7 @@ export default function DropDownMenu(props) {
         <div className={styles.dropdownValues}>
           {props.value.length ? (
             props.value.map((v) => (
-              <DdChip key={v.id} canRemove removeValue={() => removeValue(v)}>
+              <DdChip key={v.id} canRemoveType removeValue={() => removeValue(v)}>
                 {v.title}
               </DdChip>
             ))

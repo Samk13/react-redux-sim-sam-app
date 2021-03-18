@@ -31,6 +31,7 @@ export const articleSlice = createSlice({
       const articleEdit = state.find((article) => article.id === action.payload.id)
       articleEdit.body = action.payload.body
       articleEdit.author = action.payload.author
+      articleEdit.type = action.payload.type
       articleEdit.lastEdited = action.payload.lastEdited
       setItem(LOCALSTATE, state)
     },
