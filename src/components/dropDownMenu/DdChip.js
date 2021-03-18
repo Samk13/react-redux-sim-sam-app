@@ -10,12 +10,12 @@ DdChip.propTypes = {
   canRemoveType: propTypes.bool
 }
 
-export default function DdChip(props) {
+export default function DdChip({ children, canRemoveType, removeValue }) {
   return (
     <div className={styles.dropdownValue}>
-      <p>{props.children} </p>
-      {props.canRemoveType && (
-        <span className={styles.dropdownRemove} onClick={() => props.removeValue()}>
+      <p>{children} </p>
+      {canRemoveType && (
+        <span className={styles.dropdownRemove} onClick={() => removeValue()}>
           <CloseIcon className={styles.closeIcon} />
         </span>
       )}

@@ -5,28 +5,29 @@ import { v1 as uuid } from 'uuid'
 // seems to work without it keep the link for reference in the future
 
 function TextInput(_props, ref) {
+  const { onChange, label, styling, errors } = _props
   const [inputValue, setInputValue] = useState('')
   const id = `input_${uuid()}`
   const handleChange = (event) => {
     setInputValue(event.target.value)
-    if (_props.onChange) _props.onChange(inputValue)
+    if (onChange) onChange(inputValue)
   }
   return (
     <div className={styles.inputBody}>
-      {_props.label && (
+      {label && (
         <label className={styles.label} htmlFor={id}>
-          {_props.label}
+          {label}
         </label>
       )}
 
       <input
-        className={[_props.styling, styles.input].join(' ')}
+        className={[styling, styles.input].join(' ')}
         onChange={handleChange}
         {..._props}
         ref={ref}
         id={id}
       />
-      <span className={styles.error}>{_props.errors}</span>
+      <span className={styles.error}>{errors}</span>
     </div>
   )
 }

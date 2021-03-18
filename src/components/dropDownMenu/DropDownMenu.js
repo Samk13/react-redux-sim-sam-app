@@ -11,27 +11,28 @@ DropDownMenu.propTypes = {
 }
 
 export default function DropDownMenu(props) {
+  const { onChange, value, title, options } = props
   const [isActive, setIsActive] = useState(true)
 
   const applyChange = (newItemId) => {
-    props.onChange && props.onChange([...props.value, newItemId])
+    onChange && onChange([...value, newItemId])
   }
 
   const removeValue = (removedItemId) => {
-    props.onChange && props.onChange(props.value.filter((i) => i !== removedItemId))
+    onChange && onChange(value.filter((i) => i !== removedItemId))
   }
 
   return (
     <div className={styles.dropdownContainer}>
-      <label className={styles.label}>{props.title}</label>
+      <label className={styles.label}>{title}</label>
       <div className={styles.dropdownInput}>
         <span
           onClick={() => setIsActive(!isActive)}
           className={!isActive ? styles.arrowDown : styles.arrowUp}
         />
         <div className={styles.dropdownValues}>
-          {props.value.length ? (
-            props.value.map((v) => (
+          {value.length ? (
+            value.map((v) => (
               <DdChip key={v.id} canRemoveType removeValue={() => removeValue(v)}>
                 {v.title}
               </DdChip>
@@ -44,8 +45,8 @@ export default function DropDownMenu(props) {
         </div>
       </div>
       <div className={isActive ? styles.dropdownOptions : styles.isActive}>
-        {props.options
-          .filter((i) => props.value.findIndex((v) => v.key === i.key) === -1)
+        {options
+          .filter((i) => value.findIndex((v) => v.key === i.key) === -1)
           .map((item) => (
             <div key={item.id} onClick={() => applyChange(item)} className={styles.dropdownItem}>
               <img className={styles.image} src={item.logo} />

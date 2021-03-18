@@ -3,6 +3,7 @@ import styles from './articleButton.module.css'
 import LoadingItem from './LoadingItem'
 
 function ArticleButton(_props, ref) {
+  const { variant, loading, disabled, children } = _props
   const VARIANTS = {
     primary: 'primary',
     primaryPink: 'primary-pink',
@@ -28,14 +29,14 @@ function ArticleButton(_props, ref) {
   }
   return (
     <button
-      className={_props.variant ? handleVariants(_props.variant) : styles.btn}
-      disabled={(_props.loading === 'true' && true) || _props.disabled}
+      className={variant ? handleVariants(variant) : styles.btn}
+      disabled={(loading === 'true' && true) || disabled}
       ref={ref}
       {..._props}
     >
       <span>
-        <p className={styles.children}>{_props.children}</p>
-        {_props.loading === 'true' && (
+        <p className={styles.children}>{children}</p>
+        {loading === 'true' && (
           <span className={styles.loading}>
             <LoadingItem />
           </span>
