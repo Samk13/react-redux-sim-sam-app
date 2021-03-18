@@ -2,9 +2,12 @@
   background-color: var(--bg-semi-dark, #bdbdbd13);
   border: var(--gray-200) solid 1px;
   border-radius: var(--radius);
-  border-radius: var(--radius);
+  text-align: left;
+  padding: var(--main-margin);
+}
+
+.formContainerEditMode {
   border-radius: var(--radius);
   padding: var(--main-padding);
   text-align: left;
-  padding: var(--main-margin);
 }

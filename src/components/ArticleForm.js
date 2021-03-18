@@ -67,7 +67,7 @@ export default function ArticleForm(props) {
   }, [register, type])
 
   return (
-    <div className={styles.formContainer}>
+    <div className={!editMode ? `${styles.formContainer}` : `${styles.formContainerEditMode}`}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
           label="Author"
