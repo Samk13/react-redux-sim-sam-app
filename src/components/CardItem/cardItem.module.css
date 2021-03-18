@@ -118,3 +118,7 @@
 .clicked {
   margin-bottom: var(--main-margin);
 }
+
+.submitBtn {
+  margin-top: var(--main-margin);
+}

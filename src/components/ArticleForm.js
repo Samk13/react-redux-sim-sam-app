@@ -57,17 +57,12 @@ export default function ArticleForm(props) {
     if (props.type) {
       setSelectedType(props.type)
     }
-    return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
     if (authorRef.current) {
       register(authorRef.current, { required: true, maxLength: 20 })
       authorRef.current.focus()
     }
     return
-  }, [register])
+  }, [register, props.type])
 
   return (
     <div className={styles.formContainer}>
@@ -110,9 +105,11 @@ export default function ArticleForm(props) {
             </div>
           </div>
         ) : (
-          <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
-            Submit
-          </ArticleButton>
+          <div className={styles.submitBtn}>
+            <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
+              Submit
+            </ArticleButton>
+          </div>
         )}
       </form>
     </div>
