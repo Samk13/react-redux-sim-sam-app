@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import propTypes from 'prop-types'
-import styles from './dropDownMenu.module.css'
 import DdChip from './DdChip'
+import { ReactComponent as ArrowCircleRight } from '../../icons/arrowCircleRight.svg'
+
+import styles from './dropDownMenu.module.css'
 
 DropDownMenu.propTypes = {
   onChange: propTypes.func,
@@ -18,6 +20,7 @@ const {
   dropdownInput,
   dropdownItem,
   arrowDown,
+  arrowIcon,
   arrowUp,
   label,
   image
@@ -39,11 +42,18 @@ export default function DropDownMenu(props) {
     <div className={dropdownContainer}>
       <label className={label}>{title}</label>
       <div className={dropdownInput}>
-        <span onClick={() => setIsActive(!isActive)} className={!isActive ? arrowDown : arrowUp} />
+        <button
+          tabIndex="0"
+          type="button"
+          onClick={() => setIsActive(!isActive)}
+          className={!isActive ? arrowDown : arrowUp}
+        >
+          <ArrowCircleRight className={arrowIcon} />
+        </button>
         <div className={dropdownValues}>
           {value.length ? (
             value.map((v) => (
-              <DdChip key={v.id} canRemoveType removeValue={() => removeValue(v)}>
+              <DdChip tabIndex="0" key={v.id} canRemoveType removeValue={() => removeValue(v)}>
                 {v.title}
               </DdChip>
             ))
@@ -54,16 +64,24 @@ export default function DropDownMenu(props) {
           )}
         </div>
       </div>
-      <div className={isActive ? dropdownOptions : null}>
-        {options
-          .filter((i) => value.findIndex((v) => v.key === i.key) === -1)
-          .map((item) => (
-            <div key={item.id} onClick={() => applyChange(item)} className={dropdownItem}>
-              <img className={image} src={item.logo} />
-              {item.title}
-            </div>
-          ))}
-      </div>
+      {!isActive && (
+        <div className={isActive ? dropdownOptions : null}>
+          {options
+            .filter((i) => value.findIndex((v) => v.key === i.key) === -1)
+            .map((item) => (
+              <button
+                tabIndex="0"
+                type="button"
+                key={item.id}
+                onClick={() => applyChange(item)}
+                className={dropdownItem}
+              >
+                <img className={image} src={item.logo} />
+                {item.title}
+              </button>
+            ))}
+        </div>
+      )}
     </div>
   )
 }
