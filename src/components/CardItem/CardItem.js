@@ -39,17 +39,23 @@ export default function CardItem(props) {
   return (
     <div className={card}>
       <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
-      <div className={closeBtn} onClick={() => dispatch(remove(props.id))}>
+      <button
+        onClick={() => dispatch(remove(props.id))}
+        className={closeBtn}
+        type="button"
+        tabIndex="0"
+      >
         <CloseIcon className={closeIcon} />
-      </div>
-      {!toggleEditMode && (
+      </button>
+      {toggleEditMode ? (
+        <CardEdit {...props} onClose={() => setToggleEditMode(false)} />
+      ) : (
         <CardContent
           {...props}
           onClickEdit={() => handleEdit(props)}
           loading={isLoading.toString()}
         />
       )}
-      {toggleEditMode && <CardEdit {...props} onClose={() => setToggleEditMode(false)} />}
     </div>
   )
 }

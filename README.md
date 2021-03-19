@@ -8,10 +8,13 @@ Gör look&feel tema-baserad med vanilla-css variabler.
 
 ## Todos
 
-- [] continue development with select from many component
+- [ ] test components
 
 ## done:
 
+- [x] make keyboard accessibility on form inputs
+- [x] flip carditem condition from !is to is ? () : ()
+- [x] continue development with select from many component
 - [x] save routes as variabels in the routes so we have better erroring message
 - [x] fix menu jumps to a new location when it is closed / opened
 - [x] code split cardItem into smaller components

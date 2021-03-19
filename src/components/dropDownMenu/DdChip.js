@@ -16,9 +16,9 @@ export default function DdChip({ children, canRemoveType, removeValue }) {
     <div className={dropdownValue}>
       <p>{children} </p>
       {canRemoveType && (
-        <span className={dropdownRemove} onClick={() => removeValue()}>
+        <button className={dropdownRemove} tabIndex="0" onClick={() => removeValue()}>
           <CloseIcon className={closeIcon} />
-        </span>
+        </button>
       )}
     </div>
   )

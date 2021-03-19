@@ -31,6 +31,11 @@
   width: 100%;
 }
 .closeBtn {
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+  color: inherit;
   margin: calc(var(--main-margin) / 2);
   transition: var(--speed);
   border-radius: 50%;
@@ -39,6 +44,11 @@
   cursor: pointer;
   right: 0;
   top: 0;
+}
+
+.closeBtn:focus {
+  outline: none;
+  filter: drop-shadow(0 0 6px var(--blue-200));
 }
 
 .closeIcon {
