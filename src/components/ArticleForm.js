@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { create, edit } from '../features/articles/articlesSlice'
+import { create, edit } from '../features/articlesfeat/articlesSlice'
 import DropDownMenu from './dropDownMenu/DropDownMenu'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
@@ -9,6 +9,7 @@ import ArticleButton from './ArticleButton'
 import { articleTypes } from '../app/data'
 import propTypes from 'prop-types'
 import buttonStyle from './cardItem/cardItem.module.css'
+
 import styles from './articleForm.module.css'
 
 ArticleForm.propTypes = {
@@ -42,17 +43,17 @@ export default function ArticleForm(props) {
       setTimeout(() => {
         data.type = selectedType
         dispatch(create(data))
-        reset()
         setSelectedType([])
         setIsLoading('false')
+        reset()
       }, 1500)
-    } else {
+    } else if (editMode) {
       data.type = selectedType
       data.id = id
       dispatch(edit(data))
-      reset()
       setSelectedType([])
       onClose()
+      reset()
     }
   }
 
@@ -96,12 +97,12 @@ export default function ArticleForm(props) {
           <div className={buttonStyle.btnContainer}>
             <div className={buttonStyle.saveCancelContainer}>
               <div className={buttonStyle.saveBtn}>
-                <ArticleButton variant="primary-pink" type="submit" tabIndex="3">
+                <ArticleButton variant="primary-pink" tabIndex="0" type="submit">
                   Save
                 </ArticleButton>
               </div>
               <div className={buttonStyle.cancelBtn}>
-                <ArticleButton variant="secondary" tabIndex="4" onClick={() => props.onClose()}>
+                <ArticleButton variant="secondary" tabIndex="0" onClick={() => props.onClose()}>
                   Cancel
                 </ArticleButton>
               </div>
@@ -109,7 +110,7 @@ export default function ArticleForm(props) {
           </div>
         ) : (
           <div className={buttonStyle.submitBtn}>
-            <ArticleButton variant="primary-pink" type="submit" loading={isLoading}>
+            <ArticleButton variant="primary-pink" type="submit" tabIndex="0" loading={isLoading}>
               Submit
             </ArticleButton>
           </div>

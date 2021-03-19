@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
-import { remove, toggleSeen } from '../../features/articles/articlesSlice'
+import { remove, toggleSeen } from '../../features/articlesfeat/articlesSlice'
 import { ReactComponent as CloseIcon } from '../../icons/close.svg'
 import CardImage from './CardImage'
 import CardContent from './CardContent'
@@ -39,17 +39,23 @@ export default function CardItem(props) {
   return (
     <div className={card}>
       <CardImage url={props.imgUrl} onChange={() => handleToggleSeen(props)} />
-      <div className={closeBtn} onClick={() => dispatch(remove(props.id))}>
+      <button
+        onClick={() => dispatch(remove(props.id))}
+        className={closeBtn}
+        type="button"
+        tabIndex="0"
+      >
         <CloseIcon className={closeIcon} />
-      </div>
-      {!toggleEditMode && (
+      </button>
+      {toggleEditMode ? (
+        <CardEdit {...props} onClose={() => setToggleEditMode(false)} />
+      ) : (
         <CardContent
           {...props}
           onClickEdit={() => handleEdit(props)}
           loading={isLoading.toString()}
         />
       )}
-      {toggleEditMode && <CardEdit {...props} onClose={() => setToggleEditMode(false)} />}
     </div>
   )
 }
