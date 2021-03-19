@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
-import { remove, toggleSeen } from '../../features/articles/articlesSlice'
+import { remove, toggleSeen } from '../../features/articlesfeat/articlesSlice'
 import { ReactComponent as CloseIcon } from '../../icons/close.svg'
 import CardImage from './CardImage'
 import CardContent from './CardContent'

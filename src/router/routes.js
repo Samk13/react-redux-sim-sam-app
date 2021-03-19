@@ -1,4 +1,4 @@
-const Articles = './features/articles/Articles'
+const Articles = './features/articlesfeat/Articles'
 const Posts = './features/posts/Posts'
 
 export default [

@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import articlesReducer from '../features/articles/articlesSlice'
+import articlesReducer from '../features/articlesfeat/articlesSlice'
 import menuSlice from '../features/menu/menuSlice'
 import postsReducer from '../features/posts/postsSlice'
 

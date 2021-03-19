@@ -10,11 +10,11 @@ import './transitions.css'
 const {
   inputContainer,
   TitleContainer,
-  title,
-  formTitle,
   formContainer,
+  container,
+  formTitle,
   divider,
-  container
+  title
 } = styles
 
 export default function Articles() {

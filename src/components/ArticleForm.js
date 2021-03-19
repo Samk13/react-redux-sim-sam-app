@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { create, edit } from '../features/articles/articlesSlice'
+import { create, edit } from '../features/articlesfeat/articlesSlice'
 import DropDownMenu from './dropDownMenu/DropDownMenu'
 import TextAreaComponent from './TextAreaComponent'
 import InputComponent from './InputComponent'
