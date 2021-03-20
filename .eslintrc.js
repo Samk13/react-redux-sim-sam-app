@@ -6,13 +6,16 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier/react',
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest/style'
   ],
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   env: {
     es6: true,
     node: true,
-    browser: true
+    browser: true,
+    'jest/globals': true
   },
   parserOptions: {
     ecmaVersion: 8,
