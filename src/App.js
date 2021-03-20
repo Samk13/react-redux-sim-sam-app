@@ -1,10 +1,14 @@
 import React, { lazy, Suspense } from 'react'
-import { FooterComponent, HeaderComponent, SidebarComponent, LoadingItem } from './components'
-import styles from './App.module.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import routes from './router/routes'
 import { useSelector } from 'react-redux'
 import { menuStatus } from './features/menu/menuSlice'
+import FooterComponent from './components/FooterComponent'
+import HeaderComponent from './components/HeaderComponent'
+import SidebarComponent from './components/SidebarComponent'
+import LoadingItem from './components/LoadingItem'
+import routes from './router/routes'
+
+import styles from './App.module.css'
 
 const { loaderContainer, container, containerHideSidebar, header, main, footer } = styles
 function App() {
