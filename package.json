@@ -68,6 +68,7 @@
     "react-dev-utils": "^11.0.2",
     "react-hook-form": "^6.15.2",
     "react-refresh": "^0.8.3",
+    "react-test-renderer": "^17.0.1",
     "resolve": "1.20.0",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.0.5",
@@ -85,7 +86,8 @@
     "start": "node scripts/start.js",
     "dev": "npm run start",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "lint:fix": "eslint --fix .",
     "lint": "eslint .",
     "prettier": "prettier --check .",
@@ -115,6 +117,7 @@
     ]
   },
   "jest": {
+    "verbose": true,
     "roots": [
       "<rootDir>/src"
     ],
@@ -133,7 +136,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "/Users/samarbid/Documents/Workspace/react-redux-app/node_modules/jest-circus/runner.js",
+    "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
